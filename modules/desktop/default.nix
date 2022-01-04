@@ -21,7 +21,7 @@
 
     windowManager.i3 = {
       enable = true;
-      extraPackages = with pkgs; [ rofi rofi-power-menu rofi-file-browser wmfocus i3status-rust i3lock i3lock-fancy-rapid ];
+      extraPackages = with pkgs; [ rofi rofi-power rofi-file-browser wmfocus i3status-rust i3lock i3lock-fancy-rapid ];
     };
 
     libinput.touchpad = {

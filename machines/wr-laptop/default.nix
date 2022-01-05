@@ -57,6 +57,8 @@
     firefox
     openconnect
     xorg.xwininfo
+    xdotool
+    i3-resurrect
     i3-get-window-criteria
   ];
 

@@ -56,6 +56,8 @@
     wget
     firefox
     openconnect
+    xorg.xwininfo
+    i3-get-window-criteria
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

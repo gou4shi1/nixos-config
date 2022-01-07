@@ -67,6 +67,4 @@
       fcitx5.addons = with pkgs; [ fcitx5-chinese-addons ];
     };
   };
-
-  environment.sessionVariables.TERMINAL = [ "xfce4-terminal" ];
 }

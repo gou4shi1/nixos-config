@@ -55,12 +55,15 @@
     git
     wget
     firefox
+    kitty
     openconnect
     xorg.xwininfo
     xdotool
     i3-resurrect
     i3-get-window-criteria
   ];
+
+  environment.sessionVariables.TERMINAL = [ "kitty" ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./i3-status.nix
   ];
 
   services.xserver = {
@@ -22,6 +23,7 @@
     windowManager.i3 = {
       enable = true;
       extraPackages = with pkgs; [ rofi rofi-power rofi-file-browser wmfocus i3status-rust i3lock i3lock-fancy-rapid ];
+      configFile = ./i3.config;
     };
 
     libinput.touchpad = {

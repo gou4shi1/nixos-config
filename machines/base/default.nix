@@ -13,5 +13,6 @@
     kitty
   ];
 
+  environment.variables.EDITOR = "vim";
   environment.sessionVariables.TERMINAL = [ "kitty" ];
 }

@@ -25,9 +25,6 @@ in {
 
   programs.zsh.enable = true;
 
-  environment.variables.EDITOR = "vim";
-  environment.sessionVariables.TERMINAL = [ "kitty" ];
-
   home-manager.users.guangqing = {
     programs.zsh = {
       enable = true;
@@ -36,6 +33,15 @@ in {
         plugins = [ "git" ];
         theme = "agnoster";
       };
+    };
+  };
+
+  environment = {
+    sessionVariables = {
+      TERMINAL = [ "kitty" ];
+    };
+    variables = {
+      EDITOR = "vim";
     };
   };
 }

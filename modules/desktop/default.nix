@@ -67,4 +67,11 @@
       fcitx5.addons = with pkgs; [ fcitx5-chinese-addons ];
     };
   };
+
+  environment.systemPackages = with pkgs; [
+    xdotool
+    xorg.xwininfo
+    i3-resurrect
+    i3-get-window-criteria
+  ];
 }

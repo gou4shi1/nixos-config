@@ -22,7 +22,11 @@
 
     windowManager.i3 = {
       enable = true;
-      extraPackages = with pkgs; [ rofi rofi-power rofi-file-browser wmfocus i3status-rust i3lock i3lock-fancy-rapid ];
+      extraPackages = with pkgs; [
+        rofi rofi-power rofi-file-browser
+        wmfocus i3status-rust i3lock-fancy-rapid
+        i3-resurrect i3-get-window-criteria
+      ];
       configFile = ./i3.config;
     };
 
@@ -69,9 +73,8 @@
   };
 
   environment.systemPackages = with pkgs; [
-    xdotool
+    # TODO: rm this after the packaging of i3-get-window-criteria has been improved as
+    # https://discourse.nixos.org/t/how-to-create-a-script-with-dependencies/7970/5
     xorg.xwininfo
-    i3-resurrect
-    i3-get-window-criteria
   ];
 }

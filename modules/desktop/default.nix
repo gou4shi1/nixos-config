@@ -10,7 +10,10 @@
     xkbOptions = "ctrl:nocaps";
 
     displayManager = {
-      lightdm.enable = true;
+      lightdm = {
+        enable = true;
+        greeters.enso.enable = true;
+      };
       defaultSession = "xfce+i3";
     };
 
@@ -76,5 +79,7 @@
     # TODO: rm this after the packaging of i3-get-window-criteria has been improved as
     # https://discourse.nixos.org/t/how-to-create-a-script-with-dependencies/7970/5
     xorg.xwininfo
+
+    lightlocker
   ];
 }

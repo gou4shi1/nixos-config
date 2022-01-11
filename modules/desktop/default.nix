@@ -3,6 +3,7 @@
 {
   imports = [
     ./i3-status.nix
+    ./session-locker.nix
   ];
 
   services.xserver = {
@@ -79,7 +80,5 @@
     # TODO: rm this after the packaging of i3-get-window-criteria has been improved as
     # https://discourse.nixos.org/t/how-to-create-a-script-with-dependencies/7970/5
     xorg.xwininfo
-
-    lightlocker
   ];
 }

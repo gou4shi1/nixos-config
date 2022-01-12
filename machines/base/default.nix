@@ -20,7 +20,7 @@ in {
     wget
     vimHugeX
     firefox
-    kitty
+    tilix
   ];
 
   programs.zsh.enable = true;
@@ -38,7 +38,7 @@ in {
 
   environment = {
     sessionVariables = {
-      TERMINAL = [ "kitty" ];
+      TERMINAL = [ "tilix" ];
     };
     variables = {
       EDITOR = "vim";

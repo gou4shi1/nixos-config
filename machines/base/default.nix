@@ -20,12 +20,14 @@ in {
     wget
     vimHugeX
     firefox
-    tilix
   ];
 
   programs.zsh.enable = true;
 
   home-manager.users.guangqing = {
+    imports = [
+      ../../home/programs/tilix
+    ];
     programs.zsh = {
       enable = true;
       oh-my-zsh = {

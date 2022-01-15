@@ -27,15 +27,8 @@ in {
   home-manager.users.guangqing = {
     imports = [
       ../../home/programs/tilix
+      ../../home/programs/zsh
     ];
-    programs.zsh = {
-      enable = true;
-      oh-my-zsh = {
-        enable = true;
-        plugins = [ "git" ];
-        theme = "agnoster";
-      };
-    };
   };
 
   environment = {

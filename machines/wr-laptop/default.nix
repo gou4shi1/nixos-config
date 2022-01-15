@@ -49,6 +49,18 @@
     shell = pkgs.zsh;
   };
 
+  security.sudo.extraRules = [
+    {
+      users = [ "guangqing" ];
+      commands = [
+        {
+          command = "ALL";
+          options = [ "NOPASSWD" ];
+        }
+      ];
+    }
+  ];
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [

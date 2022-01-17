@@ -27,8 +27,8 @@
     windowManager.i3 = {
       enable = true;
       extraPackages = with pkgs; [
-        rofi rofi-power rofi-file-browser
-        wmfocus i3status-rust i3lock-fancy-rapid
+        rofi rofi-power wmfocus
+        i3status-rust i3lock-fancy-rapid
         i3-resurrect i3-get-window-criteria
       ];
       configFile = ./i3.config;

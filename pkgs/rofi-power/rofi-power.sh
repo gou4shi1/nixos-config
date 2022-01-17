@@ -2,10 +2,10 @@
 
 OPTIONS="Lock\nLogout\nReboot\nPoweroff\nSuspend\nHibernate"
 
-LAUNCHER="rofi -width 15 -lines 6 -dmenu -i -p power"
+LAUNCHER="rofi -dmenu -i -p power -theme-str 'listview {lines: 6;} window {width: 300px;}'"
 LOCKER="i3lock-fancy-rapid 5 3"
 
-option=`echo -e $OPTIONS | $LAUNCHER | awk '{print $1}' | tr -d '\r\n'`
+option=`echo -e $OPTIONS | eval "$LAUNCHER" | awk '{print $1}' | tr -d '\r\n'`
 if [ ${#option} -gt 0 ]; then
     case $option in
       Lock)

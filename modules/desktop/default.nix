@@ -3,6 +3,7 @@
 {
   imports = [
     ./i3-status.nix
+    ./rofi-config.nix
     ./session-locker.nix
   ];
 

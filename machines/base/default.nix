@@ -28,6 +28,7 @@ in {
     imports = [
       ../../home/programs/tilix
       ../../home/programs/zsh
+      ../../home/programs/fzf
     ];
   };
 

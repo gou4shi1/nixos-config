@@ -47,6 +47,13 @@ in {
       # Use Up/Down arrow keys to search substring in history.
       zvm_bindkey viins "^[[A" history-substring-search-up
       zvm_bindkey viins "^[[B" history-substring-search-down
+      # Fix Home/End keys in zsh-vi-mode.
+      zvm_bindkey viins "^[[H" beginning-of-line
+      zvm_bindkey viins  "^[[F" end-of-line
+      zvm_bindkey vicmd "^[[H" beginning-of-line
+      zvm_bindkey vicmd "^[[F" end-of-line
+      zvm_bindkey visual "^[[H" beginning-of-line
+      zvm_bindkey visual "^[[F" end-of-line
     '';
   };
 }

@@ -43,5 +43,10 @@ in {
         source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
       fi
     '';
+    initExtra= ''
+      # Use Up/Down arrow keys to search substring in history.
+      zvm_bindkey viins "^[[A" history-substring-search-up
+      zvm_bindkey viins "^[[B" history-substring-search-down
+    '';
   };
 }

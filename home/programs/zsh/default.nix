@@ -3,6 +3,11 @@
 let
 
 in {
+  home.sessionVariables = {
+    # Do the initialization when the script is sourced.
+    ZVM_INIT_MODE = "sourcing";
+  };
+
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -23,6 +28,11 @@ in {
         name = "powerlevel10k-config";
         src = lib.cleanSource ./p10k-config;
         file = "p10k.zsh";
+      }
+      {
+        name = "zsh-vi-mode";
+        src = pkgs.zsh-vi-mode;
+        file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
       }
     ];
     initExtraFirst = ''

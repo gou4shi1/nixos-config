@@ -77,6 +77,8 @@
 
   # List services that you want to enable:
 
+  services.xserver.displayManager.lightdm.background = "/opt/wallpaper.jpg";
+
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 

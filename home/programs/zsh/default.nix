@@ -6,6 +6,8 @@ in {
   home.sessionVariables = {
     # Do the initialization when the script is sourced.
     ZVM_INIT_MODE = "sourcing";
+    # Use case-sensitive completion.
+    CASE_SENSITIVE = "true";
   };
 
   programs.zsh = {

@@ -57,5 +57,17 @@ in {
       zvm_bindkey visual "^[[H" beginning-of-line
       zvm_bindkey visual "^[[F" end-of-line
     '';
+    shellAliases = {
+      # Vim
+      v = "vim";
+      gv = "gvim";
+      # VCS
+      origin = "git fetch origin $(current_branch) && git reset --hard origin/$(current_branch)";
+      lg = "lazygit";
+      ap = "arc patch --nobranch";
+      ac = "arc diff HEAD~ --create";
+      au = "arc diff HEAD~ --update";
+      al = "arc land";
+    };
   };
 }

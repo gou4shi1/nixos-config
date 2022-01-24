@@ -8,6 +8,8 @@ in {
     ZVM_INIT_MODE = "sourcing";
     # Use case-sensitive completion.
     CASE_SENSITIVE = "true";
+    # Let CMake automatically generates Compilation Databases.
+    CMAKE_EXPORT_COMPILE_COMMANDS = "ON";
   };
 
   programs.zsh = {

@@ -15,7 +15,6 @@ in {
   programs.zsh = {
     enable = true;
     enableCompletion = true;
-    enableSyntaxHighlighting = true;
     oh-my-zsh = {
       enable = true;
       plugins = [
@@ -32,6 +31,11 @@ in {
         name = "powerlevel10k-config";
         src = lib.cleanSource ./p10k-config;
         file = "p10k.zsh";
+      }
+      {
+        name = "fast-syntax-highlighting";
+        src = pkgs.zsh-fast-syntax-highlighting;
+        file = "share/zsh/site-functions/fast-syntax-highlighting.plugin.zsh";
       }
       {
         name = "zsh-vi-mode";

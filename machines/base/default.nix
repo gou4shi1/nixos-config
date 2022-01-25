@@ -29,6 +29,7 @@ in {
       ../../home/programs/tilix
       ../../home/programs/zsh
       ../../home/programs/shell-tools
+      ../../home/programs/git
     ];
   };
 

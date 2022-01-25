@@ -11,9 +11,14 @@ in {
     "${home-manager}/nixos"
   ];
 
-  nixpkgs.overlays = [
-    (import ../../overlays)
-  ];
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+    };
+    overlays = [
+      (import ../../overlays)
+    ];
+  };
 
   environment.systemPackages = with pkgs; [
     git

@@ -25,10 +25,13 @@ in {
     delta = {
       enable = true;
       options = {
-        line-number = true;
+        features = "calochortus-lyallii";
         side-by-side = true;
         navigate = true;
       };
     };
+    includes = [
+      { path = ./delta-themes.gitconfig; }
+    ];
   };
 }

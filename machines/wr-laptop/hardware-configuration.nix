@@ -11,6 +11,9 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
+  # This laptop has no nvidia card, just disable all related drivers.
+  hardware.nvidiaOptimus.disable = true;
+
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/24a14cea-2978-4ad0-9156-79e8e074ce0b";
     fsType = "ext4";

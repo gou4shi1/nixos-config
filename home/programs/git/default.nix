@@ -25,7 +25,7 @@ in {
     delta = {
       enable = true;
       options = {
-        features = "calochortus-lyallii";
+        features = "calochortus-gou4shi1";
         side-by-side = true;
         navigate = true;
       };

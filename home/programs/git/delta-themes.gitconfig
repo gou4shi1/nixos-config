@@ -58,21 +58,13 @@
     blame-format = "{author:<18} ({commit:>7}) ┊{timestamp:^16}┊ "
     blame-palette = "#101010 #200020 #002800 #000028 #202000 #280000 #002020 #002800 #202020"
 
-[delta "calochortus-lyallii"]
-    # author: https://github.com/manojkarthick
-    commit-decoration-style = none
+[delta "calochortus-gou4shi1"]
     dark = true
     file-added-label = [+]
     file-copied-label = [C]
-    file-decoration-style = none
     file-modified-label = [M]
     file-removed-label = [-]
     file-renamed-label = [R]
-    file-style = 232 bold 184
-    hunk-header-decoration-style = none
-    hunk-header-file-style = "#999999"
-    hunk-header-line-number-style = bold "#03a4ff"
-    hunk-header-style = file line-number syntax
     line-numbers = true
     line-numbers-left-style = black
     line-numbers-minus-style = "#B10036"

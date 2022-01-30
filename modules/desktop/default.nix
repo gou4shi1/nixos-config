@@ -76,10 +76,4 @@
       fcitx5.addons = with pkgs; [ fcitx5-chinese-addons ];
     };
   };
-
-  environment.systemPackages = with pkgs; [
-    # TODO: rm this after the packaging of i3-get-window-criteria has been improved as
-    # https://discourse.nixos.org/t/how-to-create-a-script-with-dependencies/7970/5
-    xorg.xwininfo
-  ];
 }

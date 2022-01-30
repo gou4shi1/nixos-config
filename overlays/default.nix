@@ -7,6 +7,7 @@ let
   #}) { config.allowUnfree = true; };
 
 in {
+  vaapiIntel = prev.vaapiIntel.override { enableHybridCodec = true; };
   rofi-power = final.callPackage ../pkgs/rofi-power {};
   i3-get-window-criteria = final.callPackage ../pkgs/i3-get-window-criteria {};
 }

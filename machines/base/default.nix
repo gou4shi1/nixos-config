@@ -6,11 +6,6 @@ let
     ref = "release-21.11";
   };
 
-in {
-  imports = [
-    "${home-manager}/nixos"
-  ];
-
   nixpkgs = {
     config = {
       allowUnfree = true;
@@ -19,6 +14,13 @@ in {
       (import ../../overlays)
     ];
   };
+
+in {
+  inherit nixpkgs;
+
+  imports = [
+    "${home-manager}/nixos"
+  ];
 
   environment.systemPackages = with pkgs; [
     git
@@ -30,6 +32,8 @@ in {
   programs.zsh.enable = true;
 
   home-manager.users.guangqing = {
+    inherit nixpkgs;
+
     imports = [
       ../../home/programs/tilix
       ../../home/programs/zsh

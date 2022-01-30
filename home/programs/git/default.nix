@@ -4,7 +4,7 @@ let
 
 in {
   home.packages = with pkgs; [
-    lazygit
+    lazygit git-fuzzy
   ];
 
   programs.git = {

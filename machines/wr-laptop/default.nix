@@ -77,6 +77,9 @@
 
   # List services that you want to enable:
 
+  # Enable the temperature management daemon.
+  services.thermald.enable = true;
+
   services.xserver.displayManager.lightdm.background = "/opt/wallpaper.jpg";
 
   # Enable the OpenSSH daemon.

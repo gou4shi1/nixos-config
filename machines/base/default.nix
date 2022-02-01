@@ -30,7 +30,11 @@ in {
     firefox
   ];
 
-  programs.zsh.enable = true;
+  programs.zsh = {
+    enable = true;
+    # Only call `compinit` in local config to save init time.
+    enableGlobalCompInit = false;
+  };
 
   home-manager.users.guangqing = {
     inherit nixpkgs;

@@ -8,6 +8,8 @@ in {
     ZVM_INIT_MODE = "sourcing";
     # Use case-sensitive completion.
     CASE_SENSITIVE = "true";
+    # To allow zsh load completion files under /nix/store.
+    ZSH_DISABLE_COMPFIX = "true";
     # Let CMake automatically generates Compilation Databases.
     CMAKE_EXPORT_COMPILE_COMMANDS = "ON";
   };

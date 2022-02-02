@@ -7,6 +7,10 @@ in {
     ripgrep highlight bfs
   ];
 
+  programs.zoxide = {
+    enable = true;
+  };
+
   programs.bat = {
     enable = true;
     config = {

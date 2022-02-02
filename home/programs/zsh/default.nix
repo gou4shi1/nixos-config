@@ -44,16 +44,6 @@ in {
         src = pkgs.zsh-vi-mode;
         file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
       }
-      {
-        name = "zsh-z";
-        src = pkgs.fetchFromGitHub {
-          owner = "agkozak";
-          repo = "zsh-z";
-          rev = "b5e61d03a42a84e9690de12915a006b6745c2a5f";
-          sha256 = "1gsgmsvl1sl9m3yfapx6bp0y15py8610kywh56bgsjf9wxkrc3nl";
-        };
-        file = "zsh-z.plugin.zsh";
-      }
     ];
     initExtraFirst = ''
       # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.

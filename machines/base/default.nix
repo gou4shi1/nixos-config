@@ -49,6 +49,7 @@ in {
     inherit nixpkgs;
 
     imports = [
+      ../../home/i18n/input-method/fcitx
       ../../home/programs/tilix
       ../../home/programs/zsh
       ../../home/programs/shell-tools

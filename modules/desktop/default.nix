@@ -69,11 +69,4 @@
     packages = with pkgs; [ wqy_microhei terminus_font ];
     font = "ter-132n";
   };
-
-  i18n = {
-    inputMethod = {
-      enabled = "fcitx5";
-      fcitx5.addons = with pkgs; [ fcitx5-chinese-addons ];
-    };
-  };
 }

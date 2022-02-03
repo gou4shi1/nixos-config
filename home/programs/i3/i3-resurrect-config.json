@@ -1,0 +1,21 @@
+{
+  "window_command_mappings": [
+    {
+      "class": "Gnome-terminal",
+      "command": "gnome-terminal"
+    },
+    {
+      "class": "Tilix",
+      "command": "tilix"
+    },
+    {
+      "class": "Firefox",
+      "command": "firefox"
+    }
+  ],
+  "window_swallow_criteria": {},
+  "terminals": [
+    "Gnome-terminal",
+    "Tilix"
+  ]
+}

@@ -17,6 +17,10 @@ in {
   programs.zsh = {
     enable = true;
     enableCompletion = true;
+    history = rec {
+      size = 1000000;
+      save = size;
+    };
     oh-my-zsh = {
       enable = true;
       plugins = [

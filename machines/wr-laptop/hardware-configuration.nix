@@ -8,6 +8,7 @@ in {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     "${nixos-hardware}/common/pc/laptop"
+    "${nixos-hardware}/common/pc/laptop/ssd"
     "${nixos-hardware}/common/cpu/intel"
   ];
 

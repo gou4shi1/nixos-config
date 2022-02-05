@@ -55,6 +55,7 @@ in {
       ../../home/programs/shell-tools
       ../../home/programs/git
       ../../home/programs/i3
+      ../../home/themes
     ];
   };
 

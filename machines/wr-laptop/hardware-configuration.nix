@@ -9,13 +9,14 @@ in {
     (modulesPath + "/installer/scan/not-detected.nix")
     "${nixos-hardware}/common/pc/laptop"
     "${nixos-hardware}/common/cpu/intel"
-    "${nixos-hardware}/common/gpu/nvidia-disable.nix"
   ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
+
+  services.xserver.videoDrivers = [ "intel" ];
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/751482e7-69a9-4bf5-8251-ee32657c789a";

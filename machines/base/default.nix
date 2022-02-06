@@ -6,18 +6,7 @@ let
     ref = "release-21.11";
   };
 
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-    };
-    overlays = [
-      (import ../../overlays)
-    ];
-  };
-
 in {
-  inherit nixpkgs;
-
   imports = [
     "${home-manager}/nixos"
   ];
@@ -29,6 +18,15 @@ in {
       dates     = "weekly";
       options   = "--delete-older-than 7d";
     };
+  };
+
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+    };
+    overlays = [
+      (import ../../overlays)
+    ];
   };
 
   environment.systemPackages = with pkgs; [
@@ -45,9 +43,9 @@ in {
     enableGlobalCompInit = false;
   };
 
-  home-manager.users.guangqing = {
-    inherit nixpkgs;
+  home-manager.useGlobalPkgs = true;
 
+  home-manager.users.guangqing = {
     imports = [
       ../../home/i18n/input-method/fcitx
       ../../home/programs/tilix

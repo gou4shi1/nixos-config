@@ -1,11 +1,15 @@
 { config, lib, pkgs, ... }:
 
 let
-  battery = if config.mynix.desktop.xserver.i3_show_battery then ''
+  cfg = config.mynix.desktop.xserver;
+
+  battery_block = if cfg.i3_show_battery then ''
     [[block]]
     block = "battery"
     allow_missing = true
   '' else "";
+
+  ip_format = if cfg.i3_show_full_ip then "{ips}" else "{ips^8}..";
 
 in {
   environment.etc."i3/i3status-rust.toml" = {
@@ -25,7 +29,7 @@ in {
 
       [[block]]
       block = "networkmanager"
-      device_format = "{icon}{ap} {ips^8}.."
+      device_format = "{icon}{ap} ${ip_format}"
       interface_name_exclude = ["br\\-[0-9a-f]{12}", "docker\\d+"]
       interface_name_include = []
 
@@ -42,7 +46,7 @@ in {
       block = "disk_space"
       format = "{icon} {used}/{total}"
 
-      ${battery}
+      ${battery_block}
 
       #[[block]]
       #block = "nvidia_gpu"

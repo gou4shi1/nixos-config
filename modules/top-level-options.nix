@@ -16,13 +16,16 @@ in {
   };
 
   config = {
-    mynix.desktop = {
-      enable = lib.mkDefault (builtins.getAttr cfg.machineType {
+    mynix.desktop = with lib; {
+      enable = mkDefault (builtins.getAttr cfg.machineType {
         workstation = true;
         laptop = true;
         server = false;
       });
-      xserver.i3_show_battery = cfg.machineType == "laptop";
+      xserver = {
+        i3_show_battery = (cfg.machineType == "laptop");
+        i3_show_full_ip = (cfg.machineType != "laptop");
+      };
     };
   };
 }

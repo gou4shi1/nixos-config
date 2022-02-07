@@ -6,6 +6,7 @@ let
   xserverOptions = with lib; {
     options = {
       i3_show_battery = mkEnableOption "Show battery on i3 status bar.";
+      i3_show_full_ip = mkEnableOption "Show full ip on i3 status bar.";
     };
   };
 

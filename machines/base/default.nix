@@ -9,6 +9,8 @@ let
 in {
   imports = [
     "${home-manager}/nixos"
+    ../../modules/desktop
+    ../../modules/top-level-options.nix
   ];
 
   nix = {

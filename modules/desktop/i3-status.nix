@@ -1,12 +1,11 @@
 { config, lib, pkgs, ... }:
 
 let
-  #battery = if config.vital.desktop.xserver.i3_show_battery then ''
-  #  [[block]]
-  #  block = "battery"
-  #  interval = 10
-  #  format = "{percentage}% {time}"
-  #'' else "";
+  battery = if config.mynix.desktop.xserver.i3_show_battery then ''
+    [[block]]
+    block = "battery"
+    allow_missing = true
+  '' else "";
 
 in {
   environment.etc."i3/i3status-rust.toml" = {
@@ -43,9 +42,7 @@ in {
       block = "disk_space"
       format = "{icon} {used}/{total}"
 
-      [[block]]
-      block = "battery"
-      allow_missing = true
+      ${battery}
 
       #[[block]]
       #block = "nvidia_gpu"

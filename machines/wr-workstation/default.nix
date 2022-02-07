@@ -4,8 +4,9 @@
   imports = [
     ./hardware-configuration.nix
     ../base
-    ../../modules/desktop
   ];
+
+  mynix.machineType = "workstation";
 
   boot.loader.systemd-boot.enable = false;
   boot.loader.efi.canTouchEfiVariables = true;

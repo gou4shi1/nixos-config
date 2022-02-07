@@ -4,8 +4,9 @@
   imports = [
     ./hardware-configuration.nix
     ../base
-    ../../modules/desktop
   ];
+
+  mynix.machineType = "laptop";
 
   nix.binaryCaches = [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" ];
 

@@ -32,11 +32,8 @@ in {
   };
 
   environment.systemPackages = with pkgs; [
-    git
-    wget
-    unzip
-    vimHugeX
-    firefox
+    git wget unzip vimHugeX
+    firefox google-chrome gparted
   ];
 
   programs.zsh = {

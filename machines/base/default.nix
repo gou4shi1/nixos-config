@@ -10,6 +10,7 @@ in {
   imports = [
     "${home-manager}/nixos"
     ../../modules/desktop
+    ../../modules/docker.nix
     ../../modules/top-level-options.nix
   ];
 

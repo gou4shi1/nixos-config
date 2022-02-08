@@ -18,5 +18,6 @@ in {
   rofi-power = final.callPackage ../pkgs/rofi-power {};
   i3-get-window-criteria = final.callPackage ../pkgs/i3-get-window-criteria {};
   git-fuzzy = final.callPackage ../pkgs/git-fuzzy {};
+  pack = final.callPackage ../pkgs/pack {};
   beauty-line-icon-theme = final.callPackage "${gvolpe-config}/home/themes/beauty-line" {};
 }

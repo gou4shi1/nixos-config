@@ -19,6 +19,7 @@ in {
 
       [[block]]
       block = "pomodoro"
+      notifier = "i3nag"
 
       [[block]]
       block = "net"

@@ -61,6 +61,16 @@ in {
   #   enableSSHSupport = true;
   # };
 
+  home-manager.users."${cfg.mainUser}" = {
+    home.sessionVariables = {
+      JC_CAR_ID = "GZU_SPY_10036";
+    };
+
+    programs.zsh.initExtra = ''
+      source ~/temp/gde.sh no_extra_opt_jc /run/user/1000
+    '';
+  };
+
   # List services that you want to enable:
 
   # Enable the temperature management daemon.

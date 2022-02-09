@@ -19,5 +19,6 @@ in {
   i3-get-window-criteria = final.callPackage ../pkgs/i3-get-window-criteria {};
   git-fuzzy = final.callPackage ../pkgs/git-fuzzy {};
   pack = final.callPackage ../pkgs/pack {};
+  debian-hostname = final.callPackage ../pkgs/debian-hostname {};
   beauty-line-icon-theme = final.callPackage "${gvolpe-config}/home/themes/beauty-line" {};
 }

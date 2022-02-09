@@ -62,6 +62,10 @@ in {
   # };
 
   home-manager.users."${cfg.mainUser}" = {
+    home.packages = with pkgs; [
+      debian-hostname
+    ];
+
     home.sessionVariables = {
       JC_CAR_ID = "GZU_SPY_10036";
     };

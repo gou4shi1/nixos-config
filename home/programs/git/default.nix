@@ -10,8 +10,6 @@ in {
   programs.git = {
     enable = true;
     package = pkgs.gitAndTools.gitFull;
-    userName = "Guangqing Chen";
-    userEmail = "hi@goushi.me";
     extraConfig = {
       init = {
         defaultBranch = "master";

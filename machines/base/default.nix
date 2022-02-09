@@ -1,6 +1,8 @@
 { config, lib, pkgs, ... }:
 
 let
+  cfg = config.mynix;
+
   home-manager = builtins.fetchGit {
     url = "https://github.com/nix-community/home-manager";
     ref = "release-21.11";
@@ -9,6 +11,7 @@ let
 in {
   imports = [
     "${home-manager}/nixos"
+    ../../modules/users
     ../../modules/desktop
     ../../modules/docker.nix
     ../../modules/top-level-options.nix
@@ -45,7 +48,7 @@ in {
 
   home-manager.useGlobalPkgs = true;
 
-  home-manager.users.guangqing = {
+  home-manager.users."${cfg.mainUser}" = {
     imports = [
       ../../home/i18n/input-method/fcitx
       ../../home/programs/tilix

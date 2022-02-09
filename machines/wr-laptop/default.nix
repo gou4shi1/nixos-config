@@ -6,7 +6,10 @@
     ../base
   ];
 
-  mynix.machineType = "laptop";
+  mynix = {
+    machineType = "laptop";
+    mainUser = "guangqing";
+  };
 
   nix.binaryCaches = [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" ];
 
@@ -42,25 +45,6 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.guangqing = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "docker" ]; # Enable ‘sudo’ for the user.
-    shell = pkgs.zsh;
-  };
-
-  security.sudo.extraRules = [
-    {
-      users = [ "guangqing" ];
-      commands = [
-        {
-          command = "ALL";
-          options = [ "NOPASSWD" ];
-        }
-      ];
-    }
-  ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget

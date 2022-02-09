@@ -1,6 +1,7 @@
 { config, lib, pkgs, ... }:
 
 let
+  cfg = config.mynix;
   usingNvidiaDriver = builtins.elem "nvidia" config.services.xserver.videoDrivers;
 
 in {
@@ -11,4 +12,6 @@ in {
     enable = true;
     enableNvidia = usingNvidiaDriver;
   };
+
+  users.users."${cfg.mainUser}".extraGroups = [ "docker" ];
 }

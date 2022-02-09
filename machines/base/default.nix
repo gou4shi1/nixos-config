@@ -14,6 +14,7 @@ in {
     ../../modules/users
     ../../modules/desktop
     ../../modules/docker.nix
+    ../../modules/mounts.nix
     ../../modules/top-level-options.nix
   ];
 

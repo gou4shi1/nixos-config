@@ -1,6 +1,9 @@
 { config, pkgs, ... }:
 
-{
+let
+  cfg = config.mynix;
+
+in {
   imports = [
     ./hardware-configuration.nix
     ../base

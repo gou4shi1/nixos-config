@@ -37,7 +37,7 @@ in {
   };
 
   environment.systemPackages = with pkgs; [
-    git wget unzip vimHugeX
+    git wget unzip tree htop vimHugeX
     firefox google-chrome gparted
   ];
 

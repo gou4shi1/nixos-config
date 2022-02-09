@@ -2,11 +2,15 @@
 
 let
   cfg = config.mynix;
+  machineType = cfg.machineType;
+  enableDesktop = cfg.desktop.enable;
 
   home-manager = builtins.fetchGit {
     url = "https://github.com/nix-community/home-manager";
     ref = "release-21.11";
   };
+
+  power-manager-config = import ../../home/services/xfce-power-manager { inherit lib; inherit machineType; inherit enableDesktop; };
 
 in {
   imports = [
@@ -59,6 +63,7 @@ in {
       ../../home/programs/i3
       ../../home/programs/vim
       ../../home/themes
+      power-manager-config
     ];
   };
 

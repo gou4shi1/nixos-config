@@ -61,6 +61,12 @@ in {
   #   enableSSHSupport = true;
   # };
 
+  home-manager.users."${cfg.mainUser}" = {
+    home.packages = with pkgs; [
+      debian-hostname
+    ];
+  };
+
   # List services that you want to enable:
 
   # Enable the temperature management daemon.

@@ -14,4 +14,7 @@ in {
   };
 
   users.users."${cfg.mainUser}".extraGroups = [ "docker" ];
+
+  # Fix "container error: cgroup subsystem devices not found"
+  systemd.enableUnifiedCgroupHierarchy = !usingNvidiaDriver;
 }

@@ -65,6 +65,11 @@ in {
     home.packages = with pkgs; [
       debian-hostname
     ];
+
+    programs.git = {
+      userName = "guangqing.chen";
+      userEmail = "guangqing.chen@weride.ai";
+    };
   };
 
   # List services that you want to enable:

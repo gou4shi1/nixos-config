@@ -26,6 +26,7 @@ in {
   };
 
   time.timeZone = "Asia/Shanghai";
+  environment.etc."timezone".text = "${config.time.timeZone}\n";
 
   networking.hostName = "cgq-wr-workstation";
   networking.networkmanager.enable = true;

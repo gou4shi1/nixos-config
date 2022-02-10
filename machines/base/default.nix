@@ -17,7 +17,7 @@ in {
     "${home-manager}/nixos"
     ../../modules/users
     ../../modules/desktop
-    ../../modules/docker.nix
+    ../../modules/docker
     ../../modules/mounts.nix
     ../../modules/top-level-options.nix
   ];

@@ -5,8 +5,9 @@ let
 
 in {
   imports = [
-    ./hardware-configuration.nix
     ../base
+    ./hardware-configuration.nix
+    ./home.nix
   ];
 
   mynix = {
@@ -60,17 +61,6 @@ in {
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-
-  home-manager.users."${cfg.mainUser}" = {
-    home.packages = with pkgs; [
-      debian-hostname
-    ];
-
-    programs.git = {
-      userName = "guangqing.chen";
-      userEmail = "guangqing.chen@weride.ai";
-    };
-  };
 
   # List services that you want to enable:
 

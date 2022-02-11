@@ -5,8 +5,9 @@ let
 
 in {
   imports = [
-    ./hardware-configuration.nix
     ../base
+    ./hardware-configuration.nix
+    ./home.nix
   ];
 
   mynix = {
@@ -62,13 +63,6 @@ in {
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-
-  home-manager.users."${cfg.mainUser}" = {
-    programs.git = {
-      userName = "Guangqing Chen";
-      userEmail = "hi@goushi.me";
-    };
-  };
 
   # List services that you want to enable:
 

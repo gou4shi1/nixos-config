@@ -5,6 +5,11 @@ let
 
 in {
   home-manager.users."${cfg.mainUser}" = {
+    imports = [
+      ../../home/programs/dev/bazel.nix
+      ../../home/programs/dev/cpp.nix
+    ];
+
     home.packages = with pkgs; [
       debian-hostname
     ];

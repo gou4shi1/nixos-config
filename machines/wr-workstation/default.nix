@@ -5,8 +5,9 @@ let
 
 in {
   imports = [
-    ./hardware-configuration.nix
     ../base
+    ./hardware-configuration.nix
+    ./home.nix
   ];
 
   mynix = {
@@ -60,25 +61,6 @@ in {
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-
-  home-manager.users."${cfg.mainUser}" = {
-    home.packages = with pkgs; [
-      debian-hostname
-    ];
-
-    home.sessionVariables = {
-      JC_CAR_ID = "GZU_SPY_10036";
-    };
-
-    programs.zsh.initExtra = ''
-      source ~/temp/gde.sh no_extra_opt_jc /run/user/1000
-    '';
-
-    programs.git = {
-      userName = "guangqing.chen";
-      userEmail = "guangqing.chen@weride.ai";
-    };
-  };
 
   # List services that you want to enable:
 

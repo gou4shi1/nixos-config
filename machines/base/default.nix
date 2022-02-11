@@ -18,8 +18,8 @@ in {
     ../../modules/users
     ../../modules/desktop
     ../../modules/docker
-    ../../modules/mounts.nix
-    ../../modules/top-level-options.nix
+    ../../modules/mounts
+    ./options.nix
   ];
 
   nix = {

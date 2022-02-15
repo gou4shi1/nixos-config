@@ -40,6 +40,12 @@ in {
     ];
   };
 
+  # Enable the temperature management daemon.
+  services.thermald.enable = true;
+
+  # Enable the OpenSSH daemon.
+  services.openssh.enable = true;
+
   environment.systemPackages = with pkgs; [
     git wget unzip tree htop-vim vimHugeX
     firefox google-chrome gparted

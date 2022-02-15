@@ -64,12 +64,6 @@ in {
 
   # List services that you want to enable:
 
-  # Enable the temperature management daemon.
-  services.thermald.enable = true;
-
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
-
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 

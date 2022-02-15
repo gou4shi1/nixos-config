@@ -66,13 +66,13 @@ in {
 
   # List services that you want to enable:
 
-  # Enable the temperature management daemon.
-  services.thermald.enable = true;
+  services.xserver = {
+    # Disable the tap-to-click behavior.
+    libinput.touchpad.tapping = false;
 
-  services.xserver.displayManager.lightdm.background = "/opt/wallpaper.jpg";
-
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
+    # The custom wallpaper can not be placed in $HOME.
+    displayManager.lightdm.background = "/opt/wallpaper.jpg";
+  };
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;

@@ -51,6 +51,9 @@ in {
     firefox google-chrome gparted
   ];
 
+  # My TRaceroute: a network diagnostic tool that combines the functionality of traceroute and ping.
+  programs.mtr.enable = true;
+
   programs.zsh = {
     enable = true;
     # Only call `compinit` in local config to save init time.

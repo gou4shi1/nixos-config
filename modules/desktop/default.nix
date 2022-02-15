@@ -54,11 +54,7 @@ in {
         configFile = ./i3.config;
       };
 
-      libinput.touchpad = {
-        disableWhileTyping = true;
-        # Disable the tap-to-click behavior.
-        tapping = false;
-      };
+      libinput.touchpad.disableWhileTyping = true;
     };
 
     sound.enable = true;

@@ -11,6 +11,10 @@
     {
       "class": "Firefox",
       "command": "firefox"
+    },
+    {
+      "class": "Google-chrome",
+      "command": "google-chrome-stable"
     }
   ],
   "window_swallow_criteria": {},

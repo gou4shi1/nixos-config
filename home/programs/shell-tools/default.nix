@@ -7,6 +7,13 @@ in {
     ripgrep highlight bfs
   ];
 
+  programs.direnv = {
+    enable = true;
+    nix-direnv = {
+      enable = true;
+    };
+  };
+
   programs.zoxide = {
     enable = true;
   };

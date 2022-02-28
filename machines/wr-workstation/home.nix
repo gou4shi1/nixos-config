@@ -19,7 +19,7 @@ in {
     };
 
     programs.zsh.initExtra = ''
-      source ~/temp/gde.sh no_extra_opt_jc /run/user/1000
+      source ~/temp/gde.sh no_extra_opt_jc /run/user/1000 /etc/fonts
     '';
 
     programs.git = {

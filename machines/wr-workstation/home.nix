@@ -11,7 +11,7 @@ in {
     ];
 
     home.packages = with pkgs; [
-      debian-hostname
+      debian-hostname zoom-us
     ];
 
     programs.git = {

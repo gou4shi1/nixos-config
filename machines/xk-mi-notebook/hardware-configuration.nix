@@ -2,7 +2,10 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 let
-  nixos-hardware = builtins.fetchGit { url = "https://github.com/NixOS/nixos-hardware"; };
+  nixos-hardware = builtins.fetchGit {
+    url = "https://github.com/NixOS/nixos-hardware";
+    rev = "a8d33117de8eceb877192185dfa0e1aab1b65eb8";
+  };
 
 in {
   imports = [

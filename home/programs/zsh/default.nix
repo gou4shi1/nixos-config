@@ -1,8 +1,13 @@
 { config, lib, pkgs, ... }:
 
 let
+  cfg = config.mynix.zsh;
 
 in {
+  imports = [
+    ./options.nix
+  ];
+
   home.sessionVariables = {
     # Do the initialization when the script is sourced.
     ZVM_INIT_MODE = "sourcing";
@@ -36,7 +41,7 @@ in {
       {
         name = "powerlevel10k-config";
         src = lib.cleanSource ./p10k-config;
-        file = "p10k.zsh";
+        file = "${cfg.prompt_style}.zsh";
       }
       {
         name = "fast-syntax-highlighting";

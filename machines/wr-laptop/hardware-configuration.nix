@@ -20,6 +20,7 @@ in {
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
+  boot.blacklistedKernelModules = [ "bluetooth" "btusb" ];
 
   services.xserver.videoDrivers = [ "intel" ];
 

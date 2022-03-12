@@ -4,7 +4,7 @@ let
 
 in {
   home.packages = with pkgs; [
-    ripgrep highlight bfs
+    ripgrep highlight bfs nix-output-monitor
   ];
 
   programs.direnv = {

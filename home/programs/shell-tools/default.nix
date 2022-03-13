@@ -34,4 +34,21 @@ in {
     fileWidgetOptions = [ "--height 40%" "--layout=reverse" "--preview '(highlight -O ansi {} || cat {}) 2> /dev/null | head -500'" ];
     changeDirWidgetCommand = "bfs -type d -nohidden | sed s#^\\./##";
   };
+
+  programs.tmux = {
+    enable = true;
+    shortcut = "a";
+    keyMode = "vi";
+    customPaneNavigationAndResize = true;
+    aggressiveResize = true;
+    clock24 = true;
+    terminal = "tmux-256color";
+    plugins = with pkgs.tmuxPlugins; [
+      nord
+    ];
+    extraConfig = ''
+      set -g mouse
+      set-option -ga terminal-overrides ",*256col*:Tc"
+    '';
+  };
 }

@@ -13,7 +13,6 @@ in {
     "${nixos-hardware}/common/pc/laptop"
     "${nixos-hardware}/common/pc/laptop/ssd"
     "${nixos-hardware}/common/cpu/intel"
-    "${nixos-hardware}/common/gpu/nvidia-disable.nix"
   ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];

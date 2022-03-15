@@ -21,7 +21,7 @@ in {
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
-  services.xserver.videoDrivers = lib.mkDefault [ "nvidia" ];
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   fileSystems."/" = {
     device = "/dev/disk/by-label/NIXOS-ROOT";

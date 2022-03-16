@@ -8,6 +8,10 @@ in {
     fcitx5.addons = with pkgs; [ fcitx5-chinese-addons ];
   };
 
+  # The fcitx5-daemon service will be started before xfce, which breaks some fcitx features.
+  # Moreover, fcitx will be started by xfce, so we can safely disable this service.
+  systemd.user.services.fcitx5-daemon = lib.mkForce { };
+
   xdg.configFile."fcitx5/profile".source = ./profile;
   xdg.configFile."fcitx5/config".source = ./config;
   xdg.configFile."fcitx5/conf/classicui.conf".source = ./classicui.conf;

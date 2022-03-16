@@ -13,6 +13,7 @@ in {
   xdg.configFile."fcitx5/conf/classicui.conf".source = ./classicui.conf;
   xdg.configFile."fcitx5/conf/pinyin.conf".source = ./pinyin.conf;
   xdg.configFile."fcitx5/conf/cloudpinyin.conf".source = ./cloudpinyin.conf;
+  xdg.configFile."fcitx5/conf/punctuation.conf".source = ./punctuation.conf;
 
   # Fcitx Themes that base on Material Design.
   xdg.dataFile."fcitx5/themes/Material-Color".source = pkgs.fetchFromGitHub {

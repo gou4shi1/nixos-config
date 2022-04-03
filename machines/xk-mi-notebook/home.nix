@@ -10,7 +10,7 @@ in {
     ];
 
     home.packages = with pkgs; [
-      typora
+      typora krita
     ];
 
     programs.git = {

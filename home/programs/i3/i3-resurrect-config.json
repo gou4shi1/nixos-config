@@ -9,7 +9,7 @@
       "command": "tilix"
     },
     {
-      "class": "Firefox",
+      "class": "firefox",
       "command": "firefox"
     },
     {

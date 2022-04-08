@@ -5,6 +5,10 @@ let
 
 in {
   home-manager.users."${cfg.mainUser}" = {
+    imports = [
+      ../../home/programs/dev/go.nix
+    ];
+
     home.packages = with pkgs; [
       typora
     ];

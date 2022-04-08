@@ -65,7 +65,8 @@ in {
   # List services that you want to enable:
 
   # The custom wallpaper can not be placed in $HOME.
-  # services.xserver.displayManager.lightdm.background = "/opt/wallpaper.jpg";
+  services.xserver.displayManager.lightdm.background = "/opt/wallpaper.jpg";
+
   services.xserver.libinput.touchpad.naturalScrolling = true;
 
   # Enable CUPS to print documents.

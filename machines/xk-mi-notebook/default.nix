@@ -69,6 +69,13 @@ in {
 
   services.xserver.libinput.touchpad.naturalScrolling = true;
 
+  # Enable Bluetooth.
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = false;
+  };
+  services.blueman.enable = true;
+
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 

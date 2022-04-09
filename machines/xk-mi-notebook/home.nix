@@ -17,5 +17,9 @@ in {
       userName = "Aria";
       userEmail = "461863631@qq.com";
     };
+
+    # Add japanese input method.
+    i18n.inputMethod.fcitx5.addons = with pkgs; [ fcitx5-mozc ];
+    xdg.configFile."fcitx5/profile".source = ./fcitx-profile;
   };
 }

@@ -50,7 +50,7 @@ in {
   services.openssh.enable = true;
 
   environment.systemPackages = with pkgs; [
-    git wget unzip tree htop-vim vimHugeX
+    git wget zip unzip tree htop-vim vimHugeX
     firefox google-chrome gparted
   ];
 

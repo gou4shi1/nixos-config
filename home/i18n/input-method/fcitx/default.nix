@@ -12,7 +12,7 @@ in {
   # Moreover, fcitx will be started by xfce, so we can safely disable this service.
   systemd.user.services.fcitx5-daemon = lib.mkForce { };
 
-  xdg.configFile."fcitx5/profile".source = ./profile;
+  xdg.configFile."fcitx5/profile".source = lib.mkDefault ./profile;
   xdg.configFile."fcitx5/config".source = ./config;
   xdg.configFile."fcitx5/conf/classicui.conf".source = ./classicui.conf;
   xdg.configFile."fcitx5/conf/pinyin.conf".source = ./pinyin.conf;

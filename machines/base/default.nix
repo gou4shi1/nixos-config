@@ -34,6 +34,9 @@ in {
   nixpkgs = {
     config = {
       allowUnfree = true;
+      permittedInsecurePackages = [
+        "electron-9.4.4"  # For typora.
+      ];
     };
     overlays = [
       (import ../../overlays)

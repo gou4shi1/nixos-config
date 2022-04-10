@@ -7,6 +7,11 @@ let
     options = {
       i3_show_battery = mkEnableOption "Show battery on i3 status bar.";
       i3_show_full_ip = mkEnableOption "Show full ip on i3 status bar.";
+      i3_bar_font_size = mkOption {
+        description = "The font size of i3 status bar.";
+        type = types.int;
+        default = 11;
+      };
     };
   };
 
@@ -51,7 +56,10 @@ in {
           i3status-rust i3lock-fancy-rapid
           i3-resurrect i3-get-window-criteria
         ];
-        configFile = ./i3.config;
+        configFile = with cfg.xserver; pkgs.substituteAll {
+          src = ./i3.config;
+          inherit i3_bar_font_size;
+        };
       };
 
       libinput.touchpad.disableWhileTyping = true;

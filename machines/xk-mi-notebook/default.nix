@@ -13,6 +13,7 @@ in {
   mynix = {
     machineType = "laptop";
     mainUser = "aria";
+    desktop.xserver.i3_bar_font_size = 12;
   };
 
   nix.binaryCaches = [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" ];

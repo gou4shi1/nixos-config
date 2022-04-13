@@ -6,4 +6,6 @@ in {
   home.packages = with pkgs; [
     libreoffice
   ];
+
+  programs.zathura.enable = true;
 }

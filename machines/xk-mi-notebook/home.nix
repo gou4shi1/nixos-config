@@ -24,7 +24,7 @@ in {
 
     dconf.settings = {
       "com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d" = {
-        font = "Monospace 17";
+        font = "Mononoki Nerd Font 19";
       };
     };
   };

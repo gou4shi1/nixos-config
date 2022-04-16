@@ -43,7 +43,7 @@ in {
       cursor-colors-set = false;
       cursor-shape = "block";
       dim-transparency-percent = 10;
-      font = "Monospace 13";
+      font = lib.mkDefault "Monospace 13";
       foreground-color = "#839496";
       highlight-colors-set = false;
       palette = [ "#073642" "#DC322F" "#859900" "#B58900" "#268BD2" "#D33682" "#2AA198" "#EEE8D5" "#002B36" "#CB4B16" "#586E75" "#657B83" "#839496" "#6C71C4" "#93A1A1" "#FDF6E3" ];

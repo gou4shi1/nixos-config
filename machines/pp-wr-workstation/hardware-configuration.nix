@@ -6,14 +6,15 @@
 let
   nixos-hardware = builtins.fetchGit {
     url = "https://github.com/NixOS/nixos-hardware";
-    rev = "a8d33117de8eceb877192185dfa0e1aab1b65eb8";
+    rev = "7b0845d8c1376de700264886c9a002099c71736d";
   };
 
 in {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     "${nixos-hardware}/common/pc/ssd"
-    "${nixos-hardware}/common/cpu/intel"
+    "${nixos-hardware}/common/cpu/intel/cpu-only.nix"
+    "${nixos-hardware}/common/gpu/nvidia.nix"
   ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
@@ -21,7 +22,8 @@ in {
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
-  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.nvidia.prime.offload.enable = false;
+  hardware.video.hidpi.enable = true;
 
   fileSystems."/" = {
     device = "/dev/disk/by-label/NIXOS-ROOT";
@@ -42,7 +44,4 @@ in {
     device = "/dev/disk/by-label/DATA";
     fsType = "ext4";
   };
-
-  # high-resolution display
-  hardware.video.hidpi.enable = lib.mkDefault true;
 }

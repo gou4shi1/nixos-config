@@ -4,7 +4,7 @@
 let
   nixos-hardware = builtins.fetchGit {
     url = "https://github.com/NixOS/nixos-hardware";
-    rev = "c3c66f6db4ac74a59eb83d83e40c10046ebc0b8c";
+    rev = "7b0845d8c1376de700264886c9a002099c71736d";
   };
 
 in {
@@ -12,7 +12,8 @@ in {
     (modulesPath + "/installer/scan/not-detected.nix")
     "${nixos-hardware}/common/pc/laptop"
     "${nixos-hardware}/common/pc/laptop/ssd"
-    "${nixos-hardware}/common/cpu/intel"
+    "${nixos-hardware}/common/cpu/intel/cpu-only.nix"
+    "${nixos-hardware}/common/gpu/intel.nix"
   ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];

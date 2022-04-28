@@ -11,5 +11,6 @@ in {
     ninja
     cmake
     gdb
+    weggli
   ];
 }

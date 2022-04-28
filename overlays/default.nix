@@ -22,4 +22,5 @@ in {
   debian-hostname = final.callPackage ../pkgs/debian-hostname {};
   typora = final.callPackage ../pkgs/typora {};
   beauty-line-icon-theme = final.callPackage "${gvolpe-config}/home/themes/beauty-line" {};
+  weggli = final.callPackage ../pkgs/weggli {};
 }

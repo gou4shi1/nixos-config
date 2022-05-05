@@ -43,6 +43,9 @@ in {
     ];
   };
 
+  # To install documentation targeted at developers.
+  documentation.dev.enable = true;
+
   # Enable the temperature management daemon.
   services.thermald.enable = true;
 
@@ -51,6 +54,7 @@ in {
 
   environment.systemPackages = with pkgs; [
     git wget zip unzip file tree htop-vim vimHugeX
+    man-pages man-pages-posix
     firefox google-chrome gparted
   ];
 

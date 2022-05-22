@@ -23,4 +23,5 @@ in {
   typora = final.callPackage ../pkgs/typora {};
   beauty-line-icon-theme = final.callPackage "${gvolpe-config}/home/themes/beauty-line" {};
   weggli = final.callPackage ../pkgs/weggli {};
+  warpd = final.callPackage ../pkgs/warpd {};
 }

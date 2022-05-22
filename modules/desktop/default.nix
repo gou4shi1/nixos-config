@@ -20,6 +20,7 @@ in {
     ./i3-status.nix
     ./rofi-config.nix
     ./session-locker.nix
+    ./warpd.nix
   ];
 
   options.mynix.desktop = with lib; {

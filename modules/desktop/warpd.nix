@@ -28,6 +28,7 @@ in {
         partOf = [ "graphical-session.target" ];
         serviceConfig = {
           Type = "simple";
+          ExecStartPre="/run/current-system/sw/bin/sleep 3";
           ExecStart = "${pkgs.warpd}/bin/warpd -f -c /etc/warpd/config";
         };
       };

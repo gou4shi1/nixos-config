@@ -11,11 +11,13 @@ in {
 
     environment.etc."warpd/config" = {
       text = ''
-        hint_activation_key: C-M-h
+        hint_activation_key: C-M-f
         grid_activation_key: C-M-g
         screen_activation_key: C-M-s
         activation_key: C-M-n
         hint_oneshot_key: C-M-o
+        hint: f
+        grid_exit: esc
       '';
     };
 

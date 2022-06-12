@@ -24,4 +24,5 @@ in {
   beauty-line-icon-theme = final.callPackage "${gvolpe-config}/home/themes/beauty-line" {};
   weggli = final.callPackage ../pkgs/weggli {};
   warpd = final.callPackage ../pkgs/warpd {};
+  globalprotect-openconnect = final.libsForQt5.callPackage ../pkgs/globalprotect-openconnect {};
 }

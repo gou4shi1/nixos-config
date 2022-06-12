@@ -24,6 +24,9 @@ in {
 
   services.xserver.videoDrivers = [ "intel" ];
 
+  networking.interfaces.enp0s31f6.useDHCP = true;
+  networking.interfaces.wlp2s0.useDHCP = true;
+
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/751482e7-69a9-4bf5-8251-ee32657c789a";
     fsType = "ext4";

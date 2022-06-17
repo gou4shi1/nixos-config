@@ -13,7 +13,7 @@ in {
     mynix.zsh.prompt_style = "lean";
 
     home.packages = with pkgs; [
-      debian-hostname zoom-us
+      debian-hostname zoom-us arcanist
     ];
 
     programs.git = {

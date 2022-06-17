@@ -11,7 +11,7 @@ in {
     ];
 
     home.packages = with pkgs; [
-      debian-hostname zoom-us
+      debian-hostname zoom-us arcanist
     ];
 
     programs.git = {

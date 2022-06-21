@@ -8,6 +8,7 @@ in {
     imports = [
       ../../home/programs/dev/bazel.nix
       ../../home/programs/dev/cpp.nix
+      ../../home/programs/dev/js.nix
     ];
 
     home.packages = with pkgs; [

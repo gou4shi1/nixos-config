@@ -9,7 +9,7 @@ in {
 
   programs.git = {
     enable = true;
-    package = pkgs.gitAndTools.gitFull;
+    package = with pkgs; (if stdenv.isDarwin then git else gitFull);
     extraConfig = {
       init = {
         defaultBranch = "master";

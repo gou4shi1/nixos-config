@@ -18,5 +18,14 @@ in {
       # Export the gsettings-schemas of light-locker, so that xfce4-power-manager-settings can config light-locker.
       XDG_DATA_DIRS = [ "${lightlocker}/share/gsettings-schemas/${lightlocker.name}" ];
     };
+
+    # Allow xfce4-power-manager to suspend the system after lock.
+    security.polkit.extraConfig = ''
+      polkit.addRule(function(action, subject) {
+        if (action.id == "org.freedesktop.login1.suspend" && subject.isInGroup("users")) {
+          return polkit.Result.YES;
+        }
+      });
+    '';
   };
 }

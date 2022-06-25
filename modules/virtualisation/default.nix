@@ -13,6 +13,9 @@ in {
   # docker.enableNvidia need this
   hardware.opengl.driSupport32Bit = usingNvidiaDriver;
 
+  # TODO: change to the new default value: podman
+  virtualisation.oci-containers.backend = "docker";
+
   virtualisation.docker = {
     enable = true;
     enableNvidia = usingNvidiaDriver;

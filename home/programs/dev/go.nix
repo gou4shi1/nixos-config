@@ -3,5 +3,8 @@
 let
 
 in {
-  programs.go.enable = true;
+  programs.go = {
+    enable = true;
+    goPath = "go";
+  };
 }

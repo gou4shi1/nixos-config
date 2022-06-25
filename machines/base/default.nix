@@ -7,7 +7,7 @@ let
 
   home-manager = builtins.fetchGit {
     url = "https://github.com/nix-community/home-manager";
-    ref = "release-21.11";
+    ref = "release-22.05";
   };
 
   power-manager-config = import ../../home/services/xfce-power-manager { inherit lib; inherit machineType; inherit enableDesktop; };
@@ -29,6 +29,9 @@ in {
       dates     = "weekly";
       options   = "--delete-older-than 7d";
     };
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
   };
 
   nixpkgs = {

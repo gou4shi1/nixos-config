@@ -31,6 +31,9 @@ in {
     };
     extraOptions = ''
       experimental-features = nix-command flakes
+      # To protect nix-shell against garbage collection.
+      keep-outputs = true
+      keep-derivations = true
     '';
   };
 

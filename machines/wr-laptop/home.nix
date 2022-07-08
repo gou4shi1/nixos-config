@@ -6,7 +6,7 @@ let
 in {
   home-manager.users."${cfg.mainUser}" = {
     home.packages = with pkgs; [
-      zoom-us
+      zoom-us feishu
     ];
 
     programs.git = {

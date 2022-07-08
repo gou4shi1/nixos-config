@@ -21,6 +21,8 @@ in {
       serviceConfig = {
         Type = "simple";
         ExecStart = "${pkgs.globalprotect-openconnect}/bin/gpclient";
+        Restart = "on-failure";
+        RestartSec = 3;
       };
     };
   };

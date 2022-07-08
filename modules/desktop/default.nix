@@ -34,6 +34,8 @@ in {
   config = lib.mkIf cfg.enable {
     services.xserver = {
       enable = true;
+      exportConfiguration = true;
+
       xkbOptions = "ctrl:nocaps";
 
       displayManager = {

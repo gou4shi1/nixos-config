@@ -1,2 +1,3 @@
 result
 sensitive.nix
+*.tar.gz

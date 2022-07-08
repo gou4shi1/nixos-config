@@ -8,7 +8,7 @@ in {
     ../base
     ./hardware-configuration.nix
     ./home.nix
-    ../../modules/globalprotect
+    ../../modules/vpn/globalprotect.nix
   ];
 
   mynix = {

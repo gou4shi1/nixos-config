@@ -26,4 +26,5 @@ in {
   warpd = final.callPackage ../pkgs/warpd {};
   globalprotect-openconnect = final.libsForQt5.callPackage ../pkgs/globalprotect-openconnect {};
   feishu = final.callPackage ../pkgs/feishu {};
+  coscli = final.callPackage ../pkgs/coscli {};
 }

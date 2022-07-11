@@ -12,7 +12,7 @@ in {
     ];
 
     home.packages = with pkgs; [
-      debian-hostname zoom-us arcanist dbeaver feishu
+      debian-hostname zoom-us arcanist dbeaver feishu coscli
     ];
 
     programs.git = {

@@ -62,6 +62,7 @@ in {
     git wget zip unzip file tree htop-vim vimHugeX
     man-pages man-pages-posix
     firefox google-chrome gparted
+    inetutils
   ];
 
   # My TRaceroute: a network diagnostic tool that combines the functionality of traceroute and ping.

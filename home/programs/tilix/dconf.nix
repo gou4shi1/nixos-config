@@ -12,7 +12,7 @@ in {
       background-image-mode = "scale";
       control-click-titlebar = false;
       control-scroll-zoom = true;
-      enable-wide-handle = false;
+      enable-wide-handle = true;
       focus-follow-mouse = false;
       middle-click-close = true;
       paste-advanced-default = false;

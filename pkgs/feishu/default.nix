@@ -44,7 +44,7 @@
 , makeShellWrapper
 , mesa
 , nspr
-, nss
+, nss_latest
 , pango
 , pciutils
 , pipewire
@@ -83,7 +83,7 @@ stdenv.mkDerivation rec {
     libxshmfence
     mesa
     nspr
-    nss
+    nss_latest
   ];
 
   rpath = lib.makeLibraryPath [
@@ -127,7 +127,7 @@ stdenv.mkDerivation rec {
     libxshmfence
     mesa
     nspr
-    nss
+    nss_latest
     pango
     pciutils
     pipewire

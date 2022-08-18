@@ -29,7 +29,7 @@ in {
     oh-my-zsh = {
       enable = true;
       plugins = [
-        "git" "extract" "sudo" "colored-man-pages" "history-substring-search"
+        "git" "gitfast" "extract" "sudo" "colored-man-pages" "history-substring-search"
       ];
     };
     plugins = [

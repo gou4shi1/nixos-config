@@ -64,7 +64,11 @@ stdenv.mkDerivation rec {
   version = "5.14.14";
   pname = "feishu";
 
-  src = ./Feishu-linux_x64-${version}.deb;
+  src = fetchurl {
+    url = "https://github.com/iosmanthus/feishu-flake/releases/download/v5.14.14/Feishu-linux_x64-5.14.14.deb";
+    sha256 = "1v0vgr2xi5dqzpmx7as888kfs36vswakpcs6ijhavn0hvjg9kjn0";
+  };
+
 
   nativeBuildInputs = [
     autoPatchelfHook
@@ -148,7 +152,7 @@ stdenv.mkDerivation rec {
     mv opt/ $out/
 
     substituteInPlace $out/share/applications/bytedance-feishu.desktop \
-      --replace /usr/bin/bytedance-feishu-stable "$out/opt/bytedance/feishu/bytedance-feishu --use-gl=desktop"
+      --replace /usr/bin/bytedance-feishu-stable $out/opt/bytedance/feishu/bytedance-feishu
 
     # Wrap feishu and vulcan
     # Feishu is the main executable, vulcan is the builtin browser
@@ -157,6 +161,7 @@ stdenv.mkDerivation rec {
         --prefix XDG_DATA_DIRS    :  "$XDG_ICON_DIRS:$GSETTINGS_SCHEMAS_PATH" \
         --prefix LD_LIBRARY_PATH  :  ${rpath}:$out/opt/bytedance/feishu:${addOpenGLRunpath.driverLink}/share \
         --add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+--enable-features=UseOzonePlatform --ozone-platform=wayland}}" \
+        --add-flags --use-gl=desktop \
         ${lib.optionalString (commandLineArgs!="") "--add-flags ${lib.escapeShellArg commandLineArgs}"}
     done
 

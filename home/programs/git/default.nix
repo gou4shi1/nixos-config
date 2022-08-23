@@ -4,7 +4,7 @@ let
 
 in {
   home.packages = with pkgs; [
-    lazygit git-fuzzy
+    lazygit git-fuzzy difftastic
   ];
 
   programs.git = {
@@ -34,6 +34,7 @@ in {
     };
     includes = [
       { path = ./delta-themes.gitconfig; }
+      { path = ./difftastic.gitconfig; }
     ];
   };
 }

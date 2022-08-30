@@ -1,10 +1,11 @@
 final: prev:
 
 let
-  #backportPkgs = import (builtins.fetchTarball {
-  #  # 2020 Jan 26
-  #  url = https://github.com/NixOS/nixpkgs/tarball/05e661f665047984189b96c724f5a5a1745ec7cb;
-  #}) { config.allowUnfree = true; };
+  unstablePkgs = import
+    (builtins.fetchTarball {
+      url = https://github.com/NixOS/nixpkgs/tarball/a63021a330d8d33d862a8e29924b42d73037dd37;
+    })
+    { config.allowUnfree = true; };
 
 in {
   vaapiIntel = prev.vaapiIntel.override { enableHybridCodec = true; };
@@ -20,4 +21,13 @@ in {
   globalprotect-openconnect = final.libsForQt5.callPackage ../pkgs/globalprotect-openconnect {};
   feishu = final.callPackage ../pkgs/feishu {};
   coscli = final.callPackage ../pkgs/coscli {};
+  vimHugeX = prev.vimHugeX.overrideAttrs (old: rec {
+    version = "9.0.0626";
+    src = prev.fetchFromGitHub {
+      owner = "vim";
+      repo = "vim";
+      rev = "v${version}";
+      hash = "sha256-mJ2fKXGEmW1aYUe9+Zx1OtVZFuIeit8f2PXPq/pRaI4=";
+    };
+  });
 }

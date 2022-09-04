@@ -4,8 +4,6 @@ let
 
 in {
   home.packages = with pkgs; [
-    libreoffice
+    libreoffice sioyek
   ];
-
-  programs.zathura.enable = true;
 }

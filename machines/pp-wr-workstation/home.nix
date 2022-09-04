@@ -9,6 +9,8 @@ in {
       ../../home/programs/dev/bazel.nix
       ../../home/programs/dev/cpp.nix
       ../../home/programs/dev/js.nix
+      ../../home/programs/dev/proto.nix
+      ../../home/programs/dev/shell.nix
     ];
 
     mynix.zsh.prompt_style = "lean";

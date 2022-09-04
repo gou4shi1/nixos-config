@@ -7,6 +7,7 @@ in {
   home-manager.users."${cfg.mainUser}" = {
     imports = [
       ../../home/programs/dev/go.nix
+      ../../home/programs/dev/shell.nix
     ];
 
     home.packages = with pkgs; [

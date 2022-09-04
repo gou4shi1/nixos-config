@@ -4,8 +4,8 @@ let
 
 in {
   home.packages = with pkgs; [
-    clang_13
-    clang-tools
+    clang_14
+    clang-tools_14
     pkg-config
     gnumake
     ninja

@@ -4,7 +4,7 @@ let
 
 in {
   home.packages = with pkgs; [
-    bazel
+    bazel_4
     bazel-buildtools
   ];
 }

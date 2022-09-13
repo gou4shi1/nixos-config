@@ -21,6 +21,7 @@ in {
   globalprotect-openconnect = final.libsForQt5.callPackage ../pkgs/globalprotect-openconnect {};
   feishu = final.callPackage ../pkgs/feishu {};
   coscli = final.callPackage ../pkgs/coscli {};
+  clangd = final.callPackage ../pkgs/clangd {};
   vimHugeX = prev.vimHugeX.overrideAttrs (old: rec {
     version = "9.0.0626";
     src = prev.fetchFromGitHub {

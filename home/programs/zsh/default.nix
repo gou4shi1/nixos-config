@@ -67,7 +67,7 @@ in {
         source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
       fi
     '';
-    initExtra= ''
+    initExtra = ''
       # Use Up/Down arrow keys to search substring in history.
       zvm_bindkey viins "^[[A" history-substring-search-up
       zvm_bindkey viins "^[[B" history-substring-search-down
@@ -78,6 +78,12 @@ in {
       zvm_bindkey vicmd "^[[F" end-of-line
       zvm_bindkey visual "^[[H" beginning-of-line
       zvm_bindkey visual "^[[F" end-of-line
+
+      # Add more LS_COLORS.
+      source ${pkgs.fetchurl {
+        url = "https://raw.githubusercontent.com/trapd00r/LS_COLORS/edd84f960080fcd4ca2691748acbda4da8ae3939/lscolors.sh";
+        hash = "sha256-XSFP48J78mrnjd0Rdzd6NzogTBWAgm7vUDu3gcHvdsE=";
+      }}
     '';
     shellAliases = {
       # Vim

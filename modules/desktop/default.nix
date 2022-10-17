@@ -96,5 +96,9 @@ in {
       packages = with pkgs; [ wqy_microhei terminus_font ];
       font = "ter-132n";
     };
+
+    services.udev.packages = with pkgs; [
+      via
+    ];
   };
 }

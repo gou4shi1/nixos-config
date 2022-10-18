@@ -5,6 +5,7 @@ let
 
   xserverOptions = with lib; {
     options = {
+      replace_caps_with_ctrl = mkEnableOption "Replace CapsLock with Ctrl.";
       i3_show_battery = mkEnableOption "Show battery on i3 status bar.";
       i3_show_full_ip = mkEnableOption "Show full ip on i3 status bar.";
       i3_bar_font_size = mkOption {
@@ -36,7 +37,7 @@ in {
       enable = true;
       exportConfiguration = true;
 
-      xkbOptions = "ctrl:nocaps";
+      xkbOptions = lib.mkIf cfg.xserver.replace_caps_with_ctrl "ctrl:nocaps";
 
       displayManager = {
         lightdm = {

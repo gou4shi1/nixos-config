@@ -61,12 +61,12 @@
 }:
 
 stdenv.mkDerivation rec {
-  version = "5.14.14";
+  version = "5.18.11";
   pname = "feishu";
 
   src = fetchurl {
-    url = "https://github.com/iosmanthus/feishu-flake/releases/download/v5.14.14/Feishu-linux_x64-5.14.14.deb";
-    sha256 = "1v0vgr2xi5dqzpmx7as888kfs36vswakpcs6ijhavn0hvjg9kjn0";
+    url = "https://sf3-cn.feishucdn.com/obj/ee-appcenter/9d89b152d581/Feishu-linux_x64-${version}.deb";
+    sha256 = "1lvjzxgc1qf7zzx13lwq3fw8q5p6zl98s9jgk0dq2g0ynv4w8wpp";
   };
 
 

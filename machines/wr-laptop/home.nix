@@ -10,7 +10,7 @@ in {
     ];
 
     home.packages = with pkgs; [
-      zoom-us feishu
+      zoom-us feishu nomachine
     ];
 
     programs.git = {

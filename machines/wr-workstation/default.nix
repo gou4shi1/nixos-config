@@ -13,6 +13,16 @@ in {
   mynix = {
     machineType = "workstation";
     mainUser = "guangqing";
+
+    desktop.nxserver = {
+      enable = true;
+      serverSettings = {
+        EnableScreenBlanking = 1;
+        EnableNetworkBroadcast = 0;
+        # EnableLockScreen = 1;
+        # EnableClientAutoreconnect = "none";
+      };
+    };
   };
 
   boot.loader.systemd-boot.enable = false;

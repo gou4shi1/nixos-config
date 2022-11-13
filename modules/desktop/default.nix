@@ -22,6 +22,7 @@ in {
     ./rofi-config.nix
     ./session-locker.nix
     ./warpd.nix
+    ./nomachine.nix
   ];
 
   options.mynix.desktop = with lib; {

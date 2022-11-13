@@ -19,6 +19,7 @@ in {
   weggli = final.callPackage ../pkgs/weggli {};
   warpd = final.callPackage ../pkgs/warpd {};
   globalprotect-openconnect = final.libsForQt5.callPackage ../pkgs/globalprotect-openconnect {};
+  nomachine = final.callPackage ../pkgs/nomachine {};
   feishu = final.callPackage ../pkgs/feishu {};
   coscli = final.callPackage ../pkgs/coscli {};
   clangd = final.callPackage ../pkgs/clangd {};

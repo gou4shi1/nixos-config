@@ -56,7 +56,10 @@ in {
   services.thermald.enable = true;
 
   # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    forwardX11 = true;
+  };
 
   environment.systemPackages = with pkgs; [
     git wget zip unzip file tree htop-vim vimHugeX

@@ -16,7 +16,6 @@ in {
 
     home.sessionPath = [
       "$HOME/.local/bin"
-      "$HOME/go/bin"
     ];
 
     programs.zsh = {

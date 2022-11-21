@@ -15,9 +15,10 @@ in {
         grid_activation_key: C-M-g
         screen_activation_key: C-M-s
         activation_key: C-M-n
-        hint_oneshot_key: C-M-o
         hint: f
         grid_exit: esc
+        scroll_down: C-j
+        scroll_up: C-k
       '';
     };
 

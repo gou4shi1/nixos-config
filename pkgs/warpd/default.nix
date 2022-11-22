@@ -1,18 +1,36 @@
-{ stdenv, lib, fetchFromGitHub, xorg, ... }:
+{ lib
+, stdenv
+, fetchFromGitHub
+, git
+, libXi
+, libXinerama
+, libXft
+, libXfixes
+, libXtst
+, libX11
+, libXext
+, waylandSupport ? false, cairo, libxkbcommon, wayland
+}:
 
 stdenv.mkDerivation rec {
   pname = "warpd";
-  version = "1.2.2";
+  version = "1.3.5";
 
   src = fetchFromGitHub {
     owner = "rvaiya";
-    repo = "${pname}";
-    # rev = "v${version}";
-    rev = "a30bee8396932baef778ff45eba8ede4c6114b0a";
-    sha256 = "1fzmc043zr1zv43qjh7raz9rb0n9a9j5izzzx0mzs8f28cm927i1";
+    repo = "warpd";
+    rev = "v${version}";
+    sha256 = "sha256-5B3Ec+R1vF2iI0ennYcsRlnFXJkSns0jVbyAWJA4lTU=";
+    leaveDotGit = true;
   };
 
-  buildInputs = with xorg; [
+  nativeBuildInputs = [ git ];
+
+  buildInputs =  if waylandSupport then [
+    cairo
+    libxkbcommon
+    wayland
+  ] else [
     libXi
     libXinerama
     libXft
@@ -22,15 +40,14 @@ stdenv.mkDerivation rec {
     libXext
   ];
 
-  installPhase = ''
-    mkdir -p $out/{bin,share/man/man1}
-    install -m644 warpd.1.gz $out/share/man/man1/
-    install -m755 bin/warpd $out/bin/
-  '';
+  makeFlags = [ "PREFIX=$(out)" ] ++ lib.optionals (!waylandSupport) [ "DISABLE_WAYLAND=1" ];
 
   meta = with lib; {
-    description = "A modal keyboard-driven virtual pointer.";
-    homepage = "https://github.com/rvaiya/${pname}";
+    description = "A modal keyboard driven interface for mouse manipulation.";
+    homepage = "https://github.com/rvaiya/warpd";
+    changelog = "https://github.com/rvaiya/warpd/blob/${src.rev}/CHANGELOG.md";
+    maintainers = with maintainers; [ hhydraa ];
     license = licenses.mit;
+    platforms = platforms.linux;
   };
 }

@@ -232,7 +232,7 @@ in
 
     systemd.services.nxserver = {
       description = "NoMachine Server daemon";
-      wantedBy = [ "multi-user.target" ];
+      # wantedBy = [ "multi-user.target" ];
       after = [ "syslog.target" "network.target" "network-online.target" "display-manager.service" ];
       wants = [ "network-online.target" ];
       bindsTo = [ "display-manager.service" ];

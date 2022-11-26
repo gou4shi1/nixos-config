@@ -55,10 +55,19 @@ in {
   # Enable the temperature management daemon.
   services.thermald.enable = true;
 
-  # Enable the OpenSSH daemon.
+  # SSH
   services.openssh = {
     enable = true;
     forwardX11 = true;
+    extraConfig = ''
+      AcceptEnv VTE_VERSION
+    '';
+  };
+
+  programs.ssh = {
+    extraConfig = ''
+      SendEnv VTE_VERSION
+    '';
   };
 
   environment.systemPackages = with pkgs; [

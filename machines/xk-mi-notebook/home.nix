@@ -6,6 +6,7 @@ let
 in {
   home-manager.users."${cfg.mainUser}" = {
     imports = [
+      ../../home/services/flameshot
       ../../home/programs/dev/go.nix
     ];
 

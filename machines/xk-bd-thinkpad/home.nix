@@ -8,6 +8,7 @@ in {
     imports = [
       ../../home/services/flameshot
       ../../home/programs/dev/go.nix
+      ../../home/programs/dev/python.nix
       ../../home/programs/dev/shell.nix
     ];
 

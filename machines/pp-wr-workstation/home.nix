@@ -11,6 +11,7 @@ in {
       ../../home/programs/dev/go.nix
       ../../home/programs/dev/js.nix
       ../../home/programs/dev/proto.nix
+      ../../home/programs/dev/python.nix
       ../../home/programs/dev/shell.nix
     ];
 

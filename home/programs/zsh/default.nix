@@ -96,7 +96,6 @@ in {
       ac = "arc diff HEAD~ --create";
       au = "arc diff HEAD~ --update";
       al = "arc land";
-      ipy = "nix-shell -p python39Packages.ipython --run ipython";
     };
   };
 }

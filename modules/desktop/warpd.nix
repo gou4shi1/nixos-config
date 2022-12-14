@@ -19,6 +19,8 @@ in {
         grid_exit: esc
         scroll_down: C-j
         scroll_up: C-k
+        indicator: topright
+        indicator_size: 20
       '';
     };
 

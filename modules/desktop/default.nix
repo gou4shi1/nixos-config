@@ -102,5 +102,7 @@ in {
     services.udev.packages = with pkgs; [
       via
     ];
+
+    services.gnome.gnome-keyring.enable = true;
   };
 }

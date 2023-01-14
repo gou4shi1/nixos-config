@@ -12,8 +12,8 @@
     <property name="general-notification" type="bool" value="true"/>
     <property name="show-tray-icon" type="bool" value="true"/>
     <property name="inactivity-sleep-mode-on-battery" type="uint" value="1"/>
-    <property name="inactivity-on-battery" type="uint" value="25"/>
-    <property name="inactivity-on-ac" type="uint" value="30"/>
+    <property name="inactivity-on-battery" type="uint" value="30"/>
+    <property name="inactivity-on-ac" type="uint" value="60"/>
     <property name="critical-power-level" type="uint" value="5"/>
     <property name="critical-power-action" type="uint" value="3"/>
     <property name="brightness-on-battery" type="uint" value="120"/>

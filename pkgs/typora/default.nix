@@ -12,16 +12,13 @@
 , pandoc
 }:
 
-let
-  electron = electron_9;
-in
 stdenv.mkDerivation rec {
   pname = "typora";
   version = "0.9.98";
 
   src = fetchurl {
-    url = "https://download.typora.io/linux/typora_${version}_amd64.deb";
-    sha256 = "sha256-JiqjxT8ZGttrcJrcQmBoGPnRuuYWZ9u2083RxZoLMus=";
+    url = "https://web.archive.org/web/20211222112532/https://download.typora.io/linux/typora_${version}_amd64.deb";
+    hash = "sha256-JiqjxT8ZGttrcJrcQmBoGPnRuuYWZ9u2083RxZoLMus=";
   };
 
   nativeBuildInputs = [
@@ -55,7 +52,7 @@ stdenv.mkDerivation rec {
   '';
 
   postFixup = ''
-    makeWrapper ${electron}/bin/electron $out/bin/typora \
+    makeWrapper ${electron_9}/bin/electron $out/bin/typora \
       --add-flags $out/share/typora \
       "''${gappsWrapperArgs[@]}" \
       ${lib.optionalString withPandoc ''--prefix PATH : "${lib.makeBinPath [ pandoc ]}"''} \
@@ -66,7 +63,5 @@ stdenv.mkDerivation rec {
     description = "A minimal Markdown reading & writing app";
     homepage = "https://typora.io";
     license = licenses.unfree;
-    maintainers = with maintainers; [ jensbin ];
-    platforms = [ "x86_64-linux"];
   };
 }

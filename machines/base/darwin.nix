@@ -5,7 +5,7 @@ let
 
   home-manager = builtins.fetchGit {
     url = "https://github.com/nix-community/home-manager";
-    ref = "release-22.05";
+    ref = "release-22.11";
   };
 
 in {
@@ -47,6 +47,11 @@ in {
   home-manager.useGlobalPkgs = true;
 
   home-manager.users."${cfg.mainUser}" = {
+    home.stateVersion = "22.11";
+
+    home.homeDirectory = "/home/${cfg.mainUser}";
+    home.username = "${cfg.mainUser}";
+
     imports = [
       ../../home/programs/zsh
       ../../home/programs/shell-tools

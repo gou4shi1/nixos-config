@@ -1,17 +1,14 @@
 { lib, stdenv, fetchFromGitHub, makeWrapper, pkgs }:
 
-let
-  version = "0.0.1";
-
-in stdenv.mkDerivation {
+stdenv.mkDerivation {
   pname = "git-fuzzy";
-  inherit version;
+  version = "0.0.2";
 
   src = fetchFromGitHub {
     owner = "bigH";
     repo = "git-fuzzy";
-    rev = "6bf6db61d3bd9a16203130587ccfbc02f4ca9a57";
-    sha256 = "1iivvh1sbfw1h8klcwrhxs4g9cbifg0g2gp0fc8a16qy8dq45mzm";
+    rev = "36fc08f084a0cabf3e381dbbbce8e3a1a22fbaa4";
+    hash = "sha256-4VK7qSTROsFVnYuwTz+4sR/41iJjUzIxB2IcNE65Tm8=";
   };
 
   nativeBuildInputs = [ makeWrapper ];
@@ -26,6 +23,5 @@ in stdenv.mkDerivation {
     description = "Interactive `git` with the help of `fzf`.";
     homepage = "https://github.com/bigH/git-fuzzy";
     license = lib.licenses.mit;
-    platforms = lib.platforms.all;
   };
 }

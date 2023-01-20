@@ -29,7 +29,7 @@ in {
 
   # Fcitx Pinyin Dictionary from zh.wikipedia.org.
   xdg.dataFile."fcitx5/pinyin/dictionaries/zhwiki.dict".source = builtins.fetchurl {
-    url = "https://github.com/felixonmars/fcitx5-pinyin-zhwiki/releases/download/0.2.3/zhwiki-20220127.dict";
-    sha256 = "0jrh31a6amllrv6m20bf80qay216xivr87k1x7mqkl2ni3mmr7cv";
+    url = "https://github.com/felixonmars/fcitx5-pinyin-zhwiki/releases/download/0.2.4/zhwiki-20220529.dict";
+    sha256 = "0riqzfm5m8xs83imil5628fbnkzz03dgpc056jx7yhgmhx09cmw7";
   };
 }

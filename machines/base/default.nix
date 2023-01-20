@@ -7,7 +7,7 @@ let
 
   home-manager = builtins.fetchGit {
     url = "https://github.com/nix-community/home-manager";
-    ref = "release-22.05";
+    ref = "release-22.11";
   };
 
   power-manager-config = import ../../home/services/xfce-power-manager { inherit lib; inherit machineType; inherit enableDesktop; };
@@ -23,7 +23,9 @@ in {
   ];
 
   nix = {
-    autoOptimiseStore = true;
+    settings = {
+      auto-optimise-store = true;
+    };
     gc = {
       automatic = true;
       dates     = "weekly";
@@ -89,6 +91,11 @@ in {
   home-manager.useGlobalPkgs = true;
 
   home-manager.users."${cfg.mainUser}" = {
+    home.stateVersion = "22.11";
+
+    home.homeDirectory = "/home/${cfg.mainUser}";
+    home.username = "${cfg.mainUser}";
+
     imports = [
       ../../home/i18n/input-method/fcitx
       ../../home/programs/tilix

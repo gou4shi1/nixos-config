@@ -6,7 +6,7 @@
 let
   nixos-hardware = builtins.fetchGit {
     url = "https://github.com/NixOS/nixos-hardware";
-    rev = "7b0845d8c1376de700264886c9a002099c71736d";
+    rev = "b7ac0a56029e4f9e6743b9993037a5aaafd57103";
   };
 
 in {
@@ -14,7 +14,7 @@ in {
     (modulesPath + "/installer/scan/not-detected.nix")
     "${nixos-hardware}/common/pc/ssd"
     "${nixos-hardware}/common/cpu/intel/cpu-only.nix"
-    "${nixos-hardware}/common/gpu/nvidia.nix"
+    "${nixos-hardware}/common/gpu/nvidia"
   ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
@@ -22,7 +22,6 @@ in {
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
-  hardware.nvidia.prime.offload.enable = false;
   hardware.video.hidpi.enable = true;
 
   networking.interfaces.eno1.useDHCP = true;

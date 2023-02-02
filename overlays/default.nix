@@ -5,7 +5,7 @@ let
 
 in {
   vaapiIntel = prev.vaapiIntel.override { enableHybridCodec = true; };
-  feishu = unstable.feishu.override { commandLineArgs = "--use-gl=desktop --disable-features=AudioServiceSandbox"; nss = prev.nss_latest; };
+  feishu = unstable.feishu.override { commandLineArgs = "--disable-features=AudioServiceSandbox"; nss = prev.nss_latest; };
   globalprotect-openconnect = unstable.globalprotect-openconnect;
   warpd = unstable.warpd;
   rofi-power = final.callPackage ../pkgs/rofi-power {};

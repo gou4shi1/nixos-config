@@ -3,9 +3,9 @@
 
 stdenv.mkDerivation rec {
   pname = "seal";
-  version = "0.2.8";
+  version = "0.2.9";
 
-  src = ./seal-0.2.8.35-amd64.tar.gz;
+  src = ./seal-0.2.9.36-amd64.tar.gz;
 
   nativeBuildInputs = [
     autoPatchelfHook
@@ -31,7 +31,6 @@ stdenv.mkDerivation rec {
     mv opt $out
 
     ln -s $out/opt/Seal/Seal $out/bin/Seal
-    # seal-service require FHS, temp need `sudo ln -s /run/current-system/sw/bin/bash /bin/bash`
     ln -s $out/opt/Seal/seal-service $out/bin/seal-service
 
     substituteInPlace $out/opt/Seal/Seal \

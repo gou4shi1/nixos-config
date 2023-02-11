@@ -8,8 +8,6 @@ in {
     seal
   ];
 
-  networking.networkmanager.dns = "dnsmasq";
-
   systemd.services = {
     seal-service = {
       description = "The daemon service of seal.";
@@ -21,8 +19,10 @@ in {
         Type = "simple";
         # You need to run `mkdir /opt/Seal` by yourself.
         WorkingDirectory = "/opt/Seal";
+        # bash need to be run as /bin/bash
         # seal-service need to be run as /opt/Seal/seal-service...
-        ExecStartPre = "${pkgs.coreutils}/bin/ln -sf ${pkgs.seal}/bin/seal-service /opt/Seal/seal-service";
+        # dnsmasq need to be run as /usr/sbin/dnsmasq ... --conf-dir=/etc/NetworkManager/dnsmasq.d
+        ExecStartPre = "${pkgs.bash}/bin/bash -c 'ln -sf /bin/sh /bin/bash && ln -sf ${pkgs.seal}/bin/seal-service /opt/Seal/seal-service && mkdir -p /usr/sbin && ln -sf ${pkgs.dnsmasq}/bin/dnsmasq /usr/sbin/dnsmasq && mkdir -p /etc/NetworkManager/dnsmasq.d'";
         ExecStart = "/opt/Seal/seal-service";
         Restart = "on-failure";
         RestartSec = 3;

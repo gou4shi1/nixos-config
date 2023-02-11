@@ -1,0 +1,15 @@
+diff --git a/xfsettingsd/displays.c b/xfsettingsd/displays.c
+index 4beab53..5df85dd 100644
+--- a/xfsettingsd/displays.c
++++ b/xfsettingsd/displays.c
+@@ -1293,8 +1293,8 @@ xfce_displays_helper_normalize_crtc (XfceRRCrtc         *crtc,
+      *
+      * Firefox and Evince apparently believe what X tells them.
+      */
+-    helper->mm_width = (helper->width / 96.0) * 25.4 + 0.5;
+-    helper->mm_height = (helper->height / 96.0) * 25.4 + 0.5;
++    helper->mm_width = (helper->width / 192.0) * 25.4 + 0.5;
++    helper->mm_height = (helper->height / 192.0) * 25.4 + 0.5;
+ }
+ 
+ 

@@ -22,6 +22,12 @@ in {
     substituters = [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" ];
   };
 
+  nixpkgs = {
+    overlays = [
+      (import ../../overlays/hidpi.nix)
+    ];
+  };
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 

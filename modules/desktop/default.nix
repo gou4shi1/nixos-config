@@ -99,6 +99,10 @@ in {
       font = "ter-132n";
     };
 
+    environment.systemPackages = with pkgs; [
+      xfconf-helper
+    ];
+
     services.udev.packages = with pkgs; [
       via
     ];

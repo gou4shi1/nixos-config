@@ -18,4 +18,5 @@ in {
   nomachine = final.callPackage ../pkgs/nomachine {};
   coscli = final.callPackage ../pkgs/coscli {};
   clangd = final.callPackage ../pkgs/clangd {};
+  xfconf-helper = final.callPackage ../pkgs/xfconf-helper {};
 }

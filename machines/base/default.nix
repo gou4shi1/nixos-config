@@ -6,7 +6,7 @@ let
   enableDesktop = cfg.desktop.enable;
 
   home-manager = builtins.fetchGit {
-    url = "https://github.com/nix-community/home-manager";
+    url = "https://github.com/gou4shi1/home-manager";
     ref = "release-22.11";
   };
 

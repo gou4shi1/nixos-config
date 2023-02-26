@@ -104,6 +104,7 @@ in {
       ../../home/programs/git
       ../../home/programs/i3
       ../../home/programs/vim
+      ../../home/programs/dev/nix.nix
       ../../home/programs/office
       ../../home/themes
       power-manager-config

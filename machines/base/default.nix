@@ -89,7 +89,6 @@ in {
   };
 
   home-manager.useGlobalPkgs = true;
-  home-manager.backupFileExtension = "bak";
 
   home-manager.users."${cfg.mainUser}" = {
     home.stateVersion = "22.11";

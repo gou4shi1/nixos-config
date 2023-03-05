@@ -10,7 +10,7 @@ let
     ref = "release-22.11";
   };
 
-  power-manager-config = import ../../home/services/xfce-power-manager { inherit lib; inherit machineType; inherit enableDesktop; };
+  power-manager-config = import ../../home/services/xfce-power-manager { inherit machineType; };
 
 in {
   imports = [
@@ -97,17 +97,19 @@ in {
     home.username = "${cfg.mainUser}";
 
     imports = [
-      ../../home/i18n/input-method/fcitx
-      ../../home/programs/tilix
       ../../home/programs/zsh
       ../../home/programs/shell-tools
       ../../home/programs/git
-      ../../home/programs/i3
       ../../home/programs/vim
       ../../home/programs/dev/nix.nix
-      ../../home/programs/office
-      ../../home/themes
+    ] ++ lib.optionals enableDesktop [
       power-manager-config
+      ../../home/services/xfce-session
+      ../../home/themes
+      ../../home/i18n/input-method/fcitx
+      ../../home/programs/i3
+      ../../home/programs/tilix
+      ../../home/programs/office
     ];
   };
 

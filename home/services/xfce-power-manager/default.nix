@@ -1,14 +1,15 @@
-{ lib, machineType, enableDesktop, ... }:
+{ machineType, ... }:
 
 let
   workstationConf = {
     "xfce4-power-manager/battery-button-action" = 3;
+    "xfce4-power-manager/blank-on-ac" = 10;
     "xfce4-power-manager/dpms-on-ac-off" = 20;
     "xfce4-power-manager/dpms-on-ac-sleep" = 15;
     "xfce4-power-manager/hibernate-button-action" = 3;
-    "xfce4-power-manager/inactivity-on-ac" = 60;
+    "xfce4-power-manager/inactivity-on-ac" = 14;
     "xfce4-power-manager/power-button-action" = 3;
-    "xfce4-power-manager/blank-on-ac" = 10;
+    "xfce4-power-manager/sleep-button-action" = 3;
   };
   laptopConf = {
     "xfce4-power-manager/battery-button-action" = 3;
@@ -34,18 +35,16 @@ let
 
 in
 {
-  config = lib.mkIf enableDesktop {
-    xfconf.settings.xfce4-power-manager = (builtins.getAttr machineType {
-      workstation = workstationConf;
-      laptop = laptopConf;
-    });
+  xfconf.settings.xfce4-power-manager = (builtins.getAttr machineType {
+    workstation = workstationConf;
+    laptop = laptopConf;
+  });
 
-    dconf.settings = {
-      "apps/light-locker" = {
-        # If late-locking is true, light-locker will lock the session when the screensaver is deactivated.
-        # If it's false, light-locker will lock the session when the screensaver is activated.
-        late-locking = false;
-      };
+  dconf.settings = {
+    "apps/light-locker" = {
+      # If late-locking is true, light-locker will lock the session when the screensaver is deactivated.
+      # If it's false, light-locker will lock the session when the screensaver is activated.
+      late-locking = false;
     };
   };
 }

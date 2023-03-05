@@ -1,8 +1,6 @@
 { pkgs, ... }:
 
-let
-
-in {
+{
   gtk = {
     enable = true;
     theme = {
@@ -13,5 +11,10 @@ in {
       name = "BeautyLine";
       package = pkgs.beauty-line-icon-theme;
     };
+  };
+
+  xfconf.settings.xsettings = {
+    "Net/ThemeName" = "Juno";
+    "Net/IconThemeName" = "BeautyLine";
   };
 }

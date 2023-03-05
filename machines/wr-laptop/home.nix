@@ -11,7 +11,7 @@ in {
     ];
 
     home.packages = with pkgs; [
-      zoom-us feishu nomachine
+      zoom-us feishu nomachine dbeaver
     ];
 
     programs.git = {

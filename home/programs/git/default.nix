@@ -1,10 +1,9 @@
 { config, lib, pkgs, ... }:
 
-let
-
-in {
+{
   home.packages = with pkgs; [
-    lazygit git-fuzzy difftastic
+    git-fuzzy
+    difftastic
   ];
 
   programs.git = {
@@ -36,5 +35,14 @@ in {
       { path = ./delta-themes.gitconfig; }
       { path = ./difftastic.gitconfig; }
     ];
+  };
+
+  programs.lazygit = {
+    enable = true;
+    settings = {
+      git.paging = {
+        pager = "delta --paging=never";
+      };
+    };
   };
 }

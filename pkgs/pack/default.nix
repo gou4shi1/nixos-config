@@ -7,9 +7,9 @@ rustPlatform.buildRustPackage rec {
   version = "0.2.5";
 
   src = fetchFromGitHub {
-    owner = "gou4shi1";
+    owner = "maralla";
     repo = "pack";
-    rev = "28c48a73ecfb7e5b80e32da52de21f4d767669bb";
+    rev = "971cb45530c02760413ace8656d6f8d84fa09a48";
     hash = "sha256-A8grXjYDbSyZjt8hGHBpndLg1bp4WG1SF1S4BQyP+kU=";
   };
 

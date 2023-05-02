@@ -10,7 +10,7 @@ in {
     ];
 
     home.packages = with pkgs; [
-      python38
+      python3
     ];
 
     home.sessionPath = [

@@ -3,7 +3,7 @@
 let
 
 in {
-  home.packages = with pkgs.python39Packages; [
+  home.packages = with pkgs.python3Packages; [
     ipython
     pipx
     yapf

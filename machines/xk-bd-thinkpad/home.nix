@@ -13,7 +13,7 @@ in {
     ];
 
     home.packages = with pkgs; [
-      python38 feishu dbeaver
+      python3 feishu dbeaver
     ];
 
     home.sessionPath = [

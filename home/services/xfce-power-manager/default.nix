@@ -8,6 +8,7 @@ let
     "xfce4-power-manager/dpms-on-ac-sleep" = { type = "uint"; value = 15; };
     "xfce4-power-manager/hibernate-button-action" = { type = "uint"; value = 3; };
     "xfce4-power-manager/inactivity-on-ac" = { type = "uint"; value = 14; };
+    "xfce4-power-manager/lock-screen-suspend-hibernate" = false;
     "xfce4-power-manager/power-button-action" = { type = "uint"; value = 3; };
     "xfce4-power-manager/sleep-button-action" = { type = "uint"; value = 3; };
   };
@@ -28,6 +29,7 @@ let
     "xfce4-power-manager/inactivity-on-ac" = { type = "uint"; value = 60; };
     "xfce4-power-manager/inactivity-on-battery" = { type = "uint"; value = 30; };
     "xfce4-power-manager/inactivity-sleep-mode-on-battery" = { type = "uint"; value = 1; };
+    "xfce4-power-manager/lock-screen-suspend-hibernate" = false;
     "xfce4-power-manager/power-button-action" = { type = "uint"; value = 3; };
     "xfce4-power-manager/show-tray-icon" = true;
     "xfce4-power-manager/sleep-button-action" = { type = "uint"; value = 3; };
@@ -45,6 +47,7 @@ in
       # If late-locking is true, light-locker will lock the session when the screensaver is deactivated.
       # If it's false, light-locker will lock the session when the screensaver is activated.
       late-locking = false;
+      lock-on-suspend = false;
     };
   };
 }

@@ -5,5 +5,6 @@
     "general/AutoSave" = true;
     "general/PromptOnLogout" = true;
     "compat/LaunchGNOME" = true;
+    "shutdown/LockScreen" = false;
   };
 }

@@ -21,6 +21,7 @@ in {
   nomachine = final.callPackage ../pkgs/nomachine {};
   clangd = final.callPackage ../pkgs/clangd {};
   xfconf-helper = final.callPackage ../pkgs/xfconf-helper {};
+  corplink = final.callPackage ../pkgs/corplink {};
   wechat-uos = unstable.wechat-uos.override {
     uosLicense = ../pkgs/wechat-uos/license.tar.gz;
   };

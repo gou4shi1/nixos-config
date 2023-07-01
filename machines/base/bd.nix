@@ -1,17 +1,9 @@
 { config, lib, pkgs, ... }:
 
-let
-
-in {
+{
   imports = [
-    ../../modules/vpn/seal.nix
+    ../../modules/vpn/corplink.nix
   ];
-
-  nixpkgs = {
-    overlays = [
-      (import ../../overlays/bd.nix)
-    ];
-  };
 
   # kerberos
   krb5 = {

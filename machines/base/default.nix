@@ -6,8 +6,8 @@ let
   enableDesktop = cfg.desktop.enable;
 
   home-manager = builtins.fetchGit {
-    url = "https://github.com/gou4shi1/home-manager";
-    ref = "release-22.11";
+    url = "https://github.com/nix-community/home-manager";
+    ref = "release-23.05";
   };
 
   power-manager-config = import ../../home/services/xfce-power-manager { inherit machineType; };
@@ -44,6 +44,7 @@ in {
       allowUnfree = true;
       permittedInsecurePackages = [
         "electron-9.4.4"  # For typora.
+        "openssl-1.1.1u"
       ];
     };
     overlays = [
@@ -60,7 +61,9 @@ in {
   # SSH
   services.openssh = {
     enable = true;
-    forwardX11 = true;
+    settings = {
+      X11Forwarding = true;
+    };
     extraConfig = ''
       AcceptEnv VTE_VERSION
     '';
@@ -91,7 +94,7 @@ in {
   home-manager.useGlobalPkgs = true;
 
   home-manager.users."${cfg.mainUser}" = {
-    home.stateVersion = "22.11";
+    home.stateVersion = "23.05";
 
     home.homeDirectory = "/home/${cfg.mainUser}";
     home.username = "${cfg.mainUser}";

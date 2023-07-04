@@ -1,5 +1,4 @@
-{ lib, fetchFromGitHub, rustPlatform
-, openssl, pkg-config, cmake, installShellFiles }:
+{ rustPlatform, fetchFromGitHub }:
 
 rustPlatform.buildRustPackage rec {
   pname = "weggli";
@@ -14,7 +13,7 @@ rustPlatform.buildRustPackage rec {
 
   cargoHash = "sha256-Cj/m4GRaqI/lHYFruj047B7FdGoVl/wC8I2o1dzhOTs=";
 
-  meta = with lib; {
+  meta = {
     description = "A fast and robust semantic search tool for C and C++ codebases.";
   };
 }

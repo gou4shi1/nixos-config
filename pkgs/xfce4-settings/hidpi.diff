@@ -8,8 +8,8 @@ index 4beab53..5df85dd 100644
       */
 -    helper->mm_width = (helper->width / 96.0) * 25.4 + 0.5;
 -    helper->mm_height = (helper->height / 96.0) * 25.4 + 0.5;
-+    helper->mm_width = (helper->width / 192.0) * 25.4 + 0.5;
-+    helper->mm_height = (helper->height / 192.0) * 25.4 + 0.5;
++    helper->mm_width = (helper->width / @dpi@.0) * 25.4 + 0.5;
++    helper->mm_height = (helper->height / @dpi@.0) * 25.4 + 0.5;
  }
  
  

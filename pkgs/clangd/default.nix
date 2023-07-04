@@ -1,15 +1,15 @@
-{ lib, pkgs, stdenv, fetchzip, autoPatchelfHook, clang_14 }:
+{ pkgs, stdenv, fetchzip, autoPatchelfHook }:
 
 stdenv.mkDerivation rec {
   pname = "clangd";
-  version = "14.0.3";
+  version = "16.0.2";
 
   src = fetchzip {
     url = "https://github.com/clangd/clangd/releases/download/${version}/clangd-linux-${version}.zip";
-    hash = "sha256-TeIP6fGfx4kiVASqKPaAh3j2vtBGKuJ4kC8yHiLIs9U";
+    hash = "sha256-3NSBktpGnSsBSUvGyroFzgNiDWokik1sAliovRYk6tA=";
   };
 
-  clang = clang_14;
+  clang = pkgs.clang_16;
 
   nativeBuildInputs = [
     autoPatchelfHook
@@ -29,7 +29,7 @@ stdenv.mkDerivation rec {
     chmod +x $out/bin/clangd
   '';
 
-  meta = with lib; {
+  meta = {
     description = "The language server from clang.";
     priority = -1; # To override the clangd from pkgs.clang-tools.
   };

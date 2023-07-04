@@ -7,17 +7,12 @@ let
     options = {
       replace_caps_with_ctrl = mkEnableOption "Replace CapsLock with Ctrl.";
       i3_show_battery = mkEnableOption "Show battery on i3 status bar.";
-      i3_show_full_ip = mkEnableOption "Show full ip on i3 status bar.";
-      i3_bar_font_size = mkOption {
-        description = "The font size of i3 status bar.";
-        type = types.int;
-        default = 11;
-      };
     };
   };
 
 in {
   imports = [
+    ./hidpi.nix
     ./i3-status.nix
     ./rofi-config.nix
     ./session-locker.nix
@@ -62,10 +57,7 @@ in {
           i3status-rust i3lock-fancy-rapid
           i3-resurrect i3-get-window-criteria
         ];
-        configFile = with cfg.xserver; pkgs.substituteAll {
-          src = ./i3.config;
-          inherit i3_bar_font_size;
-        };
+        configFile = ./i3.config;
       };
 
       libinput.touchpad.disableWhileTyping = true;

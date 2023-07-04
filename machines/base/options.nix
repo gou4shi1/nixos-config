@@ -25,7 +25,6 @@ in {
       xserver = {
         replace_caps_with_ctrl = lib.mkDefault (cfg.machineType == "laptop");
         i3_show_battery = (cfg.machineType == "laptop");
-        i3_show_full_ip = (cfg.machineType != "laptop");
       };
     };
   };

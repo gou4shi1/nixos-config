@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, ... }:
 
 let
   cfg = config.mynix.desktop.xserver;
@@ -6,46 +6,55 @@ let
   battery_block = if cfg.i3_show_battery then ''
     [[block]]
     block = "battery"
-    allow_missing = true
   '' else "";
 
-  ip_format = if cfg.i3_show_full_ip then "{ips}" else "{ips^8}..";
+  cycle_color_override = ''
+    [block.theme_overrides]
+    idle_bg = "#586e75"
+    idle_fg = "#eee8d5"
+  '';
 
 in {
   environment.etc."i3/i3status-rust.toml" = {
     text = ''
+      [theme]
       theme = "solarized-dark"
+
+      [icons]
       icons = "material-nf"
 
       [[block]]
       block = "pomodoro"
-      notifier = "i3nag"
+      notify_cmd = "i3-nagbar -m ' ''${msg}'"
+      blocking_cmd = true
+      ${cycle_color_override}
 
       [[block]]
       block = "net"
-      hide_missing = true
-      hide_inactive = true
-      #device = "wlp2s0"
-      #format = "{ssid} {signal_strength} {ip} {speed_down;K*b} {graph_down;K*b}"
+      format = " ^icon_net_down$speed_down.eng(prefix:K) ^icon_net_up$speed_up.eng(prefix:K) $icon {$ssid.str(max_w:8).. |}{$ip |}"
+      missing_format = ""
+      inactive_format = ""
 
       [[block]]
-      block = "networkmanager"
-      device_format = "{icon}{ap} ${ip_format}"
-      interface_name_exclude = ["br\\-[0-9a-f]{12}", "docker\\d+"]
-      interface_name_include = []
+      block = "net"
+      device = "tun"
+      format = "$icon {$ip |}"
+      missing_format = ""
+      inactive_format = ""
 
       [[block]]
       block = "cpu"
-      format = "{barchart} {utilization}"
+      format = " $icon $barchart $utilization "
+      ${cycle_color_override}
 
       [[block]]
       block = "memory"
-      format_mem = "{mem_used_percents}"
-      format_swap = "{swap_used_percents}"
+      format = " $icon $mem_used_percents.eng(w:1) "
 
       [[block]]
       block = "disk_space"
-      format = "{icon} {used}/{total}"
+      format = " $icon $used.eng(p:Gi)/$total.eng(p:Gi) "
+      ${cycle_color_override}
 
       ${battery_block}
 
@@ -61,7 +70,7 @@ in {
 
       [[block]]
       block = "time"
-      format = "%a, %b %d, %H:%M"
+      format = " $icon $timestamp.datetime(f:'%a, %b %d, %R') "
     '';
   };
 }

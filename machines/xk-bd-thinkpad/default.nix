@@ -15,17 +15,10 @@ in {
   mynix = {
     machineType = "laptop";
     mainUser = "aria";
-    desktop.xserver.i3_bar_font_size = 12;
   };
 
   nix.settings = {
     substituters = [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" ];
-  };
-
-  nixpkgs = {
-    overlays = [
-      (import ../../overlays/hidpi.nix)
-    ];
   };
 
   boot.loader.systemd-boot.enable = true;
@@ -64,19 +57,6 @@ in {
   # The custom wallpaper can not be placed in $HOME.
   # services.xserver.displayManager.lightdm.background = "/opt/wallpaper.jpg";
 
-  # Support HiDPI.
-  services.xserver.dpi = 192;
-  # services.xserver.monitorSection = ''
-  #   DisplaySize 310 170
-  # '';
-  environment.variables = {
-    GDK_SCALE = "2";
-    GDK_DPI_SCALE = "0.5";
-    _JAVA_OPTIONS = "-Dsun.java2d.uiScale=2";
-    # QT_AUTO_SCREEN_SCALE_FACTOR = "0";
-    # QT_SCREEN_SCALE_FACTORS = "2";
-  };
-
   services.xserver.libinput.touchpad.naturalScrolling = true;
 
   # Enable FingerPrint.
@@ -103,5 +83,5 @@ in {
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "22.11"; # Did you read the comment?
+  system.stateVersion = "23.05"; # Did you read the comment?
 }

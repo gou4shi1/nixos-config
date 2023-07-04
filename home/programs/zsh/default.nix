@@ -81,8 +81,8 @@ in {
 
       # Add more LS_COLORS.
       source ${pkgs.fetchurl {
-        url = "https://raw.githubusercontent.com/trapd00r/LS_COLORS/09dab448207002624d17f01ed7cbf820aa048063/lscolors.sh";
-        hash = "sha256-nba45XXfcaz0e2+JHJU4ByEOLphhce1eZtgV7aki1e8=";
+        url = "https://raw.githubusercontent.com/trapd00r/LS_COLORS/eeceec887830e1b30b49b08371ae0d079578a58a/lscolors.sh";
+        hash = "sha256-Z6AGAlSakbyczGeulr5in8Zv4LtQsMskrRiOVUm8yVo=";
       }}
     '';
     shellAliases = {

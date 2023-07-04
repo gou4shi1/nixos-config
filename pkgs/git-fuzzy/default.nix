@@ -2,13 +2,13 @@
 
 stdenv.mkDerivation {
   pname = "git-fuzzy";
-  version = "0.0.2";
+  version = "0.0.3";
 
   src = fetchFromGitHub {
     owner = "bigH";
     repo = "git-fuzzy";
-    rev = "36fc08f084a0cabf3e381dbbbce8e3a1a22fbaa4";
-    hash = "sha256-4VK7qSTROsFVnYuwTz+4sR/41iJjUzIxB2IcNE65Tm8=";
+    rev = "a9a030d18be0a01f576e6319f893938c75dfc868";
+    hash = "sha256-Ni7D+rAClu/GevOJvt/k4OINyrEyUa8tXuqGJW1/HDw=";
   };
 
   nativeBuildInputs = [ makeWrapper ];

@@ -1,10 +1,8 @@
-{ config, lib, pkgs, ... }:
+{ pkgs, ... }:
 
-let
-
-in {
+{
   home.packages = with pkgs; [
-    bazel_4
+    bazel
     bazel-buildtools
   ];
 }

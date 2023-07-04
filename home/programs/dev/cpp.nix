@@ -1,11 +1,9 @@
-{ config, lib, pkgs, ... }:
+{ pkgs, ... }:
 
-let
-
-in {
+{
   home.packages = with pkgs; [
-    clang_14
-    clang-tools_14
+    clang_16
+    clang-tools_16
     clangd
     pkg-config
     gnumake

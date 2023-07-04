@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ ... }:
 
 {
   services.flameshot = {
@@ -13,9 +13,5 @@
     };
   };
 
-  xdg.configFile."i3/config" = {
-    text = ''
-      bindsym Shift+Print exec --no-startup-id flameshot gui
-    '';
-  };
+  xfconf.settings.xfce4-keyboard-shortcuts."commands/custom/<Shift>Print" = "flameshot gui";
 }

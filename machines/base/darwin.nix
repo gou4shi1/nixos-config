@@ -5,7 +5,7 @@ let
 
   home-manager = builtins.fetchGit {
     url = "https://github.com/nix-community/home-manager";
-    ref = "release-22.11";
+    ref = "release-23.05";
   };
 
 in {
@@ -29,6 +29,7 @@ in {
       allowUnfree = true;
       permittedInsecurePackages = [
         "electron-9.4.4"  # For typora.
+        "openssl-1.1.1u"
       ];
     };
     overlays = [
@@ -47,7 +48,7 @@ in {
   home-manager.useGlobalPkgs = true;
 
   home-manager.users."${cfg.mainUser}" = {
-    home.stateVersion = "22.11";
+    home.stateVersion = "23.05";
 
     home.homeDirectory = "/home/${cfg.mainUser}";
     home.username = "${cfg.mainUser}";

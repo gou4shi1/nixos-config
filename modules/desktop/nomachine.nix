@@ -1,5 +1,8 @@
-{ config, lib, pkgs, ... }:
-
+{ config
+, lib
+, pkgs
+, ...
+}:
 let
   cfg = config.mynix.desktop.nxserver;
 
@@ -41,27 +44,27 @@ let
 in
 {
   options.mynix.desktop.nxserver = with lib; {
-    enable = mkEnableOption "the NoMachine remote desktop server";
+    enable = mkEnableOption (lib.mdDoc ''the NoMachine remote desktop server'');
 
     openFirewall = mkOption {
       type = types.bool;
       default = false;
-      description = ''
+      description = lib.mdDoc ''
         Whether to open the configured port in the firewall.
       '';
     };
 
     package = mkOption {
-      description = ''
+      description = lib.mdDoc ''
         Package containing the nxserver package and configuration files.
       '';
       type = types.package;
       default = pkgs.nomachine;
-      defaultText = literalExpression "pkgs.nomachine";
+      defaultText = lib.literalMD "pkgs.nomachine";
     };
 
     serverSettings = lib.mkOption {
-      description = ''
+      description = lib.mdDoc ''
         Settings for the NoMachine nxserver instance.
       '';
 
@@ -74,18 +77,18 @@ in
       type = lib.types.submodule {
         freeformType = settingsFmt.type;
 
-        options.EnableDebug = lib.mkEnableOption "debug output";
+        options.EnableDebug = lib.mkEnableOption (lib.mdDoc ''debug output'');
         options.SessionLogLevel = lib.mkOption {
           type = lib.types.int;
           default = 6;
           example = 6;
-          description = "Debug output level";
+          description = lib.mdDoc ''Debug output level'';
         };
       };
     };
 
     nodeSettings = lib.mkOption {
-      description = ''
+      description = lib.mdDoc ''
         Settings for the NoMachine nxnode instance.
       '';
 
@@ -98,12 +101,12 @@ in
       type = lib.types.submodule {
         freeformType = settingsFmt.type;
 
-        options.EnableDebug = lib.mkEnableOption "debug output";
+        options.EnableDebug = lib.mkEnableOption (lib.mdDoc ''debug output'');
         options.SessionLogLevel = lib.mkOption {
           type = lib.types.int;
           default = 6;
           example = 6;
-          description = "Debug output level";
+          description = lib.mdDoc ''Debug output level'';
         };
       };
     };
@@ -179,17 +182,17 @@ in
       # system's 'su' configuration and can be adjusted freely according
       # to administrative needs on the system.
 
-      auth       include       su
-      account    include       su
-      password   include       su
-      session    include       su
+      auth     include su
+      account  include su
+      password include su
+      session  include su
     '';
 
     security.pam.services.nxlimits.text = ''
       # This is a default PAM configuration for NoMachine.
       # Used to obtain nx user and nxhtd user limits.
 
-      session   optional pam_limits.so
+      session optional pam_limits.so
     '';
 
     environment.etc = {
@@ -329,3 +332,4 @@ in
     };
   };
 }
+

@@ -15,6 +15,10 @@
     {
       "class": "Google-chrome",
       "command": "google-chrome-stable"
+    },
+    {
+      "class": "Brave-browser",
+      "command": "brave"
     }
   ],
   "window_swallow_criteria": {},

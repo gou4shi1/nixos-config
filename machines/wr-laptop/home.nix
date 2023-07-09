@@ -3,7 +3,8 @@
 let
   cfg = config.mynix;
 
-in {
+in
+{
   home-manager.users."${cfg.mainUser}" = {
     imports = [
       ../../home/services/flameshot
@@ -11,7 +12,11 @@ in {
     ];
 
     home.packages = with pkgs; [
-      zoom-us feishu nomachine dbeaver
+      brave
+      zoom-us
+      feishu
+      nomachine
+      dbeaver
     ];
 
     programs.git = {

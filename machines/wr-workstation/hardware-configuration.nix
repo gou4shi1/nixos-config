@@ -13,18 +13,23 @@ in {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     "${nixos-hardware}/common/pc/ssd"
-    "${nixos-hardware}/common/cpu/intel/cpu-only.nix"
+    "${nixos-hardware}/common/cpu/amd"
     "${nixos-hardware}/common/gpu/nvidia"
   ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
+  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" ];
+  boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
   services.xserver.dpi = 96;
 
-  networking.interfaces.eno1.useDHCP = true;
+  # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
+  # (the default) this is the recommended approach. When using systemd-networkd it's
+  # still possible to use this option, but it's recommended to use it in conjunction
+  # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
+  networking.useDHCP = lib.mkDefault true;
+  # networking.interfaces.enp4s0.useDHCP = lib.mkDefault true;
 
   fileSystems."/" = {
     device = "/dev/disk/by-label/NIXOS-ROOT";
@@ -41,8 +46,8 @@ in {
     fsType = "ext4";
   };
 
-  fileSystems."/media/local_6t" = {
-    device = "/dev/disk/by-label/6T";
+  fileSystems."/media/data" = {
+    device = "/dev/disk/by-label/DATA";
     fsType = "ext4";
   };
 }

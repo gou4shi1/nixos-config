@@ -34,12 +34,8 @@ in {
     fsType = "vfat";
   };
 
-  fileSystems."/media/ubuntu" = {
-    device = "/dev/disk/by-uuid/8eb1aec6-4a38-47ae-aeb2-8e73cd4c9078";
-  };
-
   swapDevices = [
-    { device = "/dev/disk/by-uuid/2638ce59-c2b9-4178-a2da-c3d02d3b3d78"; }
+    { device = "/dev/disk/by-uuid/bb8c8120-b013-420f-a2cf-6e6a70338ef4"; }
   ];
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";

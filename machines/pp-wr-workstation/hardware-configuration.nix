@@ -24,8 +24,6 @@ in {
 
   services.xserver.dpi = 96;
 
-  networking.interfaces.eno1.useDHCP = true;
-
   fileSystems."/" = {
     device = "/dev/disk/by-label/NIXOS-ROOT";
     fsType = "ext4";

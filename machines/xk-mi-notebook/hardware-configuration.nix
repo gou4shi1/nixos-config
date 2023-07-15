@@ -23,8 +23,6 @@ in {
 
   services.xserver.videoDrivers = [ "intel" ];
 
-  networking.interfaces.wlp2s0.useDHCP = true;
-
   fileSystems."/" = {
     device = "/dev/disk/by-label/NIXOS-ROOT";
     fsType = "ext4";

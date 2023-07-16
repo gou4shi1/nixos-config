@@ -7,22 +7,23 @@ let
 in {
   imports = [
     # Temp fix docker+cifs hangs on shutdown.
-    ./kill-all-docker-containers-before-shutdown.nix
+    # ./kill-all-docker-containers-before-shutdown.nix
   ];
-
-  # docker.enableNvidia need this
-  hardware.opengl.driSupport32Bit = usingNvidiaDriver;
-
-  # TODO: change to the new default value: podman
-  virtualisation.oci-containers.backend = "docker";
 
   virtualisation.docker = {
     enable = true;
     enableNvidia = usingNvidiaDriver;
   };
 
+  virtualisation.podman = {
+    enable = true;
+    enableNvidia = usingNvidiaDriver;
+    # Create an alias mapping docker to podman.
+    # dockerCompat = true;
+  };
+
   users.users."${cfg.mainUser}".extraGroups = [ "docker" ];
 
-  # Fix "container error: cgroup subsystem devices not found"
-  systemd.enableUnifiedCgroupHierarchy = !usingNvidiaDriver;
+  # docker.enableNvidia need this
+  hardware.opengl.driSupport32Bit = usingNvidiaDriver;
 }

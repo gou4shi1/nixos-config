@@ -24,6 +24,10 @@ in {
 
   services.xserver.dpi = 96;
 
+  environment.variables = {
+    LIBVA_DRIVER_NAME = "vdpau";
+  };
+
   fileSystems."/" = {
     device = "/dev/disk/by-label/NIXOS-ROOT";
     fsType = "ext4";

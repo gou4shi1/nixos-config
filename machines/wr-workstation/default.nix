@@ -36,6 +36,8 @@ in {
     device = "nodev";
   };
 
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_5;
+
   time.timeZone = "Asia/Shanghai";
   environment.etc."timezone".text = "${config.time.timeZone}\n";
 

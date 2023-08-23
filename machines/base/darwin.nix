@@ -29,7 +29,7 @@ in {
       allowUnfree = true;
       permittedInsecurePackages = [
         "electron-9.4.4"  # For typora.
-        "openssl-1.1.1u"
+        "openssl-1.1.1w"
       ];
     };
     overlays = [

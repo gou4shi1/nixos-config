@@ -95,6 +95,7 @@ in {
       ap = "arc patch --nobranch";
       ac = "arc diff HEAD~ --create";
       au = "arc diff HEAD~ --update";
+      af = "arc lint --apply-patches";
       al = "arc land";
     };
   };

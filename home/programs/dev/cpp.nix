@@ -10,6 +10,8 @@
     ninja
     cmake
     gdb
+    pwndbg
+    gdbgui
     weggli
   ];
 }

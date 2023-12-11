@@ -6,10 +6,12 @@
   ];
 
   # kerberos
-  krb5 = {
+  security.krb5 = {
     enable = true;
-    libdefaults = {
-      dns_canonicalize_hostname = false;
+    settings = {
+      libdefaults = {
+        dns_canonicalize_hostname = false;
+      };
     };
   };
 }

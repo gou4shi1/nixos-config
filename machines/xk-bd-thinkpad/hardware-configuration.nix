@@ -4,7 +4,7 @@
 let
   nixos-hardware = builtins.fetchGit {
     url = "https://github.com/NixOS/nixos-hardware";
-    rev = "e1cbffcf3a8b243fd6be880854fcd0169cd4165e";
+    rev = "c54cf53e022b0b3c1d3b8207aa0f9b194c24f0cf";
   };
 
 in {
@@ -18,6 +18,7 @@ in {
   boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
+  boot.kernelParams = [ "acpi_osi=linux" ];
   boot.extraModulePackages = [ ];
   boot.supportedFilesystems = [ "ntfs" ];
 
@@ -40,6 +41,4 @@ in {
   swapDevices = [
     { device = "/dev/disk/by-label/LINUX-SWAP"; }
   ];
-
-  powerManagement.cpuFreqGovernor = "powersave";
 }

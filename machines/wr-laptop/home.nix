@@ -15,7 +15,6 @@ in
 
     home.packages = with pkgs; [
       lenovo-legion
-      brave
       zoom-us
       feishu
     ];

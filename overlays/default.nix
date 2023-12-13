@@ -5,7 +5,14 @@ let
 
 in {
   vaapiIntel = prev.vaapiIntel.override { enableHybridCodec = true; };
-  feishu = prev.feishu.override { commandLineArgs = "--disable-features=AudioServiceSandbox"; nss = prev.nss_latest; };
+  feishu = prev.feishu.overrideAttrs (old: rec {
+    version = "6.9.16";
+    packageHash = "fe01b99b";
+    src = prev.fetchurl {
+      url = "https://sf3-cn.feishucdn.com/obj/ee-appcenter/${packageHash}/Feishu-linux_x64-${version}.deb";
+      hash = "sha256-+koH6/K0J8KCVaNGIVvmLmPn/Ttyc9WcNAp0f7PLkqg=";
+    };
+  });
   rofi-power = final.callPackage ../pkgs/rofi-power {};
   i3-get-window-criteria = final.callPackage ../pkgs/i3-get-window-criteria {};
   git-fuzzy = final.callPackage ../pkgs/git-fuzzy {};

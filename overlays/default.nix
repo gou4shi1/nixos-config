@@ -24,4 +24,5 @@ in {
   coscli = final.callPackage ../pkgs/coscli {};
   clangd = final.callPackage ../pkgs/clangd {};
   xfconf-helper = final.callPackage ../pkgs/xfconf-helper {};
+  asm-lsp = unstable.asm-lsp;
 }

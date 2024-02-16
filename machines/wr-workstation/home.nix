@@ -15,6 +15,7 @@ in
       ../../home/programs/dev/proto.nix
       ../../home/programs/dev/python.nix
       ../../home/programs/dev/shell.nix
+      ../../home/programs/dev/asm.nix
     ];
 
     home.packages = with pkgs; [

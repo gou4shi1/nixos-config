@@ -26,6 +26,7 @@ in
       dbeaver
       feishu
       coscli
+      leetcode-cli
     ];
 
     programs.git = {

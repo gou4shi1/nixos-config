@@ -25,4 +25,5 @@ in {
   clangd = final.callPackage ../pkgs/clangd {};
   xfconf-helper = final.callPackage ../pkgs/xfconf-helper {};
   asm-lsp = unstable.asm-lsp;
+  leetcode-cli = unstable.leetcode-cli;
 }

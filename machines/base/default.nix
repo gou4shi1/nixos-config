@@ -80,6 +80,7 @@ in {
     man-pages man-pages-posix
     firefox google-chrome gparted
     inetutils dnsutils
+    trashy
   ];
 
   # My TRaceroute: a network diagnostic tool that combines the functionality of traceroute and ping.

@@ -2,6 +2,10 @@ final: prev:
 
 let
   unstable = import <unstable> { config.allowUnfree = true; };
+  nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/fc4f9acb61749a12a7ff7ac4020142b121a5dd25.tar.gz") {
+    nurpkgs = prev;
+    pkgs = prev;
+  };
 
 in {
   vaapiIntel = prev.vaapiIntel.override { enableHybridCodec = true; };
@@ -26,4 +30,5 @@ in {
   xfconf-helper = final.callPackage ../pkgs/xfconf-helper {};
   asm-lsp = unstable.asm-lsp;
   leetcode-cli = unstable.leetcode-cli;
+  wechat-uos = nur.repos.xddxdd.wechat-uos;
 }

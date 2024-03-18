@@ -44,6 +44,7 @@ in {
       allowUnfree = true;
       permittedInsecurePackages = [
         "electron-9.4.4"  # For typora.
+        "electron-19.1.9"  # For wechat.
         "openssl-1.1.1w"
       ];
     };

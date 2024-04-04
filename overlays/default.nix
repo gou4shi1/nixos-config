@@ -1,7 +1,14 @@
 final: prev:
 
 let
-  unstable = import <unstable> { config.allowUnfree = true; };
+  unstable = import <unstable> {
+    config = {
+      allowUnfree = true;
+      permittedInsecurePackages = [
+        "openssl-1.1.1w"
+      ];
+    };
+  };
 
 in {
   vaapiIntel = prev.vaapiIntel.override { enableHybridCodec = true; };
@@ -26,4 +33,7 @@ in {
   xfconf-helper = final.callPackage ../pkgs/xfconf-helper {};
   asm-lsp = unstable.asm-lsp;
   leetcode-cli = unstable.leetcode-cli;
+  wechat-uos = unstable.wechat-uos.override {
+    uosLicense = ../pkgs/wechat-uos/license.tar.gz;
+  };
 }

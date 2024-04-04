@@ -27,6 +27,7 @@ in
       feishu
       coscli
       leetcode-cli
+      wechat-uos
     ];
 
     programs.git = {

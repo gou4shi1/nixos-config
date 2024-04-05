@@ -25,7 +25,6 @@ in
       arcanist
       dbeaver
       feishu
-      coscli
       leetcode-cli
       wechat-uos
     ];

@@ -33,7 +33,7 @@ in {
       enable = true;
       exportConfiguration = true;
 
-      xkbOptions = lib.mkIf cfg.xserver.replace_caps_with_ctrl "ctrl:nocaps";
+      xkb.options = lib.mkIf cfg.xserver.replace_caps_with_ctrl "ctrl:nocaps";
 
       displayManager = {
         lightdm = {
@@ -67,7 +67,7 @@ in {
     hardware.pulseaudio.enable = true;
 
     fonts = {
-      fonts = with pkgs; [
+      packages = with pkgs; [
         # Wenquanyi Micro Hei is a nice-looking Chinese font.
         wqy_microhei
         # JetBrainsMono is a good font for coding, patched with Nerd Fonts.

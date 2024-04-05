@@ -18,7 +18,7 @@ in {
     mynix.zsh.prompt_style = "lean";
 
     home.packages = with pkgs; [
-      debian-hostname zoom-us arcanist dbeaver feishu coscli
+      debian-hostname zoom-us arcanist dbeaver feishu
     ];
 
     programs.git = {

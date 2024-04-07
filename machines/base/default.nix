@@ -101,6 +101,7 @@ in {
     home.username = "${cfg.mainUser}";
 
     imports = [
+      ../../home/programs/bash
       ../../home/programs/zsh
       ../../home/programs/shell-tools
       ../../home/programs/git

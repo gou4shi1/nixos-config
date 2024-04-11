@@ -69,6 +69,11 @@ in {
 
   # List services that you want to enable:
 
+  services.xserver = {
+    # The custom wallpaper can not be placed in $HOME.
+    displayManager.lightdm.background = "/opt/wallpaper.jpg";
+  };
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 

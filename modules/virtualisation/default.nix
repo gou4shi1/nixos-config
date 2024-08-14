@@ -12,18 +12,15 @@ in {
 
   virtualisation.docker = {
     enable = true;
-    enableNvidia = usingNvidiaDriver;
   };
 
   virtualisation.podman = {
     enable = true;
-    enableNvidia = usingNvidiaDriver;
     # Create an alias mapping docker to podman.
     # dockerCompat = true;
   };
 
   users.users."${cfg.mainUser}".extraGroups = [ "docker" ];
 
-  # docker.enableNvidia need this
-  hardware.opengl.driSupport32Bit = usingNvidiaDriver;
+  hardware.nvidia-container-toolkit.enable = usingNvidiaDriver;
 }

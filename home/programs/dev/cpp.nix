@@ -2,8 +2,8 @@
 
 {
   home.packages = with pkgs; [
-    clang_16
-    clang-tools_16
+    clang
+    clang-tools
     clangd
     pkg-config
     gnumake

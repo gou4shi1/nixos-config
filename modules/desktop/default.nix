@@ -40,7 +40,6 @@ in {
           enable = true;
           greeters.enso.enable = true;
         };
-        defaultSession = "xfce+i3";
       };
 
       desktopManager.xfce = {
@@ -59,9 +58,11 @@ in {
         ];
         configFile = ./i3.config;
       };
-
-      libinput.touchpad.disableWhileTyping = true;
     };
+
+    services.displayManager.defaultSession = "xfce+i3";
+
+    services.libinput.touchpad.disableWhileTyping = true;
 
     sound.enable = true;
     hardware.pulseaudio.enable = true;

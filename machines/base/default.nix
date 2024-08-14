@@ -60,7 +60,7 @@ in {
 
   # SSH
   services.openssh = {
-    enable = true;
+    enable = lib.mkDefault (machineType == "workstation");
     settings = {
       X11Forwarding = true;
     };

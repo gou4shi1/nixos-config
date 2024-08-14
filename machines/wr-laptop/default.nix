@@ -21,14 +21,8 @@ in {
     substituters = [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" ];
   };
 
-  boot.loader.systemd-boot.enable = false;
-  boot.loader.efi.canTouchEfiVariables = false;
-  boot.loader.grub = {
-    enable = true;
-    efiSupport = true;
-    efiInstallAsRemovable = true;
-    device = "nodev";
-  };
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
   time.timeZone = "Asia/Shanghai";
 
@@ -61,15 +55,21 @@ in {
   # List services that you want to enable:
 
   services.xserver = {
-    # Disable the tap-to-click behavior.
-    libinput.touchpad.tapping = false;
-
     # The custom wallpaper can not be placed in $HOME.
     displayManager.lightdm.background = "/opt/wallpaper.jpg";
   };
 
+  # Enable Bluetooth.
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = false;
+  };
+  services.blueman.enable = true;
+
+  programs.steam.enable = true;
+
   # Enable CUPS to print documents.
-  # services.printing.enable = true;
+  services.printing.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

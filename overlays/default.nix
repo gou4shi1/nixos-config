@@ -24,4 +24,7 @@ in {
   wechat-uos = unstable.wechat-uos.override {
     uosLicense = ../pkgs/wechat-uos/license.tar.gz;
   };
+  lenovo-legion-module = prev.linuxPackages.lenovo-legion-module.overrideAttrs (old: {
+    patches = [ ../pkgs/lenovo-legion-module/y9000p2024.diff ];
+  });
 }

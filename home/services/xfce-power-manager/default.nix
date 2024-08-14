@@ -1,4 +1,4 @@
-{ machineType, ... }:
+{ lib, machineType, ... }:
 
 let
   workstationConf = {
@@ -14,6 +14,7 @@ let
   };
   laptopConf = {
     "xfce4-power-manager/battery-button-action" = { type = "uint"; value = 3; };
+    "xfce4-power-manager/blank-on-ac" = 10;
     "xfce4-power-manager/blank-on-battery" = 5;
     "xfce4-power-manager/brightness-on-ac" = { type = "uint"; value = 120; };
     "xfce4-power-manager/brightness-on-battery" = { type = "uint"; value = 120; };
@@ -47,6 +48,7 @@ in
       # If late-locking is true, light-locker will lock the session when the screensaver is deactivated.
       # If it's false, light-locker will lock the session when the screensaver is activated.
       late-locking = false;
+      lock-after-screensaver = lib.gvariant.mkUint32 3;
       lock-on-suspend = false;
     };
   };

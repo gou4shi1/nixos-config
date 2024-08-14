@@ -8,6 +8,7 @@ in
   home-manager.users."${cfg.mainUser}" = {
     imports = [
       ../../home/services/flameshot
+      ../../home/programs/dev/cpp.nix
       ../../home/programs/dev/python.nix
       ../../home/programs/dev/shell.nix
     ];

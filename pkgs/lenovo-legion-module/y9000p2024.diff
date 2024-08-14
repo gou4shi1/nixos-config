@@ -1,0 +1,31 @@
+diff --git a/legion-laptop.c b/legion-laptop.c
+index cf9137b..4feebe3 100644
+--- a/legion-laptop.c
++++ b/legion-laptop.c
+@@ -528,7 +528,7 @@ static const struct model_config model_bhcn = {
+ 	.ramio_size = 0x600
+ };
+ 
+-static const struct model_config model_kwcn = {
++static const struct model_config model_n0cn = {
+ 	.registers = &ec_register_offsets_v0,
+ 	.check_embedded_controller_id = true,
+ 	.embedded_controller_id = 0x5507,
+@@ -1133,13 +1133,13 @@ static const struct dmi_system_id optimistic_allowlist[] = {
+ 		.driver_data = (void *)&model_8jcn
+ 	},
+ 	{
+-		// e.g. Legion 7i Pro 2023
+-		.ident = "KWCN",
++		// e.g. Legion Y9000P 2024
++		.ident = "N0CN",
+ 		.matches = {
+ 			DMI_MATCH(DMI_SYS_VENDOR, "LENOVO"),
+-			DMI_MATCH(DMI_BIOS_VERSION, "KWCN"),
++			DMI_MATCH(DMI_BIOS_VERSION, "N0CN"),
+ 		},
+-		.driver_data = (void *)&model_kwcn
++		.driver_data = (void *)&model_n0cn
+ 	},
+ 	{
+ 		// e.g. Legion 5 15IMH6

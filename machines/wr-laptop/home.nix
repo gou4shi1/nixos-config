@@ -8,15 +8,15 @@ in
   home-manager.users."${cfg.mainUser}" = {
     imports = [
       ../../home/services/flameshot
+      ../../home/programs/dev/python.nix
       ../../home/programs/dev/shell.nix
     ];
 
     home.packages = with pkgs; [
+      lenovo-legion
       brave
       zoom-us
       feishu
-      nomachine
-      dbeaver
     ];
 
     programs.git = {

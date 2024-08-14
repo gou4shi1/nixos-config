@@ -4,7 +4,7 @@
 let
   nixos-hardware = builtins.fetchGit {
     url = "https://github.com/NixOS/nixos-hardware";
-    rev = "e1cbffcf3a8b243fd6be880854fcd0169cd4165e";
+    rev = "c54cf53e022b0b3c1d3b8207aa0f9b194c24f0cf";
   };
 
 in {
@@ -13,30 +13,57 @@ in {
     "${nixos-hardware}/common/pc/laptop"
     "${nixos-hardware}/common/pc/laptop/ssd"
     "${nixos-hardware}/common/cpu/intel/cpu-only.nix"
-    "${nixos-hardware}/common/gpu/intel"
+    "${nixos-hardware}/common/gpu/nvidia"
   ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
+  boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
-  boot.extraModulePackages = [ ];
-  boot.blacklistedKernelModules = [ "bluetooth" "btusb" ];
+  boot.kernelParams = [ "acpi_osi=linux" "acpi_backlight=video" ];
+  boot.extraModulePackages = [ pkgs.lenovo-legion-module ];
 
-  services.xserver.videoDrivers = [ "intel" ];
-
-  fileSystems."/" = {
-    device = "/dev/disk/by-uuid/751482e7-69a9-4bf5-8251-ee32657c789a";
-    fsType = "ext4";
+  hardware.nvidia = {
+    dynamicBoost.enable = true;
+    powerManagement.enable = true;
+    prime = {
+      offload = {
+        enable = true;
+        enableOffloadCmd = true;
+      };
+      intelBusId = "PCI:0:2:0";
+      nvidiaBusId = "PCI:1:0:0";
+    };
   };
 
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/772D-67D0";
-    fsType = "vfat";
+  services.xserver.dpi = 120;
+
+  specialisation = {
+    clamshell.configuration = {
+      system.nixos.tags = [ "clamshell" ];
+
+      hardware.nvidia.prime = {
+        offload.enable = lib.mkForce false;
+        offload.enableOffloadCmd = lib.mkForce false;
+        sync.enable = lib.mkForce true;
+      };
+
+      services.upower.ignoreLid = true;
+      services.logind.lidSwitchExternalPower = "ignore";
+
+      services.xserver.dpi = lib.mkForce 96;
+
+      systemd.user.services.gpclient.enable = lib.mkForce false;
+    };
   };
 
-  swapDevices = [
-    { device = "/dev/disk/by-uuid/bb8c8120-b013-420f-a2cf-6e6a70338ef4"; }
-  ];
+  fileSystems."/" =
+    { device = "/dev/disk/by-uuid/a2e375fe-4c80-4431-adbc-51f4d2c54586";
+      fsType = "ext4";
+    };
 
-  powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/3186-A521";
+      fsType = "vfat";
+      options = [ "fmask=0022" "dmask=0022" ];
+    };
 }

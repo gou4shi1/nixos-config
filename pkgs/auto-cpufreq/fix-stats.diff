@@ -1,0 +1,21 @@
+diff --git a/auto_cpufreq/battery_scripts/battery.py b/auto_cpufreq/battery_scripts/battery.py
+index 6f7294b..a40a48d 100644
+--- a/auto_cpufreq/battery_scripts/battery.py
++++ b/auto_cpufreq/battery_scripts/battery.py
+@@ -31,15 +31,4 @@ def battery_setup():
+ 
+ 
+ def battery_get_thresholds():
+-
+-    if lsmod("thinkpad_acpi"):
+-        thinkpad_print_thresholds()
+-
+-    elif lsmod("ideapad_acpi"):
+-        ideapad_acpi_print_thresholds()
+-
+-    elif lsmod("ideapad_laptop"):
+-        ideapad_laptop_print_thresholds()
+-
+-    else:
+-        return
++    return

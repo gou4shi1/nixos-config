@@ -27,4 +27,7 @@ in {
   lenovo-legion-module = prev.linuxPackages.lenovo-legion-module.overrideAttrs (old: {
     patches = [ ../pkgs/lenovo-legion-module/y9000p2024.diff ];
   });
+  auto-cpufreq = prev.auto-cpufreq.overrideAttrs (old: {
+    patches = old.patches ++ [ ../pkgs/auto-cpufreq/fix-stats.diff ];
+  });
 }

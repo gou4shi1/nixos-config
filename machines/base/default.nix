@@ -55,8 +55,9 @@ in {
   # To install documentation targeted at developers.
   documentation.dev.enable = true;
 
-  # Enable the temperature management daemon.
-  services.thermald.enable = true;
+  # Automatic CPU speed & power optimizer.
+  services.auto-cpufreq.enable = true;
+  systemd.services.auto-cpufreq.path = with pkgs; [ getent ];
 
   # SSH
   services.openssh = {

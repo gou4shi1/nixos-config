@@ -23,9 +23,10 @@ in {
         server = false;
       });
       xserver = {
-        replace_caps_with_ctrl = lib.mkDefault (cfg.machineType == "laptop");
+        replace_caps_with_ctrl = mkDefault (cfg.machineType == "laptop");
         i3_show_battery = (cfg.machineType == "laptop");
       };
+      bluetooth = mkDefault (cfg.machineType == "laptop");
     };
   };
 }

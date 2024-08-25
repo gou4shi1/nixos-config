@@ -63,13 +63,6 @@ in {
   services.fprintd.enable = true;
   security.pam.services.login.fprintAuth = true;
 
-  # Enable Bluetooth.
-  hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = false;
-  };
-  services.blueman.enable = true;
-
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 

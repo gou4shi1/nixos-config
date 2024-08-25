@@ -59,13 +59,6 @@ in {
     displayManager.lightdm.background = "/opt/wallpaper.jpg";
   };
 
-  # Enable Bluetooth.
-  hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = false;
-  };
-  services.blueman.enable = true;
-
   programs.steam.enable = true;
 
   # Enable CUPS to print documents.

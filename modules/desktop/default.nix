@@ -26,6 +26,7 @@ in {
       description = "Wrapper of xserver related configurations.";
       type = types.submodule xserverOptions;
     };
+    bluetooth = mkEnableOption "Enable Bluetooth";
   };
 
   config = lib.mkIf cfg.enable {
@@ -66,6 +67,12 @@ in {
 
     sound.enable = true;
     hardware.pulseaudio.enable = true;
+
+    hardware.bluetooth = {
+      enable = cfg.bluetooth;
+      powerOnBoot = false;
+    };
+    services.blueman.enable = cfg.bluetooth;
 
     fonts = {
       packages = with pkgs; [

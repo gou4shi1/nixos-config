@@ -115,13 +115,14 @@ in {
       ../../home/i18n/input-method/fcitx
       ../../home/programs/i3
       ../../home/programs/tilix
+      ../../home/programs/kitty
       ../../home/programs/office
     ];
   };
 
   environment = {
     sessionVariables = {
-      TERMINAL = [ "tilix" ];
+      TERMINAL = [ "kitty" ];
     };
     variables = {
       EDITOR = "vim";

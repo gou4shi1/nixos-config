@@ -16,11 +16,5 @@ in {
     home.sessionPath = [
       "$HOME/.local/bin"
     ];
-
-    programs.zsh = {
-      shellAliases = {
-        rg = "rg -S";
-      };
-    };
   };
 }

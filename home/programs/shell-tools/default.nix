@@ -7,6 +7,12 @@ in {
     ripgrep highlight bfs lnav
   ];
 
+  programs.zsh = {
+    shellAliases = {
+      rg = "rg -S --hyperlink-format=kitty";
+    };
+  };
+
   programs.direnv = {
     enable = true;
     nix-direnv = {

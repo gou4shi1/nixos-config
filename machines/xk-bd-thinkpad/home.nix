@@ -20,12 +20,6 @@ in {
       "$HOME/.local/bin"
     ];
 
-    programs.zsh = {
-      shellAliases = {
-        rg = "rg -S";
-      };
-    };
-
     # Add japanese input method.
     i18n.inputMethod.fcitx5.addons = with pkgs; [ fcitx5-mozc ];
     xdg.configFile."fcitx5/profile".source = ./fcitx-profile;

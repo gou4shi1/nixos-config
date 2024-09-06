@@ -2,6 +2,7 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 let
+  cfg = config.mynix;
   nixos-hardware = builtins.fetchGit {
     url = "https://github.com/NixOS/nixos-hardware";
     rev = "c54cf53e022b0b3c1d3b8207aa0f9b194c24f0cf";
@@ -58,6 +59,10 @@ in {
       services.logind.lidSwitchExternalPower = "ignore";
 
       services.xserver.dpi = lib.mkForce 96;
+
+      home-manager.users."${cfg.mainUser}" = {
+        programs.kitty.font.size = lib.mkForce 13;
+      };
 
       systemd.user.services.gpclient.enable = lib.mkForce false;
     };

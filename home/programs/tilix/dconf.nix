@@ -44,9 +44,9 @@ in {
       cursor-shape = "block";
       dim-transparency-percent = 10;
       font = lib.mkDefault "Monospace 13";
-      foreground-color = "#839496";
+      foreground-color = "#93a1a1";
       highlight-colors-set = false;
-      palette = [ "#073642" "#DC322F" "#859900" "#B58900" "#268BD2" "#D33682" "#2AA198" "#EEE8D5" "#002B36" "#CB4B16" "#586E75" "#657B83" "#839496" "#6C71C4" "#93A1A1" "#FDF6E3" ];
+      palette = [ "#002b36" "#dc322f" "#859900" "#b58900" "#268bd2" "#6c71c4" "#2aa198" "#93a1a1" "#657b83" "#dc322f" "#859900" "#b58900" "#268bd2" "#6c71c4" "#2aa198" "#fdf6e3" ];
       scrollback-unlimited = true;
       select-by-word-chars="-./?%&#_~";
       terminal-bell = "sound";

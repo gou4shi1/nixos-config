@@ -9,6 +9,10 @@
       "command": "tilix"
     },
     {
+      "class": "kitty",
+      "command": "kitty"
+    },
+    {
       "class": "firefox",
       "command": "firefox"
     },
@@ -24,6 +28,7 @@
   "window_swallow_criteria": {},
   "terminals": [
     "Gnome-terminal",
-    "Tilix"
+    "Tilix",
+    "kitty"
   ]
 }

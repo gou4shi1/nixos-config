@@ -50,6 +50,10 @@ in {
         enableScreensaver = false;
       };
 
+      desktopManager.wallpaper = {
+        mode = "fill";
+      };
+
       windowManager.i3 = {
         enable = true;
         extraPackages = with pkgs; [
@@ -62,6 +66,24 @@ in {
     };
 
     services.displayManager.defaultSession = "xfce+i3";
+
+    # Use picom as the X.org composite manager.
+    services.picom = {
+      enable = true;
+      backend = "glx";
+      fade = true;
+      fadeDelta = 5;
+      fadeExclude = [
+        "name *= 'Fcitx'"
+        "name *= 'rofi'"
+      ];
+      settings = {
+        transparent-clipping = true;
+        transparent-clipping-exclude = [
+          "window_type *= 'menu'"
+        ];
+      };
+    };
 
     services.libinput.touchpad.disableWhileTyping = true;
 

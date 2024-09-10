@@ -32,11 +32,9 @@ in {
       color13 = "#6c71c4";
       color14 = "#2aa198";
       color15 = "#fdf6e3";
-      # background image
-      background_image = "/opt/terminal-wallpaper.jpg";
-      background_image_layout = "cscaled";
-      background_opacity = "0.2";
-      background_tint = "0.3";
+      # background opacity
+      background_opacity = "0.7";
+      dynamic_background_opacity = "yes";
       # windows
       enabled_layouts = "tall,fat,grid,horizontal,vertical";
       inactive_text_alpha = "0.9";

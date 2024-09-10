@@ -58,7 +58,10 @@ in {
       services.upower.ignoreLid = true;
       services.logind.lidSwitchExternalPower = "ignore";
 
-      services.xserver.dpi = lib.mkForce 96;
+      services.xserver = {
+        dpi = lib.mkForce 96;
+        desktopManager.wallpaper.mode = lib.mkForce "tile";
+      };
 
       home-manager.users."${cfg.mainUser}" = {
         programs.kitty.font.size = lib.mkForce 13;

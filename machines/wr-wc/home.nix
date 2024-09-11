@@ -57,6 +57,8 @@
 
   home.sessionPath = [
     "/opt/phacility/arcanist/bin"
+    "/home/guangqing-chen/.local/bin"
+    "/home/guangqing-chen/go/bin"
   ];
 
   programs.zsh = {

@@ -15,7 +15,6 @@ in {
     ./hidpi.nix
     ./i3-status.nix
     ./rofi-config.nix
-    ./session-locker.nix
     ./warpd.nix
     ./nomachine.nix
   ];
@@ -47,7 +46,6 @@ in {
         enable = true;
         noDesktop = true;
         enableXfwm = false;
-        enableScreensaver = false;
       };
 
       desktopManager.wallpaper = {

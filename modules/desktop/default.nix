@@ -10,6 +10,8 @@ let
     };
   };
 
+  usingNvidiaDriver = builtins.elem "nvidia" config.services.xserver.videoDrivers;
+
 in {
   imports = [
     ./hidpi.nix
@@ -67,7 +69,7 @@ in {
 
     # Use picom as the X.org composite manager.
     services.picom = {
-      enable = true;
+      enable = usingNvidiaDriver;
       backend = "glx";
       fade = true;
       fadeDelta = 5;

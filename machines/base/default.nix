@@ -79,7 +79,7 @@ in {
   environment.systemPackages = with pkgs; [
     git wget zip unzip file tree htop-vim vimHugeX
     man-pages man-pages-posix
-    firefox google-chrome gparted
+    firefox google-chrome brave gparted
     inetutils dnsutils
     trashy
   ];
@@ -122,7 +122,7 @@ in {
 
   environment = {
     sessionVariables = {
-      TERMINAL = [ "kitty" ];
+      TERMINAL = lib.mkDefault [ "kitty" ];
     };
     variables = {
       EDITOR = "vim";

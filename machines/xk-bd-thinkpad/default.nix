@@ -45,6 +45,12 @@ in {
   #   openconnect
   # ];
 
+  environment = {
+    sessionVariables = {
+      TERMINAL = [ "tilix" ];
+    };
+  };
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.gnupg.agent = {
@@ -54,10 +60,12 @@ in {
 
   # List services that you want to enable:
 
-  # The custom wallpaper can not be placed in $HOME.
-  # services.xserver.displayManager.lightdm.background = "/opt/wallpaper.jpg";
+  services.xserver = {
+    # The custom wallpaper can not be placed in $HOME.
+    displayManager.lightdm.background = "/opt/wallpaper.jpg";
+  };
 
-  services.xserver.libinput.touchpad.naturalScrolling = true;
+  services.libinput.touchpad.naturalScrolling = true;
 
   # Enable FingerPrint.
   services.fprintd.enable = true;

@@ -19,11 +19,10 @@ in
     ];
 
     home.packages = with pkgs; [
-      brave
       debian-hostname
       zoom-us
       arcanist
-      dbeaver
+      dbeaver-bin
       feishu
       leetcode-cli
       wechat-uos

@@ -4,7 +4,7 @@ let
 
 in {
   home.packages = with pkgs; [
-    ripgrep highlight bfs lnav
+    ripgrep highlight bfs lnav pokeget-rs
   ];
 
   programs.zsh = {

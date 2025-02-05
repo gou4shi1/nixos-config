@@ -89,6 +89,7 @@ in {
       # Vim
       v = "vim";
       gv = "gvim";
+      nv = "nvim";
       # VCS
       origin = "git fetch origin $(current_branch) && git reset --hard origin/$(current_branch)";
       lg = "lazygit";

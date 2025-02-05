@@ -4,14 +4,15 @@ let
 
 in {
   home.packages = with pkgs; [
-    pack # A plugins manager.
+    neovim
+    lua-language-server
     nodejs # For CoC.
+    typos # A source code spell checker.
     universal-ctags # A maintained ctags implementation.
     global # Gtags, a global source code tagging system.
-    typos # A source code spell checker.
   ] ++ (if stdenv.isDarwin then [ vim-darwin ] else [ vimHugeX ]);
 
   home.sessionVariables = {
-    EDITOR = "vim";
+    EDITOR = "nvim";
   };
 }

@@ -17,7 +17,7 @@
       pull.rebase = true;
     };
     aliases = {
-      edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`";
+      edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; nvim `f`";
     };
     lfs = {
       enable = true;

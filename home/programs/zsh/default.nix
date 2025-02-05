@@ -19,6 +19,10 @@ in {
     CMAKE_EXPORT_COMPILE_COMMANDS = "ON";
   };
 
+  home.sessionPath = [
+    "$HOME/.local/bin"
+  ];
+
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -87,7 +91,7 @@ in {
     '';
     shellAliases = {
       # Vim
-      v = "vim";
+      v = "nvim";
       gv = "gvim";
       # VCS
       origin = "git fetch origin $(current_branch) && git reset --hard origin/$(current_branch)";

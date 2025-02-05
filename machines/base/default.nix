@@ -79,7 +79,7 @@ in {
   };
 
   environment.systemPackages = with pkgs; [
-    git wget zip unzip file tree htop-vim vimHugeX
+    git wget zip unzip file tree htop-vim vimHugeX xclip
     man-pages man-pages-posix
     firefox google-chrome brave gparted
     inetutils dnsutils

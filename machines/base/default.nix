@@ -7,7 +7,7 @@ let
 
   home-manager = builtins.fetchGit {
     url = "https://github.com/nix-community/home-manager";
-    ref = "release-24.05";
+    ref = "release-24.11";
   };
 
   power-manager-config = import ../../home/services/xfce-power-manager { inherit lib machineType; };
@@ -96,7 +96,7 @@ in {
   home-manager.useGlobalPkgs = true;
 
   home-manager.users."${cfg.mainUser}" = {
-    home.stateVersion = "24.05";
+    home.stateVersion = "24.11";
 
     home.homeDirectory = "/home/${cfg.mainUser}";
     home.username = "${cfg.mainUser}";

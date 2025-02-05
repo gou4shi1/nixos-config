@@ -23,6 +23,10 @@
     {
       "class": "Brave-browser",
       "command": "brave"
+    },
+    {
+      "class": "Bytedance-feishu",
+      "command": "bytedance-feishu"
     }
   ],
   "window_swallow_criteria": {},

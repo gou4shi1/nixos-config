@@ -5,7 +5,7 @@ let
   cfg = config.mynix;
   nixos-hardware = builtins.fetchGit {
     url = "https://github.com/NixOS/nixos-hardware";
-    rev = "c54cf53e022b0b3c1d3b8207aa0f9b194c24f0cf";
+    rev = "de6fc5551121c59c01e2a3d45b277a6d05077bc4";
   };
 
 in {
@@ -33,14 +33,7 @@ in {
       intelBusId = "PCI:0:2:0";
       nvidiaBusId = "PCI:1:0:0";
     };
-    package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
-      version = "550.107.02";
-      sha256_64bit = "sha256-+XwcpN8wYCjYjHrtYx+oBhtVxXxMI02FO1ddjM5sAWg=";
-      sha256_aarch64 = "sha256-mVEeFWHOFyhl3TGx1xy5EhnIS/nRMooQ3+LdyGe69TQ=";
-      openSha256 = "sha256-Po+pASZdBaNDeu5h8sgYgP9YyFAm9ywf/8iyyAaLm+w=";
-      settingsSha256 = "sha256-WFZhQZB6zL9d5MUChl2kCKQ1q9SgD0JlP4CMXEwp2jE=";
-      persistencedSha256 = "sha256-Vz33gNYapQ4++hMqH3zBB4MyjxLxwasvLzUJsCcyY4k=";
-    };
+    package = config.boot.kernelPackages.nvidiaPackages.production;
   };
 
   services.xserver.dpi = 120;

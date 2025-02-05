@@ -87,8 +87,10 @@ in {
 
     services.libinput.touchpad.disableWhileTyping = true;
 
-    sound.enable = true;
-    hardware.pulseaudio.enable = true;
+    services.pipewire = {
+      enable = true;
+      pulse.enable = true;
+    };
 
     hardware.bluetooth = {
       enable = cfg.bluetooth;

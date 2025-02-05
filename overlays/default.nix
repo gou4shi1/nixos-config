@@ -29,4 +29,5 @@ in {
   auto-cpufreq = prev.auto-cpufreq.overrideAttrs (old: {
     patches = old.patches ++ [ ../pkgs/auto-cpufreq/fix-stats.diff ];
   });
+  neovim = unstable.neovim;
 }

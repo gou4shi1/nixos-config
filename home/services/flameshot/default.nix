@@ -5,7 +5,6 @@
     enable = true;
     settings = {
       General = {
-        checkForUpdates = false;
         disabledTrayIcon = true;
         showHelp = false;
         showStartupLaunchMessage = false;

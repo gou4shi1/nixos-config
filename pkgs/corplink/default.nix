@@ -55,6 +55,7 @@ let
       xorg.libXrandr
       xorg.libxcb
       libglvnd
+      mesa
       mesa.drivers
       alsa-lib
       glib

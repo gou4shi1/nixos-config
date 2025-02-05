@@ -11,6 +11,7 @@ let
   };
 
 in {
+  openssh = prev.openssh_gssapi;
   intel-vaapi-driver = prev.intel-vaapi-driver.override { enableHybridCodec = true; };
   rofi-power = final.callPackage ../pkgs/rofi-power {};
   i3-get-window-criteria = final.callPackage ../pkgs/i3-get-window-criteria {};
@@ -22,9 +23,6 @@ in {
   clangd = final.callPackage ../pkgs/clangd {};
   xfconf-helper = final.callPackage ../pkgs/xfconf-helper {};
   corplink = final.callPackage ../pkgs/corplink {};
-  wechat-uos = unstable.wechat-uos.override {
-    uosLicense = ../pkgs/wechat-uos/license.tar.gz;
-  };
   lenovo-legion-module = prev.linuxPackages.lenovo-legion-module.overrideAttrs (old: {
     patches = [ ../pkgs/lenovo-legion-module/y9000p2024.diff ];
   });

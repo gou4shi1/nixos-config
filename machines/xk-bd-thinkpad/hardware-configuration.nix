@@ -4,7 +4,7 @@
 let
   nixos-hardware = builtins.fetchGit {
     url = "https://github.com/NixOS/nixos-hardware";
-    rev = "c54cf53e022b0b3c1d3b8207aa0f9b194c24f0cf";
+    rev = "de6fc5551121c59c01e2a3d45b277a6d05077bc4";
   };
 
 in {
@@ -23,7 +23,6 @@ in {
   boot.supportedFilesystems = [ "ntfs" ];
 
   services.xserver.dpi = 192;
-  services.xserver.videoDrivers = [ "intel" ];
 
   # Enable the temperature management daemon for fanless laptop.
   services.thermald.enable = true;

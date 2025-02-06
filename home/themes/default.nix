@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, dpi, ... }:
 
 {
   gtk = {
@@ -16,5 +16,6 @@
   xfconf.settings.xsettings = {
     "Net/ThemeName" = "Juno";
     "Net/IconThemeName" = "BeautyLine";
+    "Xft/DPI" = dpi;
   };
 }

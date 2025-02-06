@@ -56,10 +56,6 @@ in {
         desktopManager.wallpaper.mode = lib.mkForce "tile";
       };
 
-      home-manager.users."${cfg.mainUser}" = {
-        programs.kitty.font.size = lib.mkForce 13;
-      };
-
       systemd.user.services.gpclient.enable = lib.mkForce false;
     };
   };

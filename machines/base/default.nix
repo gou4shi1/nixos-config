@@ -4,6 +4,7 @@ let
   cfg = config.mynix;
   machineType = cfg.machineType;
   enableDesktop = cfg.desktop.enable;
+  dpi = config.services.xserver.dpi;
 
   home-manager = builtins.fetchGit {
     url = "https://github.com/nix-community/home-manager";
@@ -11,6 +12,7 @@ let
   };
 
   power-manager-config = import ../../home/services/xfce-power-manager { inherit lib machineType; };
+  theme-config = import ../../home/themes { inherit pkgs dpi; };
 
 in {
   imports = [
@@ -110,8 +112,8 @@ in {
       ../../home/programs/dev/nix.nix
     ] ++ lib.optionals enableDesktop [
       power-manager-config
+      theme-config
       ../../home/services/xfce-session
-      ../../home/themes
       ../../home/i18n/input-method/fcitx
       ../../home/programs/i3
       ../../home/programs/tilix

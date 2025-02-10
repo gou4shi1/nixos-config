@@ -17,6 +17,7 @@ in
       lenovo-legion
       zoom-us
       feishu
+      wechat-uos
     ];
 
     programs.git = {

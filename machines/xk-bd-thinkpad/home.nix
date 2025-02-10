@@ -13,7 +13,7 @@ in {
     ];
 
     home.packages = with pkgs; [
-      python3 feishu dbeaver-bin openssl nmap marktext mpv
+      python3 feishu dbeaver-bin openssl nmap marktext mpv wechat-uos
     ];
 
     home.sessionPath = [

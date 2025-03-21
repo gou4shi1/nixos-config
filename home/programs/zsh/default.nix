@@ -93,10 +93,9 @@ in {
       origin = "git fetch origin $(current_branch) && git reset --hard origin/$(current_branch)";
       lg = "lazygit";
       ap = "arc patch --nobranch";
-      ac = "arc diff HEAD~ --create";
-      au = "arc diff HEAD~ --update";
+      ac = "arc diff --nounit HEAD~ --create";
+      au = "arc diff --nounit HEAD~ --update";
       af = "arc lint --apply-patches";
-      al = "arc land";
     };
   };
 }

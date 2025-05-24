@@ -23,6 +23,7 @@ in {
   clangd = final.callPackage ../pkgs/clangd {};
   xfconf-helper = final.callPackage ../pkgs/xfconf-helper {};
   corplink = final.callPackage ../pkgs/corplink {};
+  sync-clipboard = final.callPackage ../pkgs/sync-clipboard {};
   lenovo-legion-module = prev.linuxPackages.lenovo-legion-module.overrideAttrs (old: {
     patches = [ ../pkgs/lenovo-legion-module/y9000p2024.diff ];
   });

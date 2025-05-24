@@ -18,6 +18,8 @@ in
       zoom-us
       feishu
       wechat-uos
+      moonlight-qt
+      sync-clipboard
     ];
 
     programs.git = {

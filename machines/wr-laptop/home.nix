@@ -18,6 +18,8 @@ in
       zoom-us
       feishu
       wechat-uos
+      nomachine-client
+      sync-clipboard
     ];
 
     programs.git = {

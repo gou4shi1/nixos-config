@@ -69,7 +69,7 @@ in {
 
     # Use picom as the X.org composite manager.
     services.picom = {
-      enable = usingNvidiaDriver;
+      enable = true;
       backend = "glx";
       fade = true;
       fadeDelta = 5;
@@ -124,7 +124,7 @@ in {
     };
 
     environment.systemPackages = with pkgs; [
-      xfconf-helper
+      xfconf-helper feh
     ];
 
     services.udev.packages = with pkgs; [

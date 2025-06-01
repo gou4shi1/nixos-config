@@ -6,8 +6,8 @@ in {
   programs.kitty = {
     enable = true;
     font = {
-      name = "monospace";
-      size = 13;
+      name = lib.mkDefault "monospace";
+      size = lib.mkDefault 13;
     };
     shellIntegration.mode = "no-complete";
     settings = {

@@ -24,6 +24,13 @@ in {
     i18n.inputMethod.fcitx5.addons = with pkgs; [ fcitx5-mozc ];
     xdg.configFile."fcitx5/profile".source = ./fcitx-profile;
 
+    programs.kitty = {
+      font = {
+        name = "Mononoki Nerd Font";
+        size = 15;
+      };
+    };
+
     dconf.settings = {
       "com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d" = {
         font = "Mononoki Nerd Font 15";

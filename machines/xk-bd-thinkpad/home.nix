@@ -22,7 +22,7 @@ in {
 
     # Add japanese input method.
     i18n.inputMethod.fcitx5.addons = with pkgs; [ fcitx5-mozc ];
-    xdg.configFile."fcitx5/profile".source = ./fcitx-profile;
+    xdg.configFile."fcitx5/profile".enable = false;
 
     programs.kitty = {
       font = {

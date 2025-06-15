@@ -124,7 +124,7 @@ in {
     };
 
     environment.systemPackages = with pkgs; [
-      xfconf-helper feh
+      xfconf-helper feh smplayer mpv
     ];
 
     services.udev.packages = with pkgs; [

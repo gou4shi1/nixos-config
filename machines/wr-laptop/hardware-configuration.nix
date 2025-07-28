@@ -51,10 +51,7 @@ in {
       services.upower.ignoreLid = true;
       services.logind.lidSwitchExternalPower = "ignore";
 
-      services.xserver = {
-        dpi = lib.mkForce 96;
-        desktopManager.wallpaper.mode = lib.mkForce "tile";
-      };
+      services.xserver.dpi = lib.mkForce 96;
 
       systemd.user.services.gpclient.enable = lib.mkForce false;
     };

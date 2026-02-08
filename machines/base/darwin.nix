@@ -3,14 +3,9 @@
 let
   cfg = config.mynix;
 
-  home-manager = builtins.fetchGit {
-    url = "https://github.com/nix-community/home-manager";
-    ref = "release-24.11";
-  };
-
 in {
   imports = [
-    "${home-manager}/nix-darwin"
+    <home-manager/nix-darwin>
     ../../modules/users/darwin.nix
   ];
 
@@ -48,7 +43,7 @@ in {
   home-manager.useGlobalPkgs = true;
 
   home-manager.users."${cfg.mainUser}" = {
-    home.stateVersion = "24.11";
+    home.stateVersion = "25.11";
 
     home.homeDirectory = "/home/${cfg.mainUser}";
     home.username = "${cfg.mainUser}";

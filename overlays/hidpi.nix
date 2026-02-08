@@ -3,8 +3,7 @@ dpi: final: prev:
 {
   xfce = prev.xfce // {
     xfce4-settings = prev.xfce.xfce4-settings.overrideAttrs (old: {
-      patches = old.patches or [ ] ++ [(prev.substituteAll {
-        src = ../pkgs/xfce4-settings/hidpi.diff;
+      patches = old.patches or [ ] ++ [(prev.replaceVars ../pkgs/xfce4-settings/hidpi.diff {
         inherit dpi;
       })];
     });

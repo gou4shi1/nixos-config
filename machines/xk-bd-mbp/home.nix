@@ -12,9 +12,5 @@ in {
     home.packages = with pkgs; [
       python3
     ];
-
-    home.sessionPath = [
-      "$HOME/.local/bin"
-    ];
   };
 }

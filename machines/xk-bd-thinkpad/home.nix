@@ -16,10 +16,6 @@ in {
       python3 feishu dbeaver-bin openssl nmap marktext mpv wechat-uos
     ];
 
-    home.sessionPath = [
-      "$HOME/.local/bin"
-    ];
-
     # Add japanese input method.
     i18n.inputMethod.fcitx5.addons = with pkgs; [ fcitx5-mozc ];
     xdg.configFile."fcitx5/profile".enable = false;

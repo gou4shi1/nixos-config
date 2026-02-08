@@ -3,18 +3,9 @@
 # to /etc/nixos/configuration.nix instead.
 { config, lib, pkgs, modulesPath, ... }:
 
-let
-  nixos-hardware = builtins.fetchGit {
-    url = "https://github.com/NixOS/nixos-hardware";
-    rev = "de6fc5551121c59c01e2a3d45b277a6d05077bc4";
-  };
-
-in {
+{
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
-    "${nixos-hardware}/common/pc/ssd"
-    "${nixos-hardware}/common/cpu/amd"
-    "${nixos-hardware}/common/gpu/nvidia"
   ];
 
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
@@ -22,7 +13,12 @@ in {
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
-  services.xserver.dpi = 96;
+  hardware.cpu.amd.updateMicrocode = config.hardware.enableRedistributableFirmware;
+
+  services.xserver = {
+    videoDrivers = [ "nvidia" ];
+    dpi = 96;
+  };
 
   environment.variables = {
     LIBVA_DRIVER_NAME = "vdpau";

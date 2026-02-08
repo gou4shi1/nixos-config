@@ -9,27 +9,19 @@
   programs.git = {
     enable = true;
     package = with pkgs; (if stdenv.isDarwin then git else gitFull);
-    extraConfig = {
+    settings = {
       init = {
         defaultBranch = "master";
       };
       fetch.prune = true;
       pull.rebase = true;
-    };
-    aliases = {
-      edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; nvim `f`";
+      alias = {
+        edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; nvim `f`";
+      };
     };
     lfs = {
       enable = true;
       skipSmudge = false;
-    };
-    delta = {
-      enable = true;
-      options = {
-        features = "calochortus-gou4shi1";
-        side-by-side = true;
-        navigate = true;
-      };
     };
     includes = [
       { path = ./delta-themes.gitconfig; }
@@ -37,12 +29,24 @@
     ];
   };
 
+  programs.delta = {
+    enable = true;
+    enableGitIntegration = true;
+    options = {
+      features = "calochortus-gou4shi1";
+      side-by-side = true;
+      navigate = true;
+    };
+  };
+
   programs.lazygit = {
     enable = true;
     settings = {
-      git.paging = {
-        pager = "delta --paging=never";
-      };
+      git.pagers = [
+        {
+          pager = "delta --paging=never";
+        }
+      ];
     };
   };
 }

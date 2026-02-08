@@ -6,17 +6,12 @@ let
   enableDesktop = cfg.desktop.enable;
   dpi = config.services.xserver.dpi;
 
-  home-manager = builtins.fetchGit {
-    url = "https://github.com/nix-community/home-manager";
-    ref = "release-24.11";
-  };
-
   power-manager-config = import ../../home/services/xfce-power-manager { inherit lib machineType; };
   theme-config = import ../../home/themes { inherit pkgs dpi; };
 
 in {
   imports = [
-    "${home-manager}/nixos"
+    <home-manager/nixos>
     ../../modules/users
     ../../modules/desktop
     ../../modules/virtualisation
@@ -79,7 +74,7 @@ in {
   };
 
   environment.systemPackages = with pkgs; [
-    git wget zip unzip file tree htop-vim vimHugeX xclip
+    git wget zip unzip file tree htop-vim vim-full xclip
     man-pages man-pages-posix
     firefox google-chrome brave gparted
     inetutils dnsutils
@@ -98,7 +93,7 @@ in {
   home-manager.useGlobalPkgs = true;
 
   home-manager.users."${cfg.mainUser}" = {
-    home.stateVersion = "24.11";
+    home.stateVersion = "25.11";
 
     home.homeDirectory = "/home/${cfg.mainUser}";
     home.username = "${cfg.mainUser}";

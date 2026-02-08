@@ -15,16 +15,15 @@ in
 
     home.packages = with pkgs; [
       lenovo-legion
-      zoom-us
       feishu
       wechat-uos
       nomachine-client
       sync-clipboard
     ];
 
-    programs.git = {
-      userName = "Guangqing Chen";
-      userEmail = "hi@goushi.me";
+    programs.git.settings.user = {
+      name = "Guangqing Chen";
+      email = "hi@goushi.me";
     };
   };
 }

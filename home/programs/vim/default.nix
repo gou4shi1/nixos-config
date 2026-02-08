@@ -10,7 +10,7 @@ in {
     typos # A source code spell checker.
     universal-ctags # A maintained ctags implementation.
     global # Gtags, a global source code tagging system.
-  ] ++ (if stdenv.isDarwin then [ vim-darwin ] else [ vimHugeX ]);
+  ] ++ (if stdenv.isDarwin then [ vim-darwin ] else [ vim-full ]);
 
   home.sessionVariables = {
     EDITOR = "nvim";

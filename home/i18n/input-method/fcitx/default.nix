@@ -4,8 +4,9 @@ let
 
 in {
   i18n.inputMethod = {
-    enabled = "fcitx5";
-    fcitx5.addons = with pkgs; [ fcitx5-chinese-addons ];
+    type = "fcitx5";
+    enable = true;
+    fcitx5.addons = with pkgs; [ qt6Packages.fcitx5-chinese-addons ];
   };
 
   # The fcitx5-daemon service will be started before xfce, which breaks some fcitx features.
@@ -29,7 +30,7 @@ in {
 
   # Fcitx Pinyin Dictionary from zh.wikipedia.org.
   xdg.dataFile."fcitx5/pinyin/dictionaries/zhwiki.dict".source = builtins.fetchurl {
-    url = "https://github.com/felixonmars/fcitx5-pinyin-zhwiki/releases/download/0.2.4/zhwiki-20220529.dict";
-    sha256 = "0riqzfm5m8xs83imil5628fbnkzz03dgpc056jx7yhgmhx09cmw7";
+    url = "https://github.com/felixonmars/fcitx5-pinyin-zhwiki/releases/download/0.3.0/zhwiki-20251223.dict";
+    sha256 = "0ip79radwmx5rrjhmp5g3kscl5xzidx3hsw0355vv8k1wiyqmwnp";
   };
 }

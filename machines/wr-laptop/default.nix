@@ -8,8 +8,6 @@ in {
     ../base
     ./hardware-configuration.nix
     ./home.nix
-    ./sensitive.nix
-    ../../modules/vpn/globalprotect.nix
   ];
 
   mynix = {
@@ -18,7 +16,7 @@ in {
   };
 
   nix.settings = {
-    substituters = [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" ];
+    substituters = [ "https://mirror.sjtu.edu.cn/nix-channels/store" ];
   };
 
   boot.loader.systemd-boot.enable = true;
@@ -27,17 +25,12 @@ in {
   time.timeZone = "Asia/Shanghai";
 
   networking.hostName = "cgq-wr-laptop";
-  networking.networkmanager.enable = true;
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking.networkmanager = {
+    enable = true;
+    plugins = with pkgs; [
+      networkmanager-openconnect
+    ];
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -73,5 +66,5 @@ in {
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "24.11"; # Did you read the comment?
+  system.stateVersion = "25.11"; # Did you read the comment?
 }

@@ -50,7 +50,7 @@ in {
       {
         name = "fast-syntax-highlighting";
         src = pkgs.zsh-fast-syntax-highlighting;
-        file = "share/zsh/site-functions/fast-syntax-highlighting.plugin.zsh";
+        file = "share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh";
       }
       {
         name = "zsh-vi-mode";
@@ -63,32 +63,37 @@ in {
         file = "share/zsh-nix-shell/nix-shell.plugin.zsh";
       }
     ];
-    initExtraFirst = ''
-      # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-      # Initialization code that may require console input (password prompts, [y/n]
-      # confirmations, etc.) must go above this block; everything else may go below.
-      if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
-        source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
-      fi
-    '';
-    initExtra = ''
-      # Use Up/Down arrow keys to search substring in history.
-      zvm_bindkey viins "^[[A" history-substring-search-up
-      zvm_bindkey viins "^[[B" history-substring-search-down
-      # Fix Home/End keys in zsh-vi-mode.
-      zvm_bindkey viins "^[[H" beginning-of-line
-      zvm_bindkey viins  "^[[F" end-of-line
-      zvm_bindkey vicmd "^[[H" beginning-of-line
-      zvm_bindkey vicmd "^[[F" end-of-line
-      zvm_bindkey visual "^[[H" beginning-of-line
-      zvm_bindkey visual "^[[F" end-of-line
+    initContent =
+      let
+        zshConfigEarlyInit = lib.mkOrder 500 ''
+          # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+          # Initialization code that may require console input (password prompts, [y/n]
+          # confirmations, etc.) must go above this block; everything else may go below.
+          if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
+            source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
+          fi
+        '';
+        zshConfig = lib.mkOrder 1000 ''
+          # Use Up/Down arrow keys to search substring in history.
+          zvm_bindkey viins "^[[A" history-substring-search-up
+          zvm_bindkey viins "^[[B" history-substring-search-down
+          # Fix Home/End keys in zsh-vi-mode.
+          zvm_bindkey viins "^[[H" beginning-of-line
+          zvm_bindkey viins  "^[[F" end-of-line
+          zvm_bindkey vicmd "^[[H" beginning-of-line
+          zvm_bindkey vicmd "^[[F" end-of-line
+          zvm_bindkey visual "^[[H" beginning-of-line
+          zvm_bindkey visual "^[[F" end-of-line
 
-      # Add more LS_COLORS.
-      source ${pkgs.fetchurl {
-        url = "https://raw.githubusercontent.com/trapd00r/LS_COLORS/a283d79dcbb23a8679f4b1a07d04a80cab01c0ba/lscolors.sh";
-        hash = "sha256-ZMYoGhD/wyzK83SGnBvH9gSzOX1sX/SRXjPjJDl20i0=";
-      }}
-    '';
+          # Add more LS_COLORS.
+          source ${pkgs.fetchurl {
+              url = "https://raw.githubusercontent.com/trapd00r/LS_COLORS/810ce8cac886ac50e75d84fb438b549a1f9478ee/lscolors.sh";
+              hash = "sha256-hH0h0HrQYbwcnSVlY+DiM7qShLj9K+D5kIZnmjxX8Qc=";
+            }}
+        '';
+      in
+      lib.mkMerge [ zshConfigEarlyInit zshConfig ];
+
     shellAliases = {
       # Vim
       v = "nvim";

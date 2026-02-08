@@ -2,14 +2,14 @@
 
 stdenv.mkDerivation rec {
   pname = "clangd";
-  version = "16.0.2";
+  version = "21.1.8";
 
   src = fetchzip {
     url = "https://github.com/clangd/clangd/releases/download/${version}/clangd-linux-${version}.zip";
-    hash = "sha256-3NSBktpGnSsBSUvGyroFzgNiDWokik1sAliovRYk6tA=";
+    hash = "sha256-zW/nRCOsugK6B0nAgnxt67ZDOnMHDSIUBPyvULW9Sec=";
   };
 
-  clang = pkgs.clang_16;
+  clang = pkgs.clang_21;
 
   nativeBuildInputs = [
     autoPatchelfHook

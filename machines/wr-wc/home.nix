@@ -1,7 +1,7 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
-  home.stateVersion = "24.11";
+  home.stateVersion = "25.11";
 
   home.username = "guangqing-chen";
   home.homeDirectory = "/home/guangqing-chen";
@@ -64,7 +64,7 @@
   programs.zsh = {
     history.path = "/mnt/data/.zsh_history";
 
-    initExtraFirst = ''
+    initContent = lib.mkOrder 600 ''
       proxy_file=$(mktemp)
       sed -n '/# BEGIN Set http_proxy/,/# END Set http_proxy/p' /etc/bash.bashrc > $proxy_file
       source $proxy_file

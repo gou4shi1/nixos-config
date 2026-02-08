@@ -1,15 +1,15 @@
-diff --git a/xfsettingsd/displays.c b/xfsettingsd/displays.c
-index 4beab53..5df85dd 100644
---- a/xfsettingsd/displays.c
-+++ b/xfsettingsd/displays.c
-@@ -1293,8 +1293,8 @@ xfce_displays_helper_normalize_crtc (XfceRRCrtc         *crtc,
+diff --git a/xfsettingsd/displays-x11.c b/xfsettingsd/displays-x11.c
+index 64ee6dfa..f2fbeedd 100644
+--- a/xfsettingsd/displays-x11.c
++++ b/xfsettingsd/displays-x11.c
+@@ -1426,8 +1426,8 @@ xfce_displays_helper_x11_normalize_crtc (XfceRRCrtc *crtc,
       *
       * Firefox and Evince apparently believe what X tells them.
       */
--    helper->mm_width = (helper->width / 96.0) * 25.4 + 0.5;
--    helper->mm_height = (helper->height / 96.0) * 25.4 + 0.5;
-+    helper->mm_width = (helper->width / @dpi@.0) * 25.4 + 0.5;
-+    helper->mm_height = (helper->height / @dpi@.0) * 25.4 + 0.5;
+-    helper->mm_width = round ((helper->width / 96.0) * 25.4 + 0.5);
+-    helper->mm_height = round ((helper->height / 96.0) * 25.4 + 0.5);
++    helper->mm_width = round ((helper->width / @dpi@.0) * 25.4 + 0.5);
++    helper->mm_height = round ((helper->height / @dpi@.0) * 25.4 + 0.5);
  }
  
  

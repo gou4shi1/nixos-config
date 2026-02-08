@@ -8,7 +8,7 @@
   ];
 
   nix.settings = {
-    substituters = [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" ];
+    substituters = [ "https://mirror.sjtu.edu.cn/nix-channels/store" ];
   };
 
   # List packages installed in system profile. To search by name, run:

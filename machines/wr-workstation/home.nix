@@ -28,9 +28,9 @@ in
       wechat-uos
     ];
 
-    programs.git = {
-      userName = "guangqing.chen";
-      userEmail = "guangqing.chen@weride.ai";
+    programs.git.settings.user = {
+      name = "guangqing.chen";
+      email = "guangqing.chen@weride.ai";
     };
   };
 }

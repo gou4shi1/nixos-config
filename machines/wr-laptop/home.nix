@@ -22,9 +22,9 @@ in
       sync-clipboard
     ];
 
-    programs.git = {
-      userName = "Guangqing Chen";
-      userEmail = "hi@goushi.me";
+    programs.git.settings.user = {
+      name = "Guangqing Chen";
+      email = "hi@goushi.me";
     };
   };
 }

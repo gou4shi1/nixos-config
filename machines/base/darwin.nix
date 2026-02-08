@@ -3,9 +3,9 @@
 let
   cfg = config.mynix;
 
-  home-manager = builtins.fetchGit {
-    url = "https://github.com/nix-community/home-manager";
-    ref = "release-24.11";
+  home-manager = builtins.fetchTarball {
+    url = "https://github.com/nix-community/home-manager/archive/refs/heads/release-25.11.zip";
+    sha256 = "1kqxy6r4ahnbazmpa4pncdp62najdikdaw8hvrv8nl6qxvbmf9fy";
   };
 
 in {
@@ -48,7 +48,7 @@ in {
   home-manager.useGlobalPkgs = true;
 
   home-manager.users."${cfg.mainUser}" = {
-    home.stateVersion = "24.11";
+    home.stateVersion = "25.11";
 
     home.homeDirectory = "/home/${cfg.mainUser}";
     home.username = "${cfg.mainUser}";

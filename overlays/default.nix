@@ -1,18 +1,6 @@
 final: prev:
 
-let
-  unstable = import <unstable> {
-    config = {
-      allowUnfree = true;
-      permittedInsecurePackages = [
-        "openssl-1.1.1w"
-      ];
-    };
-  };
-
-in {
-  openssh = prev.openssh_gssapi;
-  intel-vaapi-driver = prev.intel-vaapi-driver.override { enableHybridCodec = true; };
+{
   rofi-power = final.callPackage ../pkgs/rofi-power {};
   i3-get-window-criteria = final.callPackage ../pkgs/i3-get-window-criteria {};
   git-fuzzy = final.callPackage ../pkgs/git-fuzzy {};
@@ -30,5 +18,4 @@ in {
   auto-cpufreq = prev.auto-cpufreq.overrideAttrs (old: {
     patches = old.patches ++ [ ../pkgs/auto-cpufreq/fix-stats.diff ];
   });
-  neovim = unstable.neovim;
 }

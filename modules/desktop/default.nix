@@ -103,7 +103,7 @@ in {
         # Wenquanyi Micro Hei is a nice-looking Chinese font.
         wqy_microhei
         # JetBrainsMono is a good font for coding, patched with Nerd Fonts.
-        (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+        nerd-fonts.jetbrains-mono
       ];
       fontDir = {
         # Create a directory with links to all fonts: /run/current-system/sw/share/X11/fonts/

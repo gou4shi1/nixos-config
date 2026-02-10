@@ -37,6 +37,9 @@
     clamshell.configuration = {
       system.nixos.tags = [ "clamshell" ];
 
+      # temp fix https://github.com/NVIDIA/open-gpu-kernel-modules/issues/879
+      hardware.nvidia.modesetting.enable = false;
+
       hardware.nvidia.prime = {
         offload.enable = lib.mkForce false;
         offload.enableOffloadCmd = lib.mkForce false;

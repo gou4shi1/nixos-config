@@ -5,6 +5,12 @@
     ../../modules/vpn/corplink.nix
   ];
 
+  nixpkgs = {
+    overlays = [
+      (import ../../overlays/bd.nix)
+    ];
+  };
+
   # kerberos
   security.krb5 = {
     enable = true;

@@ -1,5 +1,8 @@
 { config, lib, pkgs, ... }:
 
+let
+  cfg = config.mynix;
+in
 {
   imports = [
     ../../modules/vpn/corplink.nix
@@ -13,5 +16,11 @@
         dns_canonicalize_hostname = false;
       };
     };
+  };
+
+  home-manager.users."${cfg.mainUser}" = {
+    home.packages = with pkgs; [
+      opensshWithKerberos
+    ];
   };
 }

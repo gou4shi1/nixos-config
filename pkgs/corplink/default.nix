@@ -3,46 +3,45 @@
 , stdenv
 , fetchurl
 , autoPatchelfHook
-, buildFHSUserEnvBubblewrap
+, buildFHSEnvBubblewrap
 , makeDesktopItem
-}:
+, dpkg }:
 
 let
-  version = "2.1.10";
+  version = "3.1.12";
 
   src = fetchurl {
-    url = "https://oss-s3.ifeilian.com/linux/FeiLian_Linux_amd64_v${version}_r2056_3880ba.tar.gz";
-    hash = "sha256-fq0N6pbNygApr9aliUBj7fBLBoe7duXYQaNGtUL/w3U=";
+    url = "https://cdn.isealsuite.com/linux/FeiLian_Linux_amd64_v${version}_r5447_36661b.%7Bbytedance%7D.deb";
+    hash = "sha256-qiqffcptYE+tr5aE2CoWvDHyMZ4lQFRs+Xq7RS6SgWo=";
   };
 
   corplink-wrapped = stdenv.mkDerivation {
     pname = "corplink-wrapped";
-    inherit version;
-    inherit src;
-
-    nativeBuildInputs = [
-      autoPatchelfHook
-    ];
-
+    inherit version src;
+    nativeBuildInputs = [ autoPatchelfHook dpkg ];
     buildInputs = with pkgs; [
       alsa-lib
       glib
-      gnome2.pango
+      pango
       gtk3
       libdrm
-      mesa.drivers
+      mesa
       nss
+      libxcrypt-legacy
+      libhandy
+      libcanberra
+      libcanberra-gtk3
     ];
 
     installPhase = ''
       mkdir -p $out/bin
       mv opt $out
-      ln -s $out/opt/Corplink/bin/* $out/bin/
-      ln -s $out/opt/Corplink/corplink-service $out/bin/corplink-service
+      ln -s $out/opt/apps/com.volcengine.feilian/files/bin/* $out/bin/
+      ln -s $out/opt/apps/com.volcengine.feilian/files/corplink-service $out/bin/corplink-service
     '';
   };
 
-  corplink-fhs-env = buildFHSUserEnvBubblewrap {
+  corplink-fhs-env = buildFHSEnvBubblewrap {
     name = "corplink-fhs-env";
 
     targetPkgs = pkgs: with pkgs; [
@@ -56,7 +55,7 @@ let
       xorg.libxcb
       libglvnd
       mesa
-      mesa.drivers
+      libgbm
       alsa-lib
       glib
       nss
@@ -73,7 +72,7 @@ let
       atk
       cups
       dbus
-      gnome2.pango
+      pango
       gdk-pixbuf
       expat
       at-spi2-atk
@@ -86,23 +85,26 @@ let
   };
 
   desktopItem = makeDesktopItem {
-    name = "Corplink";
-    desktopName = "Corplink";
-    genericName = "FeiLian";
-    exec = "${corplink-fhs-env}/bin/corplink-fhs-env -c /opt/Corplink/corplink --no-sandbox";
+    name = "corplink";
+    desktopName = "corplink";
+    genericName = "corplink";
+    terminal = false;
+    mimeTypes = ["x-scheme-handler/corplink" "x-scheme-handler/feilian" "x-scheme-handler/seal"];
+    exec = ''${corplink-fhs-env}/bin/corplink-fhs-env -c "/opt/apps/com.volcengine.feilian/files/corplink --no-sandbox %U"'';
   };
 
   createRunEnv = pkgs.writeShellScript "create-corplink-env.sh" ''
-    if [ ! -d /opt/Corplink ] || [ "$(cat /opt/Corplink/version 2>/dev/null)" != "${version}" ]; then
+    if [ ! -d /opt/apps/com.volcengine.feilian ] || [ "$(cat /opt/apps/com.volcengine.feilian/version 2>/dev/null)" != "${version}" ]; then
       TEMP_DIR=$(mktemp -d)
-      tar xzf ${src} -C "$TEMP_DIR" --strip-components=1
-      rm -rf /opt/Corplink
-      mv "$TEMP_DIR/opt/Corplink" /opt/
-      echo "${version}" > /opt/Corplink/version
+      ${pkgs.dpkg}/bin/dpkg-deb -x ${src} "$TEMP_DIR"
+      rm -rf /opt/apps/com.volcengine.feilian
+      mkdir -p /opt/apps/com.volcengine.feilian
+      mv "$TEMP_DIR/opt/apps/com.volcengine.feilian" /opt/apps/
+      echo "${version}" > /opt/apps/com.volcengine.feilian/version
     fi
-    ln -sf ${corplink-wrapped}/bin/corplink-service /opt/Corplink/corplink-service
-    ln -sf ${corplink-wrapped}/bin/corplink-ow /opt/Corplink/bin/corplink-ow
-    ln -sf ${corplink-wrapped}/bin/corplink-shield /opt/Corplink/bin/corplink-shield
+    ln -sf ${corplink-wrapped}/bin/corplink-service /opt/apps/com.volcengine.feilian/files/corplink-service
+    ln -sf ${corplink-wrapped}/bin/corplink-security /opt/apps/com.volcengine.feilian/files/bin/corplink-security
+    ln -sf ${corplink-wrapped}/bin/corplink-uc /opt/apps/com.volcengine.feilian/files/bin/corplink-uc
     ln -sf /bin/sh /bin/bash
     mkdir -p /usr/sbin
     ln -sf ${pkgs.dnsmasq}/bin/dnsmasq /usr/sbin/dnsmasq
@@ -116,7 +118,7 @@ let
     [Service]
     Type=simple
     ExecStartPre=${createRunEnv}
-    ExecStart=/opt/Corplink/corplink-service
+    ExecStart=/opt/apps/com.volcengine.feilian/files/corplink-service
     Restart=on-failure
     RestartSec=3s
   '';

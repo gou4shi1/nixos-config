@@ -8,4 +8,7 @@ dpi: final: prev:
       })];
     });
   };
+
+  brave = prev.brave.override { commandLineArgs = "--force-device-scale-factor=2"; };
+  feishu = prev.feishu.override { commandLineArgs = "--force-device-scale-factor=2"; };
 }

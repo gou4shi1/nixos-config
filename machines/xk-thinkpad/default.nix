@@ -7,6 +7,7 @@ in
 {
   imports = [
     ../base
+    ../../modules/vpn/clash.nix
     ./hardware-configuration.nix
     ./home.nix
   ];

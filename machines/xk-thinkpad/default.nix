@@ -3,13 +3,12 @@
 let
   cfg = config.mynix;
 
-in {
+in
+{
   imports = [
     ../base
-    ../base/bd.nix
     ./hardware-configuration.nix
     ./home.nix
-    ./sensitive.nix
   ];
 
   mynix = {
@@ -26,7 +25,7 @@ in {
 
   time.timeZone = "Asia/Shanghai";
 
-  networking.hostName = "xk-bd-thinkpad";
+  networking.hostName = "xk-thinkpad";
   networking.networkmanager.enable = true;
 
   # Configure network proxy if necessary
@@ -39,40 +38,19 @@ in {
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  # environment.systemPackages = with pkgs; [
-  #   openconnect
-  # ];
-
-  services.openssh.enable = true;
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
   services.xserver = {
     # The custom wallpaper can not be placed in $HOME.
     displayManager.lightdm.background = "/opt/wallpaper.jpg";
   };
 
-  services.libinput.touchpad.naturalScrolling = true;
+  services.openssh.enable = true;
 
   # Enable FingerPrint.
-  services.fprintd.enable = true;
-  security.pam.services.login.fprintAuth = true;
+  # services.fprintd.enable = true;
+  # security.pam.services.login.fprintAuth = true;
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
-
-  fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "Mononoki" ]; })
-  ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

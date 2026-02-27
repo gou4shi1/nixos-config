@@ -13,7 +13,6 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.kernelParams = [ "acpi_osi=linux" ];
   boot.extraModulePackages = [ ];
-  boot.supportedFilesystems = [ "ntfs" ];
 
   hardware.cpu.intel.updateMicrocode = config.hardware.enableRedistributableFirmware;
   hardware.intelgpu.enableHybridCodec = true;
@@ -24,16 +23,17 @@
   services.thermald.enable = true;
 
   fileSystems."/" = {
-    device = "/dev/disk/by-label/NIXOS-ROOT";
+    device = "/dev/disk/by-uuid/57e72abb-a0d2-4f22-84ce-5d67eb9c48eb";
     fsType = "ext4";
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/8225-C8E1";
+    device = "/dev/disk/by-uuid/D066-BF7A";
     fsType = "vfat";
+    options = [ "fmask=0077" "dmask=0077" ];
   };
 
   swapDevices = [
-    { device = "/dev/disk/by-label/LINUX-SWAP"; }
+    { device = "/dev/disk/by-uuid/e24b12af-4476-4fde-99a8-a1197f84cb97"; }
   ];
 }

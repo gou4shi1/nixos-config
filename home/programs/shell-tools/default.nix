@@ -57,4 +57,12 @@ in {
       set-option -ga terminal-overrides ",*256col*:Tc"
     '';
   };
+
+  programs.zellij = {
+    enable = true;
+    settings = {
+      theme = "solarized-dark";
+      show_startup_tips = false;
+    };
+  };
 }

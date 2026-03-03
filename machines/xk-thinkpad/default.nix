@@ -8,6 +8,7 @@ in
   imports = [
     ../base
     ../../modules/vpn/clash.nix
+    ../../modules/openclaw
     ./hardware-configuration.nix
     ./home.nix
   ];

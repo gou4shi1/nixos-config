@@ -23,5 +23,11 @@ in
       name = "Guangqing Chen";
       email = "hi@goushi.me";
     };
+
+    xfconf.settings = {
+      xfce4-power-manager = {
+        "xfce4-power-manager/inactivity-on-ac".value = lib.mkForce 0;
+      };
+    };
   };
 }

@@ -9,6 +9,10 @@ let
 
 in
 {
+  imports = [
+    ./searxng.nix
+  ];
+
   nixpkgs.overlays = [ (import "${nix-openclaw}/nix/overlay.nix") ];
 
   home-manager.users."${cfg.mainUser}" = {

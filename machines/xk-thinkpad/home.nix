@@ -3,6 +3,12 @@
 let
   cfg = config.mynix;
 
+  # Wrapper for uv that sets LD_LIBRARY_PATH for native packages
+  uv-wrapped = pkgs.writeShellScriptBin "uv" ''
+    export LD_LIBRARY_PATH="''${NIX_LD_LIBRARY_PATH:-/run/current-system/sw/share/nix-ld/lib}"
+    exec ${pkgs.uv}/bin/uv "$@"
+  '';
+
 in
 {
   home-manager.users."${cfg.mainUser}" = {
@@ -15,6 +21,7 @@ in
     home.packages = with pkgs; [
       clang
       python3
+      uv-wrapped
       claude-code
       wechat-uos
     ];

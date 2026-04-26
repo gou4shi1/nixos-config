@@ -14,7 +14,8 @@ in {
     ];
 
     home.packages = with pkgs; [
-      clang python3 feishu dbeaver-bin openssl nmap marktext wechat-uos
+      clang python3 feishu dbeaver-bin openssl nmap marktext
+      wechat-uos qq
     ];
 
     # Add japanese input method.

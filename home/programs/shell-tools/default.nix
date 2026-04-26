@@ -5,6 +5,7 @@ let
 in {
   home.packages = with pkgs; [
     ripgrep highlight bfs fd lnav pokeget-rs
+    claude-code codex
   ];
 
   programs.zsh = {

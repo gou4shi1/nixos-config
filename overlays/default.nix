@@ -27,4 +27,5 @@ in
   });
   claude-code = unstable.claude-code;
   codex = unstable.codex;
+  opencode = unstable.opencode;
 }

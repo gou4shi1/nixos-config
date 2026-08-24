@@ -25,6 +25,15 @@ in
   auto-cpufreq = prev.auto-cpufreq.overrideAttrs (old: {
     patches = old.patches ++ [ ../pkgs/auto-cpufreq/fix-stats.diff ];
   });
+  # NoMachine removed old tarballs from download.nomachine.com and v10
+  # changed licensing; v9.8 is still served from their new download host.
+  nomachine-client = prev.nomachine-client.overrideAttrs (old: {
+    version = "9.8.2";
+    src = prev.fetchurl {
+      url = "https://web9001.nomachine.com/download/9.8/Linux/nomachine_9.8.2_1_x86_64.tar.gz";
+      sha256 = "06j4vm27wj3n9xccw08984amyj9v1jhj64hvlfn8ziz399wdi5bf";
+    };
+  });
   claude-code = unstable.claude-code;
   codex = unstable.codex;
   opencode = unstable.opencode;

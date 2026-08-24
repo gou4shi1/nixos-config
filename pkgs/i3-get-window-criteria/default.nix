@@ -4,8 +4,8 @@ writeShellApplication {
   name = "i3-get-window-criteria";
 
   runtimeInputs = with pkgs; [
-    xorg.xwininfo
-    xorg.xprop
+    xwininfo
+    xprop
   ];
 
   text = (builtins.readFile ./i3-get-window-criteria.sh);

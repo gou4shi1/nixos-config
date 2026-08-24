@@ -7,8 +7,8 @@ stdenv.mkDerivation {
   src = fetchFromGitHub {
     owner = "bigH";
     repo = "git-fuzzy";
-    rev = "94994df792eb16638aea9a9726eac321bb6da2ca";
-    hash = "sha256-T2jbMMNckTLN7ejH+Fl2T4wAALGExiE3+DohZjxa1y4=";
+    rev = "5e5ec3956dfc9b3b9593b77ad41f8267821149e6";
+    hash = "sha256-yBdxEtF4Wmygs8JdY3m43iKsHm8Dp3hblT9VhZ+YpkM=";
   };
 
   nativeBuildInputs = [ makeWrapper ];

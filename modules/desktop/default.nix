@@ -40,7 +40,7 @@ in {
       displayManager = {
         lightdm = {
           enable = true;
-          greeters.enso.enable = true;
+          greeters.slick.enable = true;
         };
       };
 

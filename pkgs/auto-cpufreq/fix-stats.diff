@@ -2,15 +2,15 @@ diff --git a/auto_cpufreq/battery_scripts/battery.py b/auto_cpufreq/battery_scri
 index cbec71a..4e039b3 100644
 --- a/auto_cpufreq/battery_scripts/battery.py
 +++ b/auto_cpufreq/battery_scripts/battery.py
-@@ -8,10 +8,7 @@ from auto_cpufreq.battery_scripts.thinkpad import thinkpad_print_thresholds, thi
+@@ -9,10 +9,6 @@ from auto_cpufreq.battery_scripts.asus import asus_print_thresholds, asus_setup
  def lsmod(module): return module in run(['lsmod'], stdout=PIPE, stderr=PIPE, text=True, shell=True).stdout
  
  def battery_get_thresholds():
 -    if lsmod("ideapad_acpi"): ideapad_acpi_print_thresholds()
 -    elif lsmod("ideapad_laptop"): ideapad_laptop_print_thresholds()
 -    elif lsmod("thinkpad_acpi"): thinkpad_print_thresholds()
+-    elif lsmod("asus_wmi"): asus_print_thresholds()
 -    else: return
 +    return
  
  def battery_setup():
-     if lsmod("ideapad_acpi"): ideapad_acpi_setup()

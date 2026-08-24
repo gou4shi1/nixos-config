@@ -9,12 +9,18 @@
   boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
+  # xe races i915 for the ADL-S iGPU (a788) at module autoload; when xe wins,
+  # it declines the probe and the desktop boots with no working GPU.
+  boot.blacklistedKernelModules = [ "xe" ];
   boot.kernelParams = [ "acpi_osi=linux" "acpi_backlight=video" ];
   boot.extraModulePackages = [ pkgs.lenovo-legion-module ];
 
   hardware.cpu.intel.updateMicrocode = config.hardware.enableRedistributableFirmware;
 
   hardware.nvidia = {
+    # 595 spams SBIOS PlatformRequestHandler errors on this firmware
+    # (NV_ERR_INVALID_DATA for target temp / platform power mode).
+    package = config.boot.kernelPackages.nvidiaPackages.legacy_580;
     open = true;
     dynamicBoost.enable = true;
     powerManagement.enable = true;

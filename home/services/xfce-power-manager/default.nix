@@ -27,7 +27,7 @@ let
     "xfce4-power-manager/general-notification" = true;
     "xfce4-power-manager/handle-brightness-keys" = true;
     "xfce4-power-manager/hibernate-button-action" = { type = "uint"; value = 3; };
-    "xfce4-power-manager/inactivity-on-ac" = { type = "uint"; value = 60; };
+    "xfce4-power-manager/inactivity-on-ac" = { type = "uint"; value = 0; };
     "xfce4-power-manager/inactivity-on-battery" = { type = "uint"; value = 30; };
     "xfce4-power-manager/inactivity-sleep-mode-on-battery" = { type = "uint"; value = 1; };
     "xfce4-power-manager/lock-screen-suspend-hibernate" = false;

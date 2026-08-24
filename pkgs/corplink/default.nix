@@ -45,14 +45,14 @@ let
     name = "corplink-fhs-env";
 
     targetPkgs = pkgs: with pkgs; [
-      xorg.libX11
-      xorg.libXext
-      xorg.libXdamage
-      xorg.libxshmfence
-      xorg.libXcomposite
-      xorg.libXfixes
-      xorg.libXrandr
-      xorg.libxcb
+      libX11
+      libXext
+      libXdamage
+      libxshmfence
+      libXcomposite
+      libXfixes
+      libXrandr
+      libxcb
       libglvnd
       mesa
       libgbm

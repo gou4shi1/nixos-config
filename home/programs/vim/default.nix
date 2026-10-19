@@ -8,6 +8,7 @@ in {
     lua-language-server
     nodejs # For CoC.
     typos # A source code spell checker.
+    tree-sitter # CLI for nvim-treesitter parsers.
     universal-ctags # A maintained ctags implementation.
     global # Gtags, a global source code tagging system.
   ] ++ (if stdenv.isDarwin then [ vim-darwin ] else [ vim-full ]);

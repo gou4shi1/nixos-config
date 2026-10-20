@@ -13,6 +13,7 @@
     package = pkgs.nix;
     settings = {
       auto-optimise-store = true;
+      substituters = [ "https://mirrors.nju.edu.cn/nix-channels/store" ];
     };
     extraOptions = ''
       experimental-features = nix-command flakes

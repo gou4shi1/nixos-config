@@ -13,6 +13,11 @@
     package = pkgs.nix;
     settings = {
       auto-optimise-store = true;
+      # home-manager does not append cache.nixos.org like NixOS does, so add it as a fallback.
+      substituters = [
+        "https://mirrors.nju.edu.cn/nix-channels/store"
+        "https://cache.nixos.org"
+      ];
     };
     extraOptions = ''
       experimental-features = nix-command flakes

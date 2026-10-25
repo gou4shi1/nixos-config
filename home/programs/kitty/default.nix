@@ -48,6 +48,8 @@ in {
       mouse_hide_wait = "-1";
       # script
       allow_remote_control = "yes";
+      # always allow OSC 52 clipboard read/write (e.g. nvim in ssh)
+      clipboard_control = "write-clipboard read-clipboard write-primary read-primary";
     };
     extraConfig = ''
       map f11 toggle_fullscreen

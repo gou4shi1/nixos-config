@@ -69,10 +69,18 @@
   programs.zsh = {
     history.path = "/mnt/data/.zsh_history";
 
-    initContent = lib.mkOrder 600 ''
-      proxy_file=$(mktemp)
-      sed -n '/# BEGIN Set http_proxy/,/# END Set http_proxy/p' /etc/bash.bashrc > $proxy_file
-      source $proxy_file
-    '';
+    initContent = lib.mkMerge [
+      (lib.mkOrder 600 ''
+        proxy_file=$(mktemp)
+        sed -n '/# BEGIN Set http_proxy/,/# END Set http_proxy/p' /etc/bash.bashrc > $proxy_file
+        source $proxy_file
+      '')
+      (lib.mkOrder 1000 ''
+        # fast-syntax-highlighting dispatches git commands to a chroma that
+        # calls `git for-each-ref` (157k refs here, ~3.5s) on every keystroke.
+        # Disable the git chroma entirely by unsetting its dispatch entry.
+        unset "FAST_HIGHLIGHT[chroma-git]"
+      '')
+    ];
   };
 }

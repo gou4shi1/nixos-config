@@ -34,6 +34,7 @@ in
       sha256 = "06j4vm27wj3n9xccw08984amyj9v1jhj64hvlfn8ziz399wdi5bf";
     };
   });
+  herdr = unstable.herdr;
   claude-code = unstable.claude-code;
   codex = unstable.codex;
   opencode = unstable.opencode;

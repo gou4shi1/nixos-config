@@ -73,6 +73,10 @@ in {
             source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
           fi
         '';
+        # Let locally built tools in ~/.local/bin shadow nix packages.
+        zshConfigPath = lib.mkOrder 550 ''
+          path=("$HOME/.local/bin" $path)
+        '';
         zshConfig = lib.mkOrder 1000 ''
           # Use Up/Down arrow keys to search substring in history.
           zvm_bindkey viins "^[[A" history-substring-search-up
@@ -92,7 +96,7 @@ in {
             }}
         '';
       in
-      lib.mkMerge [ zshConfigEarlyInit zshConfig ];
+      lib.mkMerge [ zshConfigEarlyInit zshConfigPath zshConfig ];
 
     shellAliases = {
       # Vim

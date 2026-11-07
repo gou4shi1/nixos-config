@@ -34,6 +34,14 @@ in
       sha256 = "06j4vm27wj3n9xccw08984amyj9v1jhj64hvlfn8ziz399wdi5bf";
     };
   });
+  # feishu from nixos-25.11
+  feishu = prev.feishu.overrideAttrs (old: {
+    version = "7.50.14";
+    src = prev.fetchurl {
+      url = "https://sf3-cn.feishucdn.com/obj/ee-appcenter/e91d15e2/Feishu-linux_x64-7.50.14.deb";
+      hash = "sha256-Ywlf3qi4q5nT3gC9r4ymtFYIrg8xmxapIfO2oQoBdC8=";
+    };
+  });
   herdr = unstable.herdr;
   claude-code = unstable.claude-code;
   codex = unstable.codex;

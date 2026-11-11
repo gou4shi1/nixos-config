@@ -37,5 +37,5 @@ in
   herdr = unstable.herdr;
   claude-code = unstable.claude-code;
   codex = unstable.codex;
-  opencode = unstable.opencode;
+  pi-coding-agent = unstable.pi-coding-agent;
 }

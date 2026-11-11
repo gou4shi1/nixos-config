@@ -5,7 +5,7 @@ let
 in {
   home.packages = with pkgs; [
     ripgrep highlight bfs fd lnav pokeget-rs
-    herdr claude-code codex opencode
+    herdr claude-code codex opencode pi-coding-agent
   ];
 
   programs.zsh = {

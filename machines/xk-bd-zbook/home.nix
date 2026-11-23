@@ -29,14 +29,6 @@ in {
       };
     };
 
-    dconf.settings = {
-      "com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d" = {
-        font = "Mononoki Nerd Font 15";
-        background-transparency-percent = lib.mkForce 10;
-        dim-transparency-percent = lib.mkForce 5;
-      };
-    };
-
     xfconf.settings = {
       xfce4-power-manager = {
         "xfce4-power-manager/dpms-on-ac-off".value = lib.mkForce 30;
